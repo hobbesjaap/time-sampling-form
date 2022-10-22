@@ -1,0 +1,487 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://wb_theme.tres" type="Theme" id=1]
+[ext_resource path="res://main_screen.gd" type="Script" id=2]
+[ext_resource path="res://Assets/photos/classroom-824120_1920.jpg" type="Texture" id=3]
+[ext_resource path="res://NameChangePanel.gd" type="Script" id=4]
+[ext_resource path="res://Assets/fonts/noto_sans_display.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/fonts/NotoSansDisplay-Bold.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.952941, 0.933333, 0.847059, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+shadow_offset = Vector2( 0, 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 6 )
+
+[node name="AppWindow" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ClassroomPhoto" type="Sprite" parent="."]
+position = Vector2( 640, 204 )
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StartScreen" type="CanvasLayer" parent="."]
+
+[node name="InstructionPanel" type="Panel" parent="StartScreen"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -171.0
+margin_right = 640.0
+margin_bottom = 359.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MinuteBox" type="HBoxContainer" parent="StartScreen/InstructionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.5
+margin_top = -159.0
+margin_right = 53.5
+margin_bottom = -119.0
+
+[node name="MinuteMinus" type="Button" parent="StartScreen/InstructionPanel/MinuteBox"]
+margin_right = 43.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "-"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MinuteLabel" type="Label" parent="StartScreen/InstructionPanel/MinuteBox"]
+margin_left = 47.0
+margin_top = 3.0
+margin_right = 60.0
+margin_bottom = 37.0
+theme = ExtResource( 1 )
+text = "1"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MinutePlus" type="Button" parent="StartScreen/InstructionPanel/MinuteBox"]
+margin_left = 64.0
+margin_right = 107.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "+"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CurrentTime" type="Label" parent="StartScreen/InstructionPanel"]
+unique_name_in_owner = true
+margin_left = 1200.0
+margin_top = 510.0
+margin_right = 1279.0
+margin_bottom = 533.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "99:99"
+align = 2
+
+[node name="MinuteExplanation" type="Label" parent="StartScreen/InstructionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -322.5
+margin_top = -197.0
+margin_right = 322.5
+margin_bottom = -163.0
+theme = ExtResource( 1 )
+text = "How long is your observation? (in minutes)"
+align = 1
+
+[node name="ObservationItemsTitle" type="Label" parent="StartScreen/InstructionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -97.0
+margin_right = 102.5
+margin_bottom = -63.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Observation Items"
+
+[node name="Title" type="Label" parent="StartScreen/InstructionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.5
+margin_top = -250.0
+margin_right = 172.5
+margin_bottom = -200.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Time Sampling Form"
+align = 1
+
+[node name="BottomButtons" type="HBoxContainer" parent="StartScreen/InstructionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = 180.0
+margin_right = 500.0
+margin_bottom = 240.0
+
+[node name="Manual" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
+margin_right = 247.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Manual"
+
+[node name="ChangeItems" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
+margin_left = 251.0
+margin_right = 498.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Change Items"
+
+[node name="PupilName" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
+margin_left = 502.0
+margin_right = 749.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Pupil Name"
+
+[node name="Start" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
+margin_left = 753.0
+margin_right = 1000.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Start"
+
+[node name="GridObservations" type="GridContainer" parent="StartScreen/InstructionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -518.5
+margin_top = -57.0
+margin_right = 518.5
+margin_bottom = 129.0
+columns = 3
+
+[node name="1Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_right = 45.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "OnT"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="1Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 49.0
+margin_right = 167.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "On Task"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="1Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 171.0
+margin_right = 1037.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "The pupil is on task"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_top = 38.0
+margin_right = 45.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = "Loo"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 49.0
+margin_top = 38.0
+margin_right = 167.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = "Looking"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 171.0
+margin_top = 38.0
+margin_right = 1037.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = " The pupil is looking around in a distracted manner or is staring into the distance"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="3Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_top = 76.0
+margin_right = 45.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+text = "Dis"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="3Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 49.0
+margin_top = 76.0
+margin_right = 167.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+text = "Distracting"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="3Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 171.0
+margin_top = 76.0
+margin_right = 1037.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+text = "The pupil is distracting other pupils or talking to them"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="4Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_top = 114.0
+margin_right = 45.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "Wal"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="4Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 49.0
+margin_top = 114.0
+margin_right = 167.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "Walking"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="4Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 171.0
+margin_top = 114.0
+margin_right = 1037.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "The pupil is walking through the class"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="5Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_top = 152.0
+margin_right = 45.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+text = "Oth"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="5Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 49.0
+margin_top = 152.0
+margin_right = 167.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+text = "Other"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="5Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+margin_left = 171.0
+margin_top = 152.0
+margin_right = 1037.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+text = "The pupil is otherwise distracted and not on task"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NameChangePanel" type="Panel" parent="StartScreen"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -171.0
+margin_right = 640.0
+margin_bottom = 359.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NameContainer" type="VBoxContainer" parent="StartScreen/NameChangePanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -269.5
+margin_top = -103.0
+margin_right = 269.5
+margin_bottom = 7.0
+
+[node name="ObservedNameLabel" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
+margin_right = 539.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "Observed Individual Name:"
+
+[node name="WarningLabel" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
+margin_top = 38.0
+margin_right = 539.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = "You must enter a name in the field below!"
+
+[node name="NameLine" type="LineEdit" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
+margin_top = 76.0
+margin_right = 539.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+
+[node name="OkButton" type="Button" parent="StartScreen/NameChangePanel/NameContainer"]
+margin_top = 114.0
+margin_right = 539.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "OK"
+
+[node name="ManualScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="ManualScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[node name="ProcedureLabel" type="Label" parent="ManualScreen"]
+margin_left = 84.0
+margin_top = 76.0
+margin_right = 472.0
+margin_bottom = 90.0
+text = "Procedure
+The best way to do a time sampling observation is:
+A. After the teacher has given the assignment where pupils are expected to work independently, or
+individual help to the pupil has finished, the observation begins. The stopwatch is started. The observer
+waits 20 seconds.
+B. The observer notes what the pupil is doing right that second.
+C. The observer circles the category that best describes what the pupil is doing at that time: OnT, Loo, Dis,
+Wal, Oth.
+D. The observer waits until the timer hits 40 and repeats step B and C.
+E. The observer waits until the timer hits 60 and repeats step B and C.
+F. This procedure is repeated for as long as the observation is set to last.
+G. The observer does not score those moments where the teacher & pupil are interacting with each other."
+
+[node name="GoalLabel" type="Label" parent="ManualScreen"]
+margin_left = 84.0
+margin_top = 76.0
+margin_right = 472.0
+margin_bottom = 90.0
+text = "Instead of describing the “on task behaviour” of a pupil, the observer can instead use this form to sample and
+quantify what it looks like.
+The advantage is that this process objectifies and quantifies the observed behaviour. During a Time Sampling
+observation, the observer - during a period of time where pupils are expected to work independently – notes
+down every 20 second what a pupil is doing. In this manner they score three times a minute. Afterwards the
+observer can calculate percentages to see how “on task” the pupil was.
+For pupils without an Additional Support Need, as a rough guideline, you would expect them to be
+independently “on task” for the length of time equal to their age. So an eight year old pupil would be expected to
+be able to remain “on task” for eight minutes."
+
+[node name="ObservationWindow" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="ObservationWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="ObservationWindow"]
+
+[node name="Results" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="Results"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
+[connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
+[connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Manual" to="." method="_on_Manual_pressed"]
+[connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
+[connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
