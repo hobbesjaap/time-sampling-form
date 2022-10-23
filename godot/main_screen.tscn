@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://wb_theme.tres" type="Theme" id=1]
 [ext_resource path="res://main_screen.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://NameChangePanel.gd" type="Script" id=4]
 [ext_resource path="res://Assets/fonts/noto_sans_display.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/fonts/NotoSansDisplay-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://ObservationWindow.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.952941, 0.933333, 0.847059, 1 )
@@ -26,6 +27,11 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
 
 [node name="AppWindow" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -48,6 +54,7 @@ __meta__ = {
 }
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
@@ -210,6 +217,7 @@ margin_bottom = 129.0
 columns = 3
 
 [node name="1Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_right = 45.0
 margin_bottom = 34.0
 theme = ExtResource( 1 )
@@ -219,6 +227,7 @@ __meta__ = {
 }
 
 [node name="1Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 49.0
 margin_right = 167.0
 margin_bottom = 34.0
@@ -229,6 +238,7 @@ __meta__ = {
 }
 
 [node name="1Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 171.0
 margin_right = 1037.0
 margin_bottom = 34.0
@@ -239,6 +249,7 @@ __meta__ = {
 }
 
 [node name="2Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_top = 38.0
 margin_right = 45.0
 margin_bottom = 72.0
@@ -249,6 +260,7 @@ __meta__ = {
 }
 
 [node name="2Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 49.0
 margin_top = 38.0
 margin_right = 167.0
@@ -260,6 +272,7 @@ __meta__ = {
 }
 
 [node name="2Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 171.0
 margin_top = 38.0
 margin_right = 1037.0
@@ -271,6 +284,7 @@ __meta__ = {
 }
 
 [node name="3Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_top = 76.0
 margin_right = 45.0
 margin_bottom = 110.0
@@ -281,6 +295,7 @@ __meta__ = {
 }
 
 [node name="3Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 49.0
 margin_top = 76.0
 margin_right = 167.0
@@ -292,6 +307,7 @@ __meta__ = {
 }
 
 [node name="3Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 171.0
 margin_top = 76.0
 margin_right = 1037.0
@@ -303,6 +319,7 @@ __meta__ = {
 }
 
 [node name="4Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_top = 114.0
 margin_right = 45.0
 margin_bottom = 148.0
@@ -313,6 +330,7 @@ __meta__ = {
 }
 
 [node name="4Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 49.0
 margin_top = 114.0
 margin_right = 167.0
@@ -324,6 +342,7 @@ __meta__ = {
 }
 
 [node name="4Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 171.0
 margin_top = 114.0
 margin_right = 1037.0
@@ -335,6 +354,7 @@ __meta__ = {
 }
 
 [node name="5Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_top = 152.0
 margin_right = 45.0
 margin_bottom = 186.0
@@ -345,6 +365,7 @@ __meta__ = {
 }
 
 [node name="5Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 49.0
 margin_top = 152.0
 margin_right = 167.0
@@ -356,6 +377,7 @@ __meta__ = {
 }
 
 [node name="5Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
 margin_left = 171.0
 margin_top = 152.0
 margin_right = 1037.0
@@ -463,14 +485,102 @@ independently “on task” for the length of time equal to their age. So an eig
 be able to remain “on task” for eight minutes."
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
-visible = false
+script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 188.0
+margin_bottom = 1.0
 theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 7 )
 
-[node name="Timer" type="Timer" parent="ObservationWindow"]
+[node name="BehaviourButtons" type="HBoxContainer" parent="ObservationWindow/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -453.0
+margin_top = 144.0
+margin_right = 453.0
+margin_bottom = 184.0
+
+[node name="BehaviourOne" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
+unique_name_in_owner = true
+margin_right = 178.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Acronym1"
+
+[node name="BehaviourTwo" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
+unique_name_in_owner = true
+margin_left = 182.0
+margin_right = 360.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Acronym1"
+
+[node name="BehaviourThree" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
+unique_name_in_owner = true
+margin_left = 364.0
+margin_right = 542.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Acronym1"
+
+[node name="BehaviourFour" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
+unique_name_in_owner = true
+margin_left = 546.0
+margin_right = 724.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Acronym1"
+
+[node name="BehaviourFive" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
+unique_name_in_owner = true
+margin_left = 728.0
+margin_right = 906.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Acronym1"
+
+[node name="TimeRemaining" type="Label" parent="ObservationWindow/Panel"]
+margin_left = 532.0
+margin_top = 98.0
+margin_right = 572.0
+margin_bottom = 132.0
+theme = ExtResource( 1 )
+text = "20"
+
+[node name="DescriptorTime" type="Label" parent="ObservationWindow/Panel"]
+margin_left = 581.0
+margin_top = 98.0
+margin_right = 784.0
+margin_bottom = 132.0
+theme = ExtResource( 1 )
+text = "Seconds remaining"
+
+[node name="ObservationsRemaining" type="Label" parent="ObservationWindow/Panel"]
+unique_name_in_owner = true
+margin_left = 438.0
+margin_top = 472.0
+margin_right = 553.0
+margin_bottom = 506.0
+theme = ExtResource( 1 )
+text = "Remaining"
+
+[node name="TwentySecondTimer" type="Timer" parent="ObservationWindow"]
+unique_name_in_owner = true
+wait_time = 20.0
+
+[node name="ObservationsTotal" type="Label" parent="ObservationWindow"]
+unique_name_in_owner = true
+margin_left = 723.0
+margin_top = 660.0
+margin_right = 920.0
+margin_bottom = 694.0
+theme = ExtResource( 1 )
+text = "ObservationsTotal"
 
 [node name="Results" type="CanvasLayer" parent="."]
 visible = false
@@ -484,4 +594,6 @@ theme = ExtResource( 1 )
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Manual" to="." method="_on_Manual_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
+[connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
+[connection signal="timeout" from="ObservationWindow/TwentySecondTimer" to="ObservationWindow" method="_on_TwentySecondTimer_timeout"]

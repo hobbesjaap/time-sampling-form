@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="On Task Tracker"
+config/name="Time Sampling Form"
 run/main_scene="res://main_screen.tscn"
 run/low_processor_mode=true
 config/icon="res://icon.png"
@@ -36,5 +36,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
