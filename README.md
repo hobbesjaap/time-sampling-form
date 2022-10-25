@@ -1,5 +1,5 @@
 <p align="center">
-![](design_files/main_icon_small.png)
+![](./design_files/main_icon_small.png)
 </p>
 
 # Time Sampling Form
