@@ -1,5 +1,5 @@
 <p align="center">
-![](./design_files/main_icon_small.png)
+<img src="./design_files/main_icon_small.png" width="200" height="200">
 </p>
 
 # Time Sampling Form
