@@ -11,20 +11,35 @@ onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 
 func refresh_descriptors():
 	$"%1Acronym".text = global_ints.one_acronym
+	$"%1AcronymE".text = $"%1Acronym".text
 	$"%2Acronym".text = global_ints.two_acronym
+	$"%2AcronymE".text = $"%2Acronym".text
 	$"%3Acronym".text = global_ints.three_acronym
+	$"%3AcronymE".text = $"%3Acronym".text
 	$"%4Acronym".text = global_ints.four_acronym
+	$"%4AcronymE".text = $"%4Acronym".text
 	$"%5Acronym".text = global_ints.five_acronym
+	$"%5AcronymE".text = $"%5Acronym".text
 	$"%1Item".text = global_ints.one_behaviour
+	$"%1ItemE".text = $"%1Item".text
 	$"%2Item".text = global_ints.two_behaviour
+	$"%2ItemE".text = $"%2Item".text
 	$"%3Item".text = global_ints.three_behaviour
+	$"%3ItemE".text = $"%3Item".text
 	$"%4Item".text = global_ints.four_behaviour
+	$"%4ItemE".text = $"%4Item".text
 	$"%5Item".text = global_ints.five_behaviour
+	$"%5ItemE".text = $"%5Item".text
 	$"%1Explanation".text = global_ints.one_explanation
+	$"%1ExplanationE".text = $"%1Explanation".text
 	$"%2Explanation".text = global_ints.two_explanation
+	$"%2ExplanationE".text = $"%2Explanation".text
 	$"%3Explanation".text = global_ints.three_explanation
+	$"%3ExplanationE".text = $"%3Explanation".text
 	$"%4Explanation".text = global_ints.four_explanation
+	$"%4ExplanationE".text = $"%4Explanation".text
 	$"%5Explanation".text = global_ints.five_explanation
+	$"%5ExplanationE".text = $"%5Explanation".text
 
 func _ready():
 	minute_label.text = str(global_ints.observation_minutes)

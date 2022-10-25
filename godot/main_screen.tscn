@@ -54,7 +54,6 @@ __meta__ = {
 }
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
@@ -390,6 +389,7 @@ __meta__ = {
 
 [node name="NameChangePanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -444,47 +444,214 @@ theme = ExtResource( 1 )
 text = "OK"
 
 [node name="ManualScreen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="ManualScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 
-[node name="ProcedureLabel" type="Label" parent="ManualScreen"]
-margin_left = 84.0
-margin_top = 76.0
-margin_right = 472.0
-margin_bottom = 90.0
-text = "Procedure
-The best way to do a time sampling observation is:
-A. After the teacher has given the assignment where pupils are expected to work independently, or
-individual help to the pupil has finished, the observation begins. The stopwatch is started. The observer
-waits 20 seconds.
-B. The observer notes what the pupil is doing right that second.
-C. The observer circles the category that best describes what the pupil is doing at that time: OnT, Loo, Dis,
-Wal, Oth.
-D. The observer waits until the timer hits 40 and repeats step B and C.
-E. The observer waits until the timer hits 60 and repeats step B and C.
-F. This procedure is repeated for as long as the observation is set to last.
-G. The observer does not score those moments where the teacher & pupil are interacting with each other."
+[node name="GridObservations" type="GridContainer" parent="ManualScreen/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -518.5
+margin_top = -57.0
+margin_right = 518.5
+margin_bottom = 129.0
+columns = 3
 
-[node name="GoalLabel" type="Label" parent="ManualScreen"]
-margin_left = 84.0
+[node name="1AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_right = 92.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "O"
+max_length = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="1ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 96.0
+margin_right = 240.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "On Task"
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="1ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 244.0
+margin_right = 1037.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "The pupil is on task"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_top = 38.0
+margin_right = 92.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = "L"
+max_length = 3
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 96.0
+margin_top = 38.0
+margin_right = 240.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = "Looking"
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 244.0
+margin_top = 38.0
+margin_right = 1037.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = " The pupil is looking around in a distracted manner or is staring into the distance"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="3AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
 margin_top = 76.0
-margin_right = 472.0
-margin_bottom = 90.0
-text = "Instead of describing the “on task behaviour” of a pupil, the observer can instead use this form to sample and
-quantify what it looks like.
-The advantage is that this process objectifies and quantifies the observed behaviour. During a Time Sampling
-observation, the observer - during a period of time where pupils are expected to work independently – notes
-down every 20 second what a pupil is doing. In this manner they score three times a minute. Afterwards the
-observer can calculate percentages to see how “on task” the pupil was.
-For pupils without an Additional Support Need, as a rough guideline, you would expect them to be
-independently “on task” for the length of time equal to their age. So an eight year old pupil would be expected to
-be able to remain “on task” for eight minutes."
+margin_right = 92.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+text = "D"
+max_length = 3
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="3ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 96.0
+margin_top = 76.0
+margin_right = 240.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+text = "Distracting"
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="3ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 244.0
+margin_top = 76.0
+margin_right = 1037.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "The pupil is distracting other pupils or talking to them"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="4AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_top = 114.0
+margin_right = 92.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "W"
+max_length = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="4ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 96.0
+margin_top = 114.0
+margin_right = 240.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "Walking"
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="4ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 244.0
+margin_top = 114.0
+margin_right = 1037.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "The pupil is walking through the class"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="5AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_top = 152.0
+margin_right = 92.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+text = "O"
+max_length = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="5ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 96.0
+margin_top = 152.0
+margin_right = 240.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+text = "Other"
+expand_to_text_length = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="5ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 244.0
+margin_top = 152.0
+margin_right = 1037.0
+margin_bottom = 186.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "The pupil is otherwise distracted and not on task"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
