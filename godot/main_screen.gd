@@ -50,6 +50,7 @@ func _ready():
 	$"%WarningLabel".visible = false
 	$"ObservationWindow".visible = false
 	$"Results".visible = false
+	$"EditScreen".visible = false
 
 func _process(_delta):
 	check_time_var += 1
@@ -100,3 +101,7 @@ func _on_Start_pressed() -> void:
 	$"%ObservationsRemaining".text = str(global_ints.locked_observations_intervals_remaining)
 	
 	$"%TwentySecondTimer".start(global_ints.timer_duration)
+
+
+func _on_ChangeItems_pressed():
+	$"EditScreen".visible = true

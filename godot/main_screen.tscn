@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://wb_theme.tres" type="Theme" id=1]
 [ext_resource path="res://main_screen.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/fonts/noto_sans_display.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/fonts/NotoSansDisplay-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://ObservationWindow.gd" type="Script" id=7]
+[ext_resource path="res://EditScreen.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.952941, 0.933333, 0.847059, 1 )
@@ -443,14 +444,17 @@ margin_bottom = 148.0
 theme = ExtResource( 1 )
 text = "OK"
 
-[node name="ManualScreen" type="CanvasLayer" parent="."]
+[node name="EditScreen" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource( 8 )
 
-[node name="Panel" type="Panel" parent="ManualScreen"]
+[node name="Panel" type="Panel" parent="EditScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 
-[node name="GridObservations" type="GridContainer" parent="ManualScreen/Panel"]
+[node name="GridObservations" type="GridContainer" parent="EditScreen/Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -461,7 +465,7 @@ margin_right = 518.5
 margin_bottom = 129.0
 columns = 3
 
-[node name="1AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="1AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_right = 92.0
 margin_bottom = 34.0
@@ -472,7 +476,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="1ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="1ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 96.0
 margin_right = 240.0
@@ -484,7 +488,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="1ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="1ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 244.0
 margin_right = 1037.0
@@ -496,7 +500,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="2AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="2AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_top = 38.0
 margin_right = 92.0
@@ -509,7 +513,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="2ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="2ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 96.0
 margin_top = 38.0
@@ -522,7 +526,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="2ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="2ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 244.0
 margin_top = 38.0
@@ -535,7 +539,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="3AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="3AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_top = 76.0
 margin_right = 92.0
@@ -548,7 +552,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="3ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="3ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 96.0
 margin_top = 76.0
@@ -561,7 +565,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="3ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="3ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 244.0
 margin_top = 76.0
@@ -574,7 +578,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="4AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="4AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_top = 114.0
 margin_right = 92.0
@@ -586,7 +590,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="4ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="4ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 96.0
 margin_top = 114.0
@@ -599,7 +603,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="4ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="4ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 244.0
 margin_top = 114.0
@@ -612,7 +616,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="5AcronymE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="5AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_top = 152.0
 margin_right = 92.0
@@ -624,7 +628,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="5ItemE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="5ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 96.0
 margin_top = 152.0
@@ -637,7 +641,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="5ExplanationE" type="LineEdit" parent="ManualScreen/Panel/GridObservations"]
+[node name="5ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
 margin_left = 244.0
 margin_top = 152.0
@@ -649,6 +653,20 @@ text = "The pupil is otherwise distracted and not on task"
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CancelButton" type="Button" parent="EditScreen/Panel"]
+margin_left = 520.0
+margin_top = 645.0
+margin_right = 597.0
+margin_bottom = 679.0
+text = "Cancel"
+
+[node name="OKButton" type="Button" parent="EditScreen/Panel"]
+margin_left = 616.0
+margin_top = 645.0
+margin_right = 656.0
+margin_bottom = 679.0
+text = "OK"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
 visible = false
@@ -760,7 +778,10 @@ theme = ExtResource( 1 )
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Manual" to="." method="_on_Manual_pressed"]
+[connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/ChangeItems" to="." method="_on_ChangeItems_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
+[connection signal="pressed" from="EditScreen/Panel/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="EditScreen/Panel/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
 [connection signal="timeout" from="ObservationWindow/TwentySecondTimer" to="ObservationWindow" method="_on_TwentySecondTimer_timeout"]
