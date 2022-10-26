@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://wb_theme.tres" type="Theme" id=1]
 [ext_resource path="res://main_screen.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/fonts/NotoSansDisplay-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://ObservationWindow.gd" type="Script" id=7]
 [ext_resource path="res://EditScreen.gd" type="Script" id=8]
+[ext_resource path="res://Results.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.952941, 0.933333, 0.847059, 1 )
@@ -33,6 +34,9 @@ font_data = ExtResource( 6 )
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 1 )
 
 [node name="AppWindow" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -669,7 +673,6 @@ margin_bottom = 679.0
 text = "OK"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
@@ -769,11 +772,28 @@ text = "ObservationsTotal"
 
 [node name="Results" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource( 9 )
 
 [node name="Panel" type="Panel" parent="Results"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -157.0
 theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 8 )
+
+[node name="SaveReport" type="Button" parent="Results/Panel"]
+margin_left = 1045.0
+margin_top = 835.0
+margin_right = 1274.0
+margin_bottom = 869.0
+text = "Save Report as PNG"
+
+[node name="BackMainMenu" type="Button" parent="Results/Panel"]
+margin_left = 14.0
+margin_top = 828.0
+margin_right = 158.0
+margin_bottom = 862.0
+text = "Restart"
 
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
@@ -785,3 +805,5 @@ theme = ExtResource( 1 )
 [connection signal="pressed" from="EditScreen/Panel/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
 [connection signal="timeout" from="ObservationWindow/TwentySecondTimer" to="ObservationWindow" method="_on_TwentySecondTimer_timeout"]
+[connection signal="pressed" from="Results/Panel/SaveReport" to="Results" method="_on_SaveReport_pressed"]
+[connection signal="pressed" from="Results/Panel/BackMainMenu" to="Results" method="_on_BackMainMenu_pressed"]

@@ -26,6 +26,7 @@ func _on_TwentySecondTimer_timeout():
 		print("We're completely done - no intervals remain")
 		# So I should end the observation and move to the Results window.
 		$"TwentySecondTimer".stop()
+		$"../Results".visible = true
 	
 	if global_ints.locked_observations_intervals_remaining > 1:
 		on_interval_moment()

@@ -4,7 +4,7 @@ extends Node
 
 var timer_duration : int = 4
 
-var observation_minutes : int = 15
+var observation_minutes : int = 1
 
 var observed_person_name : String
 
@@ -32,3 +32,11 @@ var three_explanation = "The pupil is distracting other pupils or talking to the
 var four_explanation = "The pupil is walking through the class"
 var five_explanation = "The pupil is otherwise distracted and not on task"
 var six_explanation = "No answer was selected for this round"
+
+var total_behaviours : int
+var one_behaviour_score : int
+var two_behaviour_score : int
+var three_behaviour_score : int
+var four_behaviour_score: int
+var five_behaviour_score : int
+var six_behaviour_score : int
