@@ -9,6 +9,7 @@ func _ready():
 
 
 func _on_CancelButton_pressed():
+	main_window.refresh_descriptors()
 	$"%EditScreen".visible = false
 
 
@@ -35,3 +36,25 @@ func _on_OKButton_pressed():
 	$"%EditScreen".visible = false
 	
 	main_window.refresh_descriptors()
+
+
+func _on_ClearAll_pressed():
+	$"%1AcronymE".text = ""
+	$"%1ItemE".text = ""
+	$"%1ExplanationE".text = ""
+	
+	$"%2AcronymE".text = ""
+	$"%2ItemE".text = ""
+	$"%2ExplanationE".text = ""
+	
+	$"%3AcronymE".text = ""
+	$"%3ItemE".text = ""
+	$"%3ExplanationE".text = ""
+	
+	$"%4AcronymE".text = ""
+	$"%4ItemE".text = ""
+	$"%4ExplanationE".text = ""
+	
+	$"%5AcronymE".text = ""
+	$"%5ItemE".text = ""
+	$"%5ExplanationE".text = ""

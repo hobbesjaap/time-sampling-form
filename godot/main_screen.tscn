@@ -51,8 +51,8 @@ __meta__ = {
 }
 
 [node name="ClassroomPhoto" type="Sprite" parent="."]
-position = Vector2( 640, 204 )
-scale = Vector2( 0.67, 0.67 )
+position = Vector2( 639.9, 201.694 )
+scale = Vector2( 0.665729, 0.665729 )
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
@@ -138,7 +138,7 @@ margin_top = -197.0
 margin_right = 322.5
 margin_bottom = -163.0
 theme = ExtResource( 1 )
-text = "How long is your observation? (in minutes)"
+text = "How long will you observe? (in minutes)"
 align = 1
 
 [node name="ObservationItemsTitle" type="Label" parent="StartScreen/InstructionPanel"]
@@ -191,7 +191,7 @@ margin_right = 498.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
-text = "Change Items"
+text = "Edit Items"
 
 [node name="PupilName" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
 margin_left = 502.0
@@ -199,7 +199,7 @@ margin_right = 749.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
-text = "Pupil Name"
+text = "Edit Names"
 
 [node name="Start" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
 margin_left = 753.0
@@ -214,16 +214,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -518.5
+margin_left = -589.0
 margin_top = -57.0
-margin_right = 518.5
-margin_bottom = 129.0
+margin_right = 603.0
+margin_bottom = 167.0
 columns = 3
+
+[node name="AcronymLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
+margin_right = 96.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "Acronym"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DescriptorLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 100.0
+margin_right = 218.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "Descriptor"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ExplanationLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
+margin_left = 222.0
+margin_right = 1088.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "Explanation"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="1Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_right = 45.0
-margin_bottom = 34.0
+margin_top = 38.0
+margin_right = 96.0
+margin_bottom = 72.0
 theme = ExtResource( 1 )
 text = "OnT"
 __meta__ = {
@@ -232,9 +265,10 @@ __meta__ = {
 
 [node name="1Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 49.0
-margin_right = 167.0
-margin_bottom = 34.0
+margin_left = 100.0
+margin_top = 38.0
+margin_right = 218.0
+margin_bottom = 72.0
 theme = ExtResource( 1 )
 text = "On Task"
 __meta__ = {
@@ -243,9 +277,10 @@ __meta__ = {
 
 [node name="1Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_right = 1037.0
-margin_bottom = 34.0
+margin_left = 222.0
+margin_top = 38.0
+margin_right = 1088.0
+margin_bottom = 72.0
 theme = ExtResource( 1 )
 text = "The pupil is on task"
 __meta__ = {
@@ -254,9 +289,9 @@ __meta__ = {
 
 [node name="2Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 38.0
-margin_right = 45.0
-margin_bottom = 72.0
+margin_top = 76.0
+margin_right = 96.0
+margin_bottom = 110.0
 theme = ExtResource( 1 )
 text = "Loo"
 __meta__ = {
@@ -265,10 +300,10 @@ __meta__ = {
 
 [node name="2Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 49.0
-margin_top = 38.0
-margin_right = 167.0
-margin_bottom = 72.0
+margin_left = 100.0
+margin_top = 76.0
+margin_right = 218.0
+margin_bottom = 110.0
 theme = ExtResource( 1 )
 text = "Looking"
 __meta__ = {
@@ -277,10 +312,10 @@ __meta__ = {
 
 [node name="2Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_top = 38.0
-margin_right = 1037.0
-margin_bottom = 72.0
+margin_left = 222.0
+margin_top = 76.0
+margin_right = 1088.0
+margin_bottom = 110.0
 theme = ExtResource( 1 )
 text = " The pupil is looking around in a distracted manner or is staring into the distance"
 __meta__ = {
@@ -289,9 +324,9 @@ __meta__ = {
 
 [node name="3Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 76.0
-margin_right = 45.0
-margin_bottom = 110.0
+margin_top = 114.0
+margin_right = 96.0
+margin_bottom = 148.0
 theme = ExtResource( 1 )
 text = "Dis"
 __meta__ = {
@@ -300,10 +335,10 @@ __meta__ = {
 
 [node name="3Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 49.0
-margin_top = 76.0
-margin_right = 167.0
-margin_bottom = 110.0
+margin_left = 100.0
+margin_top = 114.0
+margin_right = 218.0
+margin_bottom = 148.0
 theme = ExtResource( 1 )
 text = "Distracting"
 __meta__ = {
@@ -312,10 +347,10 @@ __meta__ = {
 
 [node name="3Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_top = 76.0
-margin_right = 1037.0
-margin_bottom = 110.0
+margin_left = 222.0
+margin_top = 114.0
+margin_right = 1088.0
+margin_bottom = 148.0
 theme = ExtResource( 1 )
 text = "The pupil is distracting other pupils or talking to them"
 __meta__ = {
@@ -324,9 +359,9 @@ __meta__ = {
 
 [node name="4Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 114.0
-margin_right = 45.0
-margin_bottom = 148.0
+margin_top = 152.0
+margin_right = 96.0
+margin_bottom = 186.0
 theme = ExtResource( 1 )
 text = "Wal"
 __meta__ = {
@@ -335,10 +370,10 @@ __meta__ = {
 
 [node name="4Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 49.0
-margin_top = 114.0
-margin_right = 167.0
-margin_bottom = 148.0
+margin_left = 100.0
+margin_top = 152.0
+margin_right = 218.0
+margin_bottom = 186.0
 theme = ExtResource( 1 )
 text = "Walking"
 __meta__ = {
@@ -347,10 +382,10 @@ __meta__ = {
 
 [node name="4Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_top = 114.0
-margin_right = 1037.0
-margin_bottom = 148.0
+margin_left = 222.0
+margin_top = 152.0
+margin_right = 1088.0
+margin_bottom = 186.0
 theme = ExtResource( 1 )
 text = "The pupil is walking through the class"
 __meta__ = {
@@ -359,9 +394,9 @@ __meta__ = {
 
 [node name="5Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 152.0
-margin_right = 45.0
-margin_bottom = 186.0
+margin_top = 190.0
+margin_right = 96.0
+margin_bottom = 224.0
 theme = ExtResource( 1 )
 text = "Oth"
 __meta__ = {
@@ -370,10 +405,10 @@ __meta__ = {
 
 [node name="5Item" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 49.0
-margin_top = 152.0
-margin_right = 167.0
-margin_bottom = 186.0
+margin_left = 100.0
+margin_top = 190.0
+margin_right = 218.0
+margin_bottom = 224.0
 theme = ExtResource( 1 )
 text = "Other"
 __meta__ = {
@@ -382,10 +417,10 @@ __meta__ = {
 
 [node name="5Explanation" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_top = 152.0
-margin_right = 1037.0
-margin_bottom = 186.0
+margin_left = 222.0
+margin_top = 190.0
+margin_right = 1088.0
+margin_bottom = 224.0
 theme = ExtResource( 1 )
 text = "The pupil is otherwise distracted and not on task"
 __meta__ = {
@@ -414,17 +449,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -269.5
-margin_top = -103.0
-margin_right = 269.5
-margin_bottom = 7.0
+margin_left = -269.0
+margin_top = -210.0
+margin_right = 270.0
+margin_bottom = 237.0
 
 [node name="ObservedNameLabel" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
 unique_name_in_owner = true
 margin_right = 539.0
 margin_bottom = 34.0
 theme = ExtResource( 1 )
-text = "Observed Individual Name:"
+text = "Observed Individual First Name:"
 
 [node name="WarningLabel" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
 unique_name_in_owner = true
@@ -432,7 +467,7 @@ margin_top = 38.0
 margin_right = 539.0
 margin_bottom = 72.0
 theme = ExtResource( 1 )
-text = "You must enter a name in the field below!"
+text = "You must complete all fields below!"
 
 [node name="NameLine" type="LineEdit" parent="StartScreen/NameChangePanel/NameContainer"]
 unique_name_in_owner = true
@@ -441,10 +476,40 @@ margin_right = 539.0
 margin_bottom = 110.0
 theme = ExtResource( 1 )
 
-[node name="OkButton" type="Button" parent="StartScreen/NameChangePanel/NameContainer"]
+[node name="ObserverName" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
 margin_top = 114.0
 margin_right = 539.0
 margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "Your Full Name:"
+
+[node name="ObserverLine" type="LineEdit" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
+margin_top = 152.0
+margin_right = 539.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+
+[node name="ObserverName2" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
+margin_top = 190.0
+margin_right = 539.0
+margin_bottom = 224.0
+theme = ExtResource( 1 )
+text = "Observed during which Activity/Lesson:"
+
+[node name="ObservedActivity" type="LineEdit" parent="StartScreen/NameChangePanel/NameContainer"]
+unique_name_in_owner = true
+margin_top = 228.0
+margin_right = 539.0
+margin_bottom = 262.0
+theme = ExtResource( 1 )
+
+[node name="OkButton" type="Button" parent="StartScreen/NameChangePanel/NameContainer"]
+margin_top = 266.0
+margin_right = 539.0
+margin_bottom = 300.0
 theme = ExtResource( 1 )
 text = "OK"
 
@@ -469,10 +534,28 @@ margin_right = 518.5
 margin_bottom = 129.0
 columns = 3
 
+[node name="AcronymLabel" type="Label" parent="EditScreen/Panel/GridObservations"]
+margin_right = 96.0
+margin_bottom = 34.0
+text = "Acronym"
+
+[node name="AcronymLabel2" type="Label" parent="EditScreen/Panel/GridObservations"]
+margin_left = 100.0
+margin_right = 244.0
+margin_bottom = 34.0
+text = "Descriptor"
+
+[node name="AcronymLabel3" type="Label" parent="EditScreen/Panel/GridObservations"]
+margin_left = 248.0
+margin_right = 1037.0
+margin_bottom = 34.0
+text = "Explanation"
+
 [node name="1AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_right = 92.0
-margin_bottom = 34.0
+margin_top = 38.0
+margin_right = 96.0
+margin_bottom = 72.0
 theme = ExtResource( 1 )
 text = "O"
 max_length = 3
@@ -482,9 +565,10 @@ __meta__ = {
 
 [node name="1ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 96.0
-margin_right = 240.0
-margin_bottom = 34.0
+margin_left = 100.0
+margin_top = 38.0
+margin_right = 244.0
+margin_bottom = 72.0
 theme = ExtResource( 1 )
 text = "On Task"
 expand_to_text_length = true
@@ -494,9 +578,10 @@ __meta__ = {
 
 [node name="1ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 244.0
+margin_left = 248.0
+margin_top = 38.0
 margin_right = 1037.0
-margin_bottom = 34.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 text = "The pupil is on task"
@@ -506,9 +591,9 @@ __meta__ = {
 
 [node name="2AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 38.0
-margin_right = 92.0
-margin_bottom = 72.0
+margin_top = 76.0
+margin_right = 96.0
+margin_bottom = 110.0
 theme = ExtResource( 1 )
 text = "L"
 max_length = 3
@@ -519,10 +604,10 @@ __meta__ = {
 
 [node name="2ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 96.0
-margin_top = 38.0
-margin_right = 240.0
-margin_bottom = 72.0
+margin_left = 100.0
+margin_top = 76.0
+margin_right = 244.0
+margin_bottom = 110.0
 theme = ExtResource( 1 )
 text = "Looking"
 expand_to_text_length = true
@@ -532,10 +617,10 @@ __meta__ = {
 
 [node name="2ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 244.0
-margin_top = 38.0
+margin_left = 248.0
+margin_top = 76.0
 margin_right = 1037.0
-margin_bottom = 72.0
+margin_bottom = 110.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 text = " The pupil is looking around in a distracted manner or is staring into the distance"
@@ -545,9 +630,9 @@ __meta__ = {
 
 [node name="3AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 76.0
-margin_right = 92.0
-margin_bottom = 110.0
+margin_top = 114.0
+margin_right = 96.0
+margin_bottom = 148.0
 theme = ExtResource( 1 )
 text = "D"
 max_length = 3
@@ -558,10 +643,10 @@ __meta__ = {
 
 [node name="3ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 96.0
-margin_top = 76.0
-margin_right = 240.0
-margin_bottom = 110.0
+margin_left = 100.0
+margin_top = 114.0
+margin_right = 244.0
+margin_bottom = 148.0
 theme = ExtResource( 1 )
 text = "Distracting"
 expand_to_text_length = true
@@ -571,10 +656,10 @@ __meta__ = {
 
 [node name="3ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 244.0
-margin_top = 76.0
+margin_left = 248.0
+margin_top = 114.0
 margin_right = 1037.0
-margin_bottom = 110.0
+margin_bottom = 148.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 text = "The pupil is distracting other pupils or talking to them"
@@ -584,9 +669,9 @@ __meta__ = {
 
 [node name="4AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 114.0
-margin_right = 92.0
-margin_bottom = 148.0
+margin_top = 152.0
+margin_right = 96.0
+margin_bottom = 186.0
 theme = ExtResource( 1 )
 text = "W"
 max_length = 3
@@ -596,10 +681,10 @@ __meta__ = {
 
 [node name="4ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 96.0
-margin_top = 114.0
-margin_right = 240.0
-margin_bottom = 148.0
+margin_left = 100.0
+margin_top = 152.0
+margin_right = 244.0
+margin_bottom = 186.0
 theme = ExtResource( 1 )
 text = "Walking"
 expand_to_text_length = true
@@ -609,10 +694,10 @@ __meta__ = {
 
 [node name="4ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 244.0
-margin_top = 114.0
+margin_left = 248.0
+margin_top = 152.0
 margin_right = 1037.0
-margin_bottom = 148.0
+margin_bottom = 186.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 text = "The pupil is walking through the class"
@@ -622,9 +707,9 @@ __meta__ = {
 
 [node name="5AcronymE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_top = 152.0
-margin_right = 92.0
-margin_bottom = 186.0
+margin_top = 190.0
+margin_right = 96.0
+margin_bottom = 224.0
 theme = ExtResource( 1 )
 text = "O"
 max_length = 3
@@ -634,10 +719,10 @@ __meta__ = {
 
 [node name="5ItemE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 96.0
-margin_top = 152.0
-margin_right = 240.0
-margin_bottom = 186.0
+margin_left = 100.0
+margin_top = 190.0
+margin_right = 244.0
+margin_bottom = 224.0
 theme = ExtResource( 1 )
 text = "Other"
 expand_to_text_length = true
@@ -647,10 +732,10 @@ __meta__ = {
 
 [node name="5ExplanationE" type="LineEdit" parent="EditScreen/Panel/GridObservations"]
 unique_name_in_owner = true
-margin_left = 244.0
-margin_top = 152.0
+margin_left = 248.0
+margin_top = 190.0
 margin_right = 1037.0
-margin_bottom = 186.0
+margin_bottom = 224.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 text = "The pupil is otherwise distracted and not on task"
@@ -672,7 +757,15 @@ margin_right = 656.0
 margin_bottom = 679.0
 text = "OK"
 
+[node name="ClearAll" type="Button" parent="EditScreen/Panel"]
+margin_left = 952.0
+margin_top = 615.0
+margin_right = 1051.0
+margin_bottom = 649.0
+text = "Clear All"
+
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
@@ -757,6 +850,13 @@ margin_bottom = 506.0
 theme = ExtResource( 1 )
 text = "Remaining"
 
+[node name="Button" type="Button" parent="ObservationWindow/Panel"]
+margin_left = 1179.0
+margin_top = 29.0
+margin_right = 1246.0
+margin_bottom = 63.0
+text = "Abort"
+
 [node name="TwentySecondTimer" type="Timer" parent="ObservationWindow"]
 unique_name_in_owner = true
 wait_time = 20.0
@@ -780,6 +880,9 @@ anchor_bottom = 1.0
 margin_top = -157.0
 theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SaveReport" type="Button" parent="Results/Panel"]
 margin_left = 1045.0
@@ -795,6 +898,31 @@ margin_right = 158.0
 margin_bottom = 862.0
 text = "Restart"
 
+[node name="MainText" type="Label" parent="Results/Panel"]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 1268.0
+margin_bottom = 163.0
+text = "Can this be multi-line?
+Or does text-wrap work?
+Can I get integers in? Must be able to, concatenate."
+autowrap = true
+
+[node name="Obs1" type="Label" parent="Results/Panel"]
+margin_left = 31.0
+margin_top = 277.0
+margin_right = 71.0
+margin_bottom = 311.0
+text = "Observation 1: "
+
+[node name="Obs1Text" type="Label" parent="Results/Panel"]
+unique_name_in_owner = true
+margin_left = 199.0
+margin_top = 278.0
+margin_right = 361.0
+margin_bottom = 312.0
+text = "Observation 1: "
+
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Manual" to="." method="_on_Manual_pressed"]
@@ -804,6 +932,14 @@ text = "Restart"
 [connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
+[connection signal="pressed" from="EditScreen/Panel/ClearAll" to="EditScreen" method="_on_ClearAll_pressed"]
+[connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourOne" to="ObservationWindow" method="_on_BehaviourOne_pressed"]
+[connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourTwo" to="ObservationWindow" method="_on_BehaviourTwo_pressed"]
+[connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourThree" to="ObservationWindow" method="_on_BehaviourThree_pressed"]
+[connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourFour" to="ObservationWindow" method="_on_BehaviourFour_pressed"]
+[connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourFive" to="ObservationWindow" method="_on_BehaviourFive_pressed"]
+[connection signal="pressed" from="ObservationWindow/Panel/Button" to="ObservationWindow" method="_on_Button_pressed"]
 [connection signal="timeout" from="ObservationWindow/TwentySecondTimer" to="ObservationWindow" method="_on_TwentySecondTimer_timeout"]
+[connection signal="visibility_changed" from="Results" to="Results" method="_on_Results_visibility_changed"]
 [connection signal="pressed" from="Results/Panel/SaveReport" to="Results" method="_on_SaveReport_pressed"]
 [connection signal="pressed" from="Results/Panel/BackMainMenu" to="Results" method="_on_BackMainMenu_pressed"]

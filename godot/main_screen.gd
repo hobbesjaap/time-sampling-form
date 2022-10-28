@@ -58,7 +58,10 @@ func _process(_delta):
 	if check_time_var == 10:
 		check_time_var = 0
 		date_time = OS.get_time()
-		date_time_display.text = str(date_time.hour, ":", date_time.minute)
+		if date_time.minute < 10:
+			date_time_display.text = str(date_time.hour, ":0", date_time.minute)
+		if date_time.minute >= 10:
+			date_time_display.text = str(date_time.hour, ":", date_time.minute)
 
 
 func _on_MinuteMinus_pressed() -> void:
@@ -99,6 +102,12 @@ func _on_Start_pressed() -> void:
 	
 	$"%ObservationsTotal".text = str(global_ints.locked_observation_intervals)
 	$"%ObservationsRemaining".text = str(global_ints.locked_observations_intervals_remaining)
+
+	var obs_date_time = OS.get_time()
+	if obs_date_time.minute < 10:
+		global_ints.observation_start_time = str(obs_date_time.hour, ":0", obs_date_time.minute)
+	if obs_date_time.minute >= 10:
+		global_ints.observation_start_time = str(obs_date_time.hour, ":", obs_date_time.minute)
 	
 	$"%TwentySecondTimer".start(global_ints.timer_duration)
 
