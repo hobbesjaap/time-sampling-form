@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/photos/classroom-824120_1920.jpg" type="Texture" id=3]
 [ext_resource path="res://NameChangePanel.gd" type="Script" id=4]
 [ext_resource path="res://Assets/fonts/noto_sans_display.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/fonts/NotoSansDisplay-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/fonts/noto_sans_display_bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://ObservationWindow.gd" type="Script" id=7]
 [ext_resource path="res://EditScreen.gd" type="Script" id=8]
 [ext_resource path="res://Results.gd" type="Script" id=9]
@@ -440,9 +440,6 @@ margin_right = 640.0
 margin_bottom = 359.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="NameContainer" type="VBoxContainer" parent="StartScreen/NameChangePanel"]
 anchor_left = 0.5
