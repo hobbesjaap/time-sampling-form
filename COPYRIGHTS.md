@@ -14,9 +14,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Fonts (as part of Godot)
+## Fonts
 
-Portions of this software are copyright © 2022 The FreeType Project (www.freetype.org). All rights reserved. The app uses the Noto font family, for which <a href="https://github.com/notofonts/noto-fonts/blob/main/LICENSE" target="_blank">the full license is available here</a>.
+Portions of this software are copyright © 2022 The FreeType Project (www.freetype.org). All rights reserved.
+
+The app uses the Noto Sans font family, for which <a href="https://github.com/notofonts/noto-fonts/blob/main/LICENSE" target="_blank">the full Open Font License is available here</a>.
 
 ## Internet module Mbed TLS (as part of Godot)
 
@@ -37,3 +39,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Attributions for art
+
+The classroom photograph used in the app is a no-attribution-required photograph from Pixabay, under the Pixabay License. The original link to the photograph is [here](https://pixabay.com/photos/classroom-chairs-tables-school-824120/).
