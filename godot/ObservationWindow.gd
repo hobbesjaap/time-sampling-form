@@ -1,13 +1,20 @@
 extends CanvasLayer
 
+
 onready var global_ints = $"/root/GlobalInts"
+
 
 var time_lefts : int
 var toggle_observation : bool = false
 var observation_button_pressed : bool = false
 
+
 func _ready():
 	$"Panel/BehaviourButtons".visible = false
+	pass
+
+
+func on_finished():
 	pass
 
 
@@ -19,12 +26,14 @@ func _process(_delta):
 		toggle_observation = true
 		$"Panel/BehaviourButtons".visible = true
 
+
 func on_interval_moment():
 	print("Timer reaches 0 - Let's check if buttons have been pressed and count something")
 	toggle_observation = false
 	# Otherwise - a 6 is registered (nothing selected)
 	# Buttons are to become visible again
 	global_ints.locked_observations_intervals_remaining -= 1
+	global_ints.locked_observations_completed += 1
 	$"Panel/BehaviourButtons".visible = false
 	
 	if observation_button_pressed == false:
@@ -34,7 +43,8 @@ func on_interval_moment():
 	observation_button_pressed = false
 	
 	# The thing below here should become a graphic bar as well
-	$"Panel/ObservationsRemaining".text = str(global_ints.locked_observations_intervals_remaining)
+	$"Panel/DescriptorBox/ObservationsRemaining".text = str(global_ints.locked_observations_intervals_remaining)
+
 
 func _on_TwentySecondTimer_timeout():
 	if global_ints.locked_observations_intervals_remaining == 1:
@@ -51,6 +61,7 @@ func _on_TwentySecondTimer_timeout():
 		
 		$"TwentySecondTimer".stop()
 		global_ints.generate_results = true
+		on_finished()
 		$"../Results".visible = true
 	
 	if global_ints.locked_observations_intervals_remaining > 1:
@@ -95,7 +106,10 @@ func _on_BehaviourFive_pressed():
 
 func _on_Button_pressed():
 	on_interval_moment()
-	print("We're completely done - no intervals remain")
+	print("We're aborting, so deal with as completely done - no intervals remain")
+	
+	# This to set the original total count to what's actually been completed
+	global_ints.locked_observation_intervals = global_ints.locked_observations_completed
 	# So I should end the observation and move to the Results window.
 	
 	var obs_date_time = OS.get_time()
@@ -106,4 +120,5 @@ func _on_Button_pressed():
 		
 	$"TwentySecondTimer".stop()
 	global_ints.generate_results = true
+	on_finished()
 	$"../Results".visible = true

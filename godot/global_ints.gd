@@ -18,6 +18,7 @@ var observed_activity : String
 var locked_observation_minutes : int
 var locked_observation_intervals : int
 var locked_observations_intervals_remaining : int
+var locked_observations_completed : int
 
 var one_acronym = "OnT"
 var two_acronym = "Loo"
@@ -60,6 +61,7 @@ func reset_all_vars():
 	locked_observation_minutes = 0
 	locked_observation_intervals = 0
 	locked_observations_intervals_remaining = 0
+	locked_observations_completed = 0
 
 	one_acronym = "OnT"
 	two_acronym = "Loo"

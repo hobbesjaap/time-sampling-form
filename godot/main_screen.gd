@@ -95,6 +95,16 @@ func _on_Start_pressed() -> void:
 	$"%BehaviourThree".text = global_ints.three_acronym
 	$"%BehaviourFour".text = global_ints.four_acronym
 	$"%BehaviourFive".text = global_ints.five_acronym
+	$"%BTitle1".text = global_ints.one_behaviour
+	$"%BTitle2".text = global_ints.two_behaviour
+	$"%BTitle3".text = global_ints.three_behaviour
+	$"%BTitle4".text = global_ints.four_behaviour
+	$"%BTitle5".text = global_ints.five_behaviour
+	$"%ObsTitle1".text = global_ints.one_behaviour
+	$"%ObsTitle2".text = global_ints.two_behaviour
+	$"%ObsTitle3".text = global_ints.three_behaviour
+	$"%ObsTitle4".text = global_ints.four_behaviour
+	$"%ObsTitle5".text = global_ints.five_behaviour
 	
 	global_ints.locked_observation_minutes = global_ints.observation_minutes
 	global_ints.locked_observation_intervals = global_ints.locked_observation_minutes * 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://wb_theme.tres" type="Theme" id=1]
 [ext_resource path="res://main_screen.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://ObservationWindow.gd" type="Script" id=7]
 [ext_resource path="res://EditScreen.gd" type="Script" id=8]
 [ext_resource path="res://Results.gd" type="Script" id=9]
+[ext_resource path="res://TimerBar.gd" type="Script" id=10]
+[ext_resource path="res://ProgressBar.gd" type="Script" id=11]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.952941, 0.933333, 0.847059, 1 )
@@ -35,8 +37,22 @@ bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.941176, 0.772549, 0.517647, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.862745, 0.435294, 0.329412, 1 )
+
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 18
+font_data = ExtResource( 5 )
 
 [node name="AppWindow" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -59,6 +75,7 @@ __meta__ = {
 }
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
@@ -762,7 +779,6 @@ margin_bottom = 649.0
 text = "Clear All"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
@@ -779,9 +795,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -453.0
-margin_top = 144.0
+margin_top = 51.0
 margin_right = 453.0
-margin_bottom = 184.0
+margin_bottom = 91.0
 
 [node name="BehaviourOne" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
 unique_name_in_owner = true
@@ -822,6 +838,61 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 text = "Acronym1"
 
+[node name="BehaviourTitles" type="HBoxContainer" parent="ObservationWindow/Panel"]
+margin_left = 189.0
+margin_top = 368.0
+margin_right = 1095.0
+margin_bottom = 408.0
+
+[node name="BTitle1" type="Label" parent="ObservationWindow/Panel/BehaviourTitles"]
+unique_name_in_owner = true
+margin_top = 3.0
+margin_right = 178.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Title1"
+align = 1
+
+[node name="BTitle2" type="Label" parent="ObservationWindow/Panel/BehaviourTitles"]
+unique_name_in_owner = true
+margin_left = 182.0
+margin_top = 3.0
+margin_right = 360.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Title2"
+align = 1
+
+[node name="BTitle3" type="Label" parent="ObservationWindow/Panel/BehaviourTitles"]
+unique_name_in_owner = true
+margin_left = 364.0
+margin_top = 3.0
+margin_right = 542.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Title3"
+align = 1
+
+[node name="BTitle4" type="Label" parent="ObservationWindow/Panel/BehaviourTitles"]
+unique_name_in_owner = true
+margin_left = 546.0
+margin_top = 3.0
+margin_right = 724.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Title4"
+align = 1
+
+[node name="BTitle5" type="Label" parent="ObservationWindow/Panel/BehaviourTitles"]
+unique_name_in_owner = true
+margin_left = 728.0
+margin_top = 3.0
+margin_right = 906.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Title5"
+align = 1
+
 [node name="TimeRemaining" type="Label" parent="ObservationWindow/Panel"]
 margin_left = 532.0
 margin_top = 98.0
@@ -838,87 +909,223 @@ margin_bottom = 132.0
 theme = ExtResource( 1 )
 text = "Seconds remaining"
 
-[node name="ObservationsRemaining" type="Label" parent="ObservationWindow/Panel"]
+[node name="Button" type="Button" parent="ObservationWindow/Panel"]
+margin_left = 582.0
+margin_top = 13.0
+margin_right = 700.0
+margin_bottom = 47.0
+text = "Stop Early"
+
+[node name="TimerBar" type="ProgressBar" parent="ObservationWindow/Panel"]
+margin_left = 406.0
+margin_top = 145.0
+margin_right = 891.0
+margin_bottom = 206.0
+theme = ExtResource( 1 )
+max_value = 20.0
+step = 1.0
+value = 20.0
+rounded = true
+percent_visible = false
+script = ExtResource( 10 )
+
+[node name="DescriptorBox" type="HBoxContainer" parent="ObservationWindow/Panel"]
+margin_left = 361.0
+margin_top = 441.0
+margin_right = 966.0
+margin_bottom = 481.0
+alignment = 1
+
+[node name="ObservationsRemaining" type="Label" parent="ObservationWindow/Panel/DescriptorBox"]
 unique_name_in_owner = true
-margin_left = 438.0
-margin_top = 472.0
-margin_right = 553.0
-margin_bottom = 506.0
+margin_left = 31.0
+margin_top = 3.0
+margin_right = 146.0
+margin_bottom = 37.0
 theme = ExtResource( 1 )
 text = "Remaining"
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Button" type="Button" parent="ObservationWindow/Panel"]
-margin_left = 1179.0
-margin_top = 29.0
-margin_right = 1246.0
-margin_bottom = 63.0
-text = "Abort"
+[node name="ObservationsSlash" type="Label" parent="ObservationWindow/Panel/DescriptorBox"]
+margin_left = 150.0
+margin_top = 3.0
+margin_right = 158.0
+margin_bottom = 37.0
+theme = ExtResource( 1 )
+text = "/"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ObservationsTotal" type="Label" parent="ObservationWindow/Panel/DescriptorBox"]
+unique_name_in_owner = true
+margin_left = 162.0
+margin_top = 3.0
+margin_right = 359.0
+margin_bottom = 37.0
+theme = ExtResource( 1 )
+text = "ObservationsTotal"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ObservationsDescriptor" type="Label" parent="ObservationWindow/Panel/DescriptorBox"]
+margin_left = 363.0
+margin_top = 3.0
+margin_right = 573.0
+margin_bottom = 37.0
+theme = ExtResource( 1 )
+text = "intervals remaining"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="ObservationWindow/Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+custom_styles/fg = SubResource( 10 )
+custom_styles/bg = SubResource( 11 )
+step = 1.0
+percent_visible = false
+script = ExtResource( 11 )
 
 [node name="TwentySecondTimer" type="Timer" parent="ObservationWindow"]
 unique_name_in_owner = true
 wait_time = 20.0
 
-[node name="ObservationsTotal" type="Label" parent="ObservationWindow"]
-unique_name_in_owner = true
-margin_left = 723.0
-margin_top = 660.0
-margin_right = 920.0
-margin_bottom = 694.0
-theme = ExtResource( 1 )
-text = "ObservationsTotal"
-
 [node name="Results" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 9 )
 
 [node name="Panel" type="Panel" parent="Results"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -157.0
+margin_top = -3.0
 theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="SaveReport" type="Button" parent="Results/Panel"]
-margin_left = 1045.0
-margin_top = 835.0
-margin_right = 1274.0
-margin_bottom = 869.0
+margin_left = 1042.0
+margin_top = 683.0
+margin_right = 1271.0
+margin_bottom = 717.0
 text = "Save Report as PNG"
 
 [node name="BackMainMenu" type="Button" parent="Results/Panel"]
-margin_left = 14.0
-margin_top = 828.0
-margin_right = 158.0
-margin_bottom = 862.0
+margin_left = 11.0
+margin_top = 676.0
+margin_right = 155.0
+margin_bottom = 710.0
 text = "Restart"
 
-[node name="MainText" type="Label" parent="Results/Panel"]
+[node name="FullResult" type="Label" parent="Results/Panel"]
+unique_name_in_owner = true
 margin_left = 11.0
-margin_top = 11.0
+margin_top = 13.0
 margin_right = 1268.0
-margin_bottom = 163.0
+margin_bottom = 396.0
+custom_fonts/font = SubResource( 9 )
 text = "Can this be multi-line?
 Or does text-wrap work?
 Can I get integers in? Must be able to, concatenate."
 autowrap = true
 
-[node name="Obs1" type="Label" parent="Results/Panel"]
-margin_left = 31.0
-margin_top = 277.0
-margin_right = 71.0
-margin_bottom = 311.0
-text = "Observation 1: "
+[node name="GridContainer" type="GridContainer" parent="Results/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -423.0
+margin_top = 60.5
+margin_right = 423.0
+margin_bottom = 181.5
+columns = 2
 
-[node name="Obs1Text" type="Label" parent="Results/Panel"]
+[node name="ObsTitle1" type="Label" parent="Results/Panel/GridContainer"]
 unique_name_in_owner = true
-margin_left = 199.0
-margin_top = 278.0
-margin_right = 361.0
-margin_bottom = 312.0
-text = "Observation 1: "
+margin_right = 50.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 12 )
+text = "Item1"
+
+[node name="ObsBar1" type="ProgressBar" parent="Results/Panel/GridContainer"]
+margin_left = 54.0
+margin_right = 846.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsTitle2" type="Label" parent="Results/Panel/GridContainer"]
+unique_name_in_owner = true
+margin_top = 30.0
+margin_right = 50.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 12 )
+text = "Item2"
+
+[node name="ObsBar2" type="ProgressBar" parent="Results/Panel/GridContainer"]
+margin_left = 54.0
+margin_top = 30.0
+margin_right = 846.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsTitle3" type="Label" parent="Results/Panel/GridContainer"]
+unique_name_in_owner = true
+margin_top = 60.0
+margin_right = 50.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 12 )
+text = "Item3"
+
+[node name="ObsBar3" type="ProgressBar" parent="Results/Panel/GridContainer"]
+margin_left = 54.0
+margin_top = 60.0
+margin_right = 846.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsTitle4" type="Label" parent="Results/Panel/GridContainer"]
+unique_name_in_owner = true
+margin_top = 90.0
+margin_right = 50.0
+margin_bottom = 116.0
+custom_fonts/font = SubResource( 12 )
+text = "Item4"
+
+[node name="ObsBar4" type="ProgressBar" parent="Results/Panel/GridContainer"]
+margin_left = 54.0
+margin_top = 90.0
+margin_right = 846.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsTitle5" type="Label" parent="Results/Panel/GridContainer"]
+unique_name_in_owner = true
+margin_top = 120.0
+margin_right = 50.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 12 )
+text = "Item5"
+
+[node name="ObsBar5" type="ProgressBar" parent="Results/Panel/GridContainer"]
+margin_left = 54.0
+margin_top = 120.0
+margin_right = 846.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
 
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
