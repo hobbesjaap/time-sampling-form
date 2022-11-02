@@ -14,10 +14,6 @@ func _ready():
 	pass
 
 
-func on_finished():
-	pass
-
-
 func _process(_delta):
 	time_lefts = $"TwentySecondTimer".time_left
 	$"Panel/TimeRemaining".text = str(time_lefts)
@@ -61,7 +57,6 @@ func _on_TwentySecondTimer_timeout():
 		
 		$"TwentySecondTimer".stop()
 		global_ints.generate_results = true
-		on_finished()
 		$"../Results".visible = true
 	
 	if global_ints.locked_observations_intervals_remaining > 1:
@@ -120,5 +115,4 @@ func _on_Button_pressed():
 		
 	$"TwentySecondTimer".stop()
 	global_ints.generate_results = true
-	on_finished()
 	$"../Results".visible = true

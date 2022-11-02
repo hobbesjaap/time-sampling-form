@@ -4,6 +4,8 @@ extends CanvasLayer
 var date_time
 var check_time_var : int
 
+var ddmmyyyy : String
+var date
 
 onready var date_time_display = $"%CurrentTime"
 onready var global_ints = $"/root/GlobalInts"
@@ -51,6 +53,10 @@ func _ready():
 	$"ObservationWindow".visible = false
 	$"Results".visible = false
 	$"EditScreen".visible = false
+	
+	global_ints.date = OS.get_date()
+	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
+	
 
 func _process(_delta):
 	check_time_var += 1
