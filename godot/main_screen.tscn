@@ -75,7 +75,6 @@ __meta__ = {
 }
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
@@ -136,10 +135,10 @@ __meta__ = {
 
 [node name="CurrentTime" type="Label" parent="StartScreen/InstructionPanel"]
 unique_name_in_owner = true
-margin_left = 1200.0
-margin_top = 510.0
-margin_right = 1279.0
-margin_bottom = 533.0
+margin_left = 1196.0
+margin_top = 506.0
+margin_right = 1275.0
+margin_bottom = 529.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "99:99"
@@ -155,7 +154,7 @@ margin_top = -197.0
 margin_right = 322.5
 margin_bottom = -163.0
 theme = ExtResource( 1 )
-text = "How long will you observe? (in minutes)"
+text = "How long will you observe for? (in minutes)"
 align = 1
 
 [node name="ObservationItemsTitle" type="Label" parent="StartScreen/InstructionPanel"]
@@ -473,7 +472,7 @@ unique_name_in_owner = true
 margin_right = 539.0
 margin_bottom = 34.0
 theme = ExtResource( 1 )
-text = "Observed Individual First Name:"
+text = "Who are you observing? (First name)"
 
 [node name="WarningLabel" type="Label" parent="StartScreen/NameChangePanel/NameContainer"]
 unique_name_in_owner = true
@@ -496,7 +495,7 @@ margin_top = 114.0
 margin_right = 539.0
 margin_bottom = 148.0
 theme = ExtResource( 1 )
-text = "Your Full Name:"
+text = "What is your name?"
 
 [node name="ObserverLine" type="LineEdit" parent="StartScreen/NameChangePanel/NameContainer"]
 unique_name_in_owner = true
@@ -511,7 +510,7 @@ margin_top = 190.0
 margin_right = 539.0
 margin_bottom = 224.0
 theme = ExtResource( 1 )
-text = "Observed during which Activity/Lesson:"
+text = "What Activity/Lesson are you observing?"
 
 [node name="ObservedActivity" type="LineEdit" parent="StartScreen/NameChangePanel/NameContainer"]
 unique_name_in_owner = true
@@ -524,6 +523,50 @@ theme = ExtResource( 1 )
 margin_top = 266.0
 margin_right = 539.0
 margin_bottom = 300.0
+theme = ExtResource( 1 )
+text = "OK"
+
+[node name="InstructionScreen" type="Panel" parent="StartScreen"]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -254.0
+margin_right = 640.0
+margin_bottom = 359.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="InstructionContainer" type="VBoxContainer" parent="StartScreen/InstructionScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -385.0
+margin_top = -258.0
+margin_right = 385.0
+margin_bottom = 258.0
+
+[node name="Instructions" type="Label" parent="StartScreen/InstructionScreen/InstructionContainer"]
+margin_right = 770.0
+margin_bottom = 478.0
+theme = ExtResource( 1 )
+text = "The Time Sampling Form is a guided observation tool. You set the length of your observation in minutes.
+
+Every 20 seconds you will click the button that corresponds with the behaviour you see at that time. The buttons to select the observed behaviour will be visible in the final 5 seconds of each 20 second interval.
+
+Use the \"Manual\" button on the main screen to read more about this tool and possible use cases.
+
+For first time users: It is recommended to do a one minute trial to gain an understanding of the system. I hope you find this tool useful!"
+autowrap = true
+
+[node name="InsOkButton" type="Button" parent="StartScreen/InstructionScreen/InstructionContainer"]
+margin_top = 482.0
+margin_right = 770.0
+margin_bottom = 516.0
 theme = ExtResource( 1 )
 text = "OK"
 
@@ -779,6 +822,7 @@ margin_bottom = 649.0
 text = "Clear All"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 7 )
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
@@ -788,6 +832,9 @@ margin_top = 188.0
 margin_bottom = 1.0
 theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BehaviourButtons" type="HBoxContainer" parent="ObservationWindow/Panel"]
 anchor_left = 0.5
@@ -910,10 +957,14 @@ theme = ExtResource( 1 )
 text = "Seconds remaining"
 
 [node name="Button" type="Button" parent="ObservationWindow/Panel"]
-margin_left = 582.0
-margin_top = 13.0
-margin_right = 700.0
-margin_bottom = 47.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -74.5
+margin_top = -231.5
+margin_right = 74.5
+margin_bottom = -191.5
 text = "Stop Early"
 
 [node name="TimerBar" type="ProgressBar" parent="ObservationWindow/Panel"]
@@ -998,6 +1049,7 @@ unique_name_in_owner = true
 wait_time = 20.0
 
 [node name="Results" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 9 )
 
 [node name="Panel" type="Panel" parent="Results"]
@@ -1006,19 +1058,24 @@ anchor_bottom = 1.0
 margin_top = -3.0
 theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SaveReport" type="Button" parent="Results/Panel"]
-margin_left = 1042.0
-margin_top = 683.0
-margin_right = 1271.0
-margin_bottom = 717.0
+unique_name_in_owner = true
+margin_left = 1011.0
+margin_top = 675.0
+margin_right = 1270.0
+margin_bottom = 715.0
 text = "Save Report as PNG"
 
 [node name="BackMainMenu" type="Button" parent="Results/Panel"]
+unique_name_in_owner = true
 margin_left = 11.0
-margin_top = 676.0
+margin_top = 675.0
 margin_right = 155.0
-margin_bottom = 710.0
+margin_bottom = 715.0
 text = "Restart"
 
 [node name="FullResult" type="Label" parent="Results/Panel"]
@@ -1032,13 +1089,56 @@ text = "Can this be multi-line?
 Or does text-wrap work?
 Can I get integers in? Must be able to, concatenate."
 autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ObsBar1" type="ProgressBar" parent="Results/Panel"]
 unique_name_in_owner = true
-margin_left = 271.0
+margin_left = 348.0
 margin_top = 422.0
-margin_right = 1063.0
+margin_right = 1140.0
 margin_bottom = 447.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsBar2" type="ProgressBar" parent="Results/Panel"]
+unique_name_in_owner = true
+margin_left = 348.0
+margin_top = 452.0
+margin_right = 1140.0
+margin_bottom = 477.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsBar3" type="ProgressBar" parent="Results/Panel"]
+unique_name_in_owner = true
+margin_left = 348.0
+margin_top = 482.0
+margin_right = 1140.0
+margin_bottom = 507.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsBar4" type="ProgressBar" parent="Results/Panel"]
+unique_name_in_owner = true
+margin_left = 348.0
+margin_top = 512.0
+margin_right = 1140.0
+margin_bottom = 537.0
+size_flags_horizontal = 3
+step = 1.0
+percent_visible = false
+
+[node name="ObsBar5" type="ProgressBar" parent="Results/Panel"]
+unique_name_in_owner = true
+margin_left = 348.0
+margin_top = 542.0
+margin_right = 1140.0
+margin_bottom = 567.0
 size_flags_horizontal = 3
 step = 1.0
 percent_visible = false
@@ -1048,90 +1148,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -423.0
+margin_left = -517.0
 margin_top = 60.5
-margin_right = 423.0
-margin_bottom = 181.5
-columns = 2
+margin_right = -302.0
+margin_bottom = 206.5
 
 [node name="ObsTitle1" type="Label" parent="Results/Panel/GridContainer"]
 unique_name_in_owner = true
-margin_right = 792.0
+margin_right = 50.0
 margin_bottom = 26.0
 custom_fonts/font = SubResource( 12 )
 text = "Item1"
 
 [node name="ObsTitle2" type="Label" parent="Results/Panel/GridContainer"]
 unique_name_in_owner = true
-margin_left = 796.0
-margin_right = 846.0
-margin_bottom = 26.0
+margin_top = 30.0
+margin_right = 50.0
+margin_bottom = 56.0
 custom_fonts/font = SubResource( 12 )
 text = "Item2"
 
-[node name="ObsBar2" type="ProgressBar" parent="Results/Panel/GridContainer"]
-unique_name_in_owner = true
-margin_top = 30.0
-margin_right = 792.0
-margin_bottom = 31.0
-size_flags_horizontal = 3
-step = 1.0
-percent_visible = false
-
 [node name="ObsTitle3" type="Label" parent="Results/Panel/GridContainer"]
 unique_name_in_owner = true
-margin_left = 796.0
-margin_top = 30.0
-margin_right = 846.0
-margin_bottom = 56.0
+margin_top = 60.0
+margin_right = 50.0
+margin_bottom = 86.0
 custom_fonts/font = SubResource( 12 )
 text = "Item3"
 
-[node name="ObsBar3" type="ProgressBar" parent="Results/Panel/GridContainer"]
-unique_name_in_owner = true
-margin_top = 60.0
-margin_right = 792.0
-margin_bottom = 61.0
-size_flags_horizontal = 3
-step = 1.0
-percent_visible = false
-
 [node name="ObsTitle4" type="Label" parent="Results/Panel/GridContainer"]
 unique_name_in_owner = true
-margin_left = 796.0
-margin_top = 60.0
-margin_right = 846.0
-margin_bottom = 86.0
+margin_top = 90.0
+margin_right = 50.0
+margin_bottom = 116.0
 custom_fonts/font = SubResource( 12 )
 text = "Item4"
 
-[node name="ObsBar4" type="ProgressBar" parent="Results/Panel/GridContainer"]
-unique_name_in_owner = true
-margin_top = 90.0
-margin_right = 792.0
-margin_bottom = 91.0
-size_flags_horizontal = 3
-step = 1.0
-percent_visible = false
-
 [node name="ObsTitle5" type="Label" parent="Results/Panel/GridContainer"]
 unique_name_in_owner = true
-margin_left = 796.0
-margin_top = 90.0
-margin_right = 846.0
-margin_bottom = 116.0
+margin_top = 120.0
+margin_right = 50.0
+margin_bottom = 146.0
 custom_fonts/font = SubResource( 12 )
 text = "Item5"
 
-[node name="ObsBar5" type="ProgressBar" parent="Results/Panel/GridContainer"]
-unique_name_in_owner = true
-margin_top = 120.0
-margin_right = 792.0
-margin_bottom = 121.0
-size_flags_horizontal = 3
-step = 1.0
-percent_visible = false
-
+[connection signal="button_down" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_button_down"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Manual" to="." method="_on_Manual_pressed"]
@@ -1139,6 +1200,7 @@ percent_visible = false
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
+[connection signal="pressed" from="StartScreen/InstructionScreen/InstructionContainer/InsOkButton" to="." method="_on_InsOkButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/ClearAll" to="EditScreen" method="_on_ClearAll_pressed"]

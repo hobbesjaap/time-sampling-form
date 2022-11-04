@@ -49,6 +49,7 @@ func _ready():
 	refresh_descriptors()
 	$"StartScreen".visible = true
 	$"%NameChangePanel".visible = true
+	$"%InstructionScreen".visible = true
 	$"%WarningLabel".visible = false
 	$"ObservationWindow".visible = false
 	$"Results".visible = false
@@ -70,29 +71,29 @@ func _process(_delta):
 			date_time_display.text = str(date_time.hour, ":", date_time.minute)
 
 
-func _on_MinuteMinus_pressed() -> void:
+func _on_MinuteMinus_pressed():
 	if global_ints.observation_minutes >= 2:
 		global_ints.observation_minutes -= 1
 		minute_label.text = str(global_ints.observation_minutes)
 
 
-func _on_MinutePlus_pressed() -> void:
+func _on_MinutePlus_pressed():
 	if global_ints.observation_minutes < 60:
 		global_ints.observation_minutes += 1
 		minute_label.text = str(global_ints.observation_minutes)
 
 
-func _on_Manual_pressed() -> void:
+func _on_Manual_pressed():
 	var _error = OS.shell_open("https://www.internationalsengroup.org/resources/time-sampling-form/")
 
 
-func _on_PupilName_pressed() -> void:
+func _on_PupilName_pressed():
 	$"%NameLine".text = global_ints.observed_person_name
 	$"%InstructionPanel".visible = false
 	$"%NameChangePanel".visible = true
 
 
-func _on_Start_pressed() -> void:
+func _on_Start_pressed():
 	$"StartScreen".visible = false
 	refresh_descriptors()
 	$"ObservationWindow".visible = true
@@ -130,3 +131,14 @@ func _on_Start_pressed() -> void:
 
 func _on_ChangeItems_pressed():
 	$"EditScreen".visible = true
+
+
+func _on_InsOkButton_pressed():
+	$"%InstructionScreen".visible = false
+
+
+func _on_MinuteMinus_button_down():
+#	if global_ints.observation_minutes >= 2:
+#		global_ints.observation_minutes -= 1
+#		minute_label.text = str(global_ints.observation_minutes)
+	pass

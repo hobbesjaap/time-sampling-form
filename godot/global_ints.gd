@@ -1,13 +1,11 @@
 extends Node
 
-# For testing purposes - make the intervals 4 seconds instead of 20
-
 var date
 var ddmmyyyy
 
 var total_observed_time : int
 
-var timer_duration : int = 20
+var timer_duration : int = 6
 
 var observation_minutes : int = 1
 
@@ -61,7 +59,7 @@ var four_behaviour_percent : int
 var five_behaviour_percent : int
 
 func reset_all_vars():
-	observation_minutes = 1
+	observation_minutes = 15
 
 	generate_results = false
 

@@ -7,16 +7,30 @@ onready var global_ints = $"/root/GlobalInts"
 func _ready():
 	pass
 
-
-func Download_File(_img,_filename):
-	var buf = _img.save_png_to_buffer()
-	JavaScript.download_buffer(buf,_filename+".png")
-
-
-func _on_SaveReport_pressed():
-#	Download_File(results, results)
+func _process(delta):
+#	$"%SaveReport".visible = true
+#	$"%BackMainMenu".visible = true
 	pass
 
+func _on_SaveReport_pressed():
+	$"%SaveReport".visible = false
+	$"%BackMainMenu".visible = false
+
+	# WIP: Web Version
+#	var file = File.new()
+#	file.open("res://screenshot.png", File.READ)
+#	var base_64_data = Marshalls.raw_to_base64(file.get_buffer(file.get_len()))
+#	var url = "data:image/jpg;base64,"+base_64_data
+#	var comand = "var a = document.createElement('a'); a.href = '" + url + "'; a.setAttribute( 'download' , 'filename.jpg' ); 	a.click();"
+
+#	JavaScript.eval(comand, true)
+
+	# WIP: Non-Web Version
+	var image = get_viewport().get_texture().get_data()
+	
+	image.flip_y()
+	image.save_png("user://results.png")
+	
 
 func _on_BackMainMenu_pressed():
 	global_ints.reset_all_vars()
