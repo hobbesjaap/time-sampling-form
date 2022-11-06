@@ -6,7 +6,7 @@ var check_time_var : int
 
 var ddmmyyyy : String
 var date
-var csv_url = "https://raw.githubusercontent.com/hobbesjaap/wellbeingapp/main/version_info.csv"
+var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/version_info.csv"
 
 onready var date_time_display = $"%CurrentTime"
 onready var global_ints = $"/root/GlobalInts"
