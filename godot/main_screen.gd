@@ -25,8 +25,8 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	global_ints.web_release_version = json.result
 	if global_ints.web_release_version > global_ints.release_version:
 			print("There's an update!")
-	elif global_ints.web_release_version == global_ints.release_version:
-			print("There is no update!")
+#	elif global_ints.web_release_version == global_ints.release_version:
+#			print("There is no update!")
 
 func refresh_descriptors():
 	$"%1Acronym".text = global_ints.one_acronym
