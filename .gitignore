@@ -1,5 +1,6 @@
 # Mac-specific
 .DS_Store
+*.pdf
 
 # ---> Godot
 # Godot-specific ignores
