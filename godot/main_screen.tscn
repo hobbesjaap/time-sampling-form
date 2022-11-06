@@ -69,6 +69,9 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
 
+[node name="HTTPRequest2" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
 [node name="ClassroomPhoto" type="Sprite" parent="."]
 position = Vector2( 639.9, 201.694 )
 scale = Vector2( 0.665729, 0.665729 )
@@ -638,6 +641,7 @@ text = "You are currently using version XX. The latest version available is XX. 
 autowrap = true
 
 [node name="UpdateText" type="Label" parent="StartScreen/UpdatePanel"]
+unique_name_in_owner = true
 margin_left = 33.0
 margin_top = 146.0
 margin_right = 1249.0
@@ -1269,6 +1273,7 @@ custom_fonts/font = SubResource( 12 )
 text = "Item5"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="HTTPRequest2" to="." method="_on_HTTPRequest2_request_completed"]
 [connection signal="button_down" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_button_down"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]

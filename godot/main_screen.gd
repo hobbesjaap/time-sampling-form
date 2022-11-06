@@ -7,6 +7,8 @@ var check_time_var : int
 var ddmmyyyy : String
 var date
 var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/version_info.csv"
+var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
+var update_text : String
 
 onready var date_time_display = $"%CurrentTime"
 onready var global_ints = $"/root/GlobalInts"
@@ -19,6 +21,7 @@ func check_for_updates():
 	if os_check == "X11" and "Windows" and "OSX":
 		print("We're on desktop. So let's check for updates!")
 		$"%HTTPRequest".request(csv_url)
+		$"%HTTPRequest2".request(update_text_url)
 
 func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
@@ -26,9 +29,14 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	if global_ints.web_release_version > global_ints.release_version:
 			print("There's an update!")
 			$"%UpdatePanel".visible = true
-			
-#	elif global_ints.web_release_version == global_ints.release_version:
-#			print("There is no update!")
+			$"%UpdateText".text = str(update_text)
+
+
+func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	update_text = str(json.result)
+	
+
 
 func refresh_descriptors():
 	$"%1Acronym".text = global_ints.one_acronym
