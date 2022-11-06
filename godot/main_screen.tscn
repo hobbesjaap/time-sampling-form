@@ -66,6 +66,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
 [node name="ClassroomPhoto" type="Sprite" parent="."]
 position = Vector2( 639.9, 201.694 )
 scale = Vector2( 0.665729, 0.665729 )
@@ -1192,6 +1195,7 @@ margin_bottom = 146.0
 custom_fonts/font = SubResource( 12 )
 text = "Item5"
 
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="button_down" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_button_down"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]

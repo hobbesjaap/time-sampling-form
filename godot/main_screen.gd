@@ -6,6 +6,7 @@ var check_time_var : int
 
 var ddmmyyyy : String
 var date
+var csv_url = "https://raw.githubusercontent.com/hobbesjaap/wellbeingapp/main/version_info.csv"
 
 onready var date_time_display = $"%CurrentTime"
 onready var global_ints = $"/root/GlobalInts"
@@ -15,8 +16,17 @@ func check_for_updates():
 	var os_check : String
 	os_check = OS.get_name()
 	print(os_check)
-	if os_check == "X11" and "Windows" and "Mac":
+	if os_check == "X11" and "Windows" and "OSX":
 		print("We're on desktop. So let's check for updates!")
+		$"%HTTPRequest".request(csv_url)
+
+func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	global_ints.web_release_version = json.result
+	if global_ints.web_release_version > global_ints.release_version:
+			print("There's an update!")
+	elif global_ints.web_release_version == global_ints.release_version:
+			print("There is no update!")
 
 func refresh_descriptors():
 	$"%1Acronym".text = global_ints.one_acronym

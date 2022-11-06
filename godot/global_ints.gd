@@ -3,6 +3,9 @@ extends Node
 var date
 var ddmmyyyy
 
+var web_release_version = 0
+var release_version = 1
+
 var total_observed_time : int
 
 var timer_duration : int = 6
