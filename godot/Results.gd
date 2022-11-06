@@ -7,7 +7,7 @@ onready var global_ints = $"/root/GlobalInts"
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 #	$"%SaveReport".visible = true
 #	$"%BackMainMenu".visible = true
 	pass

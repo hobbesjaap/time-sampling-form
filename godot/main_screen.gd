@@ -11,6 +11,13 @@ onready var date_time_display = $"%CurrentTime"
 onready var global_ints = $"/root/GlobalInts"
 onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 
+func check_for_updates():
+	var os_check : String
+	os_check = OS.get_name()
+	print(os_check)
+	if os_check == "X11" and "Windows" and "Mac":
+		print("We're on desktop. So let's check for updates!")
+
 func refresh_descriptors():
 	$"%1Acronym".text = global_ints.one_acronym
 	$"%1AcronymE".text = $"%1Acronym".text
@@ -58,6 +65,7 @@ func _ready():
 	global_ints.date = OS.get_date()
 	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
 	
+	check_for_updates()
 
 func _process(_delta):
 	check_time_var += 1
