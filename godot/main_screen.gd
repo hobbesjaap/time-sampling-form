@@ -3,16 +3,17 @@ extends CanvasLayer
 
 var date_time
 var check_time_var : int
-
 var ddmmyyyy : String
 var date
 var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/version_info.csv"
 var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
 var update_text : String
 
+
 onready var date_time_display = $"%CurrentTime"
 onready var global_ints = $"/root/GlobalInts"
 onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
+
 
 func check_for_updates():
 	var os_check : String
@@ -23,6 +24,7 @@ func check_for_updates():
 		$"%HTTPRequest".request(csv_url)
 		$"%HTTPRequest2".request(update_text_url)
 
+
 func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	global_ints.web_release_version = json.result
@@ -30,12 +32,14 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 			print("There's an update!")
 			$"%UpdatePanel".visible = true
 			$"%UpdateText".text = str(update_text)
+			$"%UpdateIntro".text = str("You are currently using version ",global_ints.release_version,". The latest version available is ",global_ints.web_release_version,".")
 
 
 func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body):
-	var json = JSON.parse(body.get_string_from_utf8())
-	update_text = str(json.result)
-	
+#	Need to find a way to load .txt file contents from a URL into a label. This to show what the update changes are.
+#	var json = JSON.parse(body.get_string_from_utf8())
+#	update_text = str(json.result)
+	pass
 
 
 func refresh_descriptors():
@@ -171,3 +175,11 @@ func _on_MinuteMinus_button_down():
 #		global_ints.observation_minutes -= 1
 #		minute_label.text = str(global_ints.observation_minutes)
 	pass
+
+
+func _on_GoToUpdate_pressed():
+	var _error = OS.shell_open("https://github.com/hobbesjaap/time-sampling-form/releases")
+
+
+func _on_IgnoreUpdate_pressed():
+	$"%UpdatePanel".visible = false
