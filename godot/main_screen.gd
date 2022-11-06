@@ -25,6 +25,8 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	global_ints.web_release_version = json.result
 	if global_ints.web_release_version > global_ints.release_version:
 			print("There's an update!")
+			$"%UpdatePanel".visible = true
+			
 #	elif global_ints.web_release_version == global_ints.release_version:
 #			print("There is no update!")
 
@@ -71,6 +73,7 @@ func _ready():
 	$"ObservationWindow".visible = false
 	$"Results".visible = false
 	$"EditScreen".visible = false
+	$"%UpdatePanel".visible = false
 	
 	global_ints.date = OS.get_date()
 	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)

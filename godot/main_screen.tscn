@@ -573,6 +573,79 @@ margin_bottom = 516.0
 theme = ExtResource( 1 )
 text = "OK"
 
+[node name="UpdatePanel" type="Panel" parent="StartScreen"]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -171.0
+margin_right = 640.0
+margin_bottom = 359.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Update" type="Label" parent="StartScreen/UpdatePanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.5
+margin_top = -250.0
+margin_right = 172.5
+margin_bottom = -200.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "An Update is available!"
+align = 1
+
+[node name="BottomButtons" type="HBoxContainer" parent="StartScreen/UpdatePanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = 180.0
+margin_right = 500.0
+margin_bottom = 240.0
+
+[node name="GoToUpdate" type="Button" parent="StartScreen/UpdatePanel/BottomButtons"]
+margin_right = 498.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Download Update"
+
+[node name="IgnoreUpdate" type="Button" parent="StartScreen/UpdatePanel/BottomButtons"]
+margin_left = 502.0
+margin_right = 1000.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Ignore Update"
+
+[node name="UpdateIntro" type="Label" parent="StartScreen/UpdatePanel"]
+margin_left = 33.0
+margin_top = 107.0
+margin_right = 1249.0
+margin_bottom = 148.0
+theme = ExtResource( 1 )
+text = "You are currently using version XX. The latest version available is XX. Version changes are:"
+autowrap = true
+
+[node name="UpdateText" type="Label" parent="StartScreen/UpdatePanel"]
+margin_left = 33.0
+margin_top = 146.0
+margin_right = 1249.0
+margin_bottom = 432.0
+theme = ExtResource( 1 )
+text = "text"
+autowrap = true
+
 [node name="EditScreen" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -1205,6 +1278,8 @@ text = "Item5"
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionScreen/InstructionContainer/InsOkButton" to="." method="_on_InsOkButton_pressed"]
+[connection signal="pressed" from="StartScreen/UpdatePanel/BottomButtons/GoToUpdate" to="." method="_on_PupilName_pressed"]
+[connection signal="pressed" from="StartScreen/UpdatePanel/BottomButtons/IgnoreUpdate" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
 [connection signal="pressed" from="EditScreen/Panel/ClearAll" to="EditScreen" method="_on_ClearAll_pressed"]
