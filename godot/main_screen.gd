@@ -35,7 +35,7 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 			$"%UpdateIntro".text = str("You are currently using version ",global_ints.release_version,". The latest version available is ",global_ints.web_release_version,".")
 
 
-func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body):
+func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, _body):
 #	Need to find a way to load .txt file contents from a URL into a label. This to show what the update changes are.
 #	var json = JSON.parse(body.get_string_from_utf8())
 #	update_text = str(json.result)

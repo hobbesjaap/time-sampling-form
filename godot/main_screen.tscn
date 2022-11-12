@@ -47,7 +47,6 @@ bg_color = Color( 0.862745, 0.435294, 0.329412, 1 )
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 14
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=12]
@@ -1130,7 +1129,6 @@ unique_name_in_owner = true
 wait_time = 20.0
 
 [node name="Results" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 9 )
 
 [node name="Panel" type="Panel" parent="Results"]

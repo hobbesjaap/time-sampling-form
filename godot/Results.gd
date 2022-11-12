@@ -3,9 +3,45 @@ extends CanvasLayer
 
 onready var global_ints = $"/root/GlobalInts"
 
+var js_callback = JavaScript.create_callback(self, "load_handler");
+var js_interface;
+var image : Image
+var fileName : String = "results.png"
 
 func _ready():
-	pass
+	if OS.get_name() == "HTML5" and OS.has_feature('JavaScript'):
+		_define_js()
+		js_interface = JavaScript.get_interface("_HTML5FileExchange");
+
+
+func _define_js()->void:
+	#Define JS script
+	JavaScript.eval("""
+	var _HTML5FileExchange = {};
+	_HTML5FileExchange.upload = function(gd_callback) {
+		canceled = true;
+		var input = document.createElement('INPUT'); 
+		input.setAttribute("type", "file");
+		input.setAttribute("accept", "image/png, image/jpeg, image/webp");
+		input.click();
+		input.addEventListener('change', event => {
+			if (event.target.files.length > 0){
+				canceled = false;}
+			var file = event.target.files[0];
+			var reader = new FileReader();
+			this.fileType = file.type;
+			// var fileName = file.name;
+			reader.readAsArrayBuffer(file);
+			reader.onloadend = (evt) => { // Since here's it's arrow function, "this" still refers to _HTML5FileExchange
+				if (evt.target.readyState == FileReader.DONE) {
+					this.result = evt.target.result;
+					gd_callback(); // It's hard to retrieve value from callback argument, so it's just for notification
+				}
+			}
+		  });
+	}
+	""", true)
+
 
 func _process(_delta):
 #	$"%SaveReport".visible = true
@@ -16,21 +52,31 @@ func _on_SaveReport_pressed():
 	$"%SaveReport".visible = false
 	$"%BackMainMenu".visible = false
 
-	# WIP: Web Version
-#	var file = File.new()
-#	file.open("res://screenshot.png", File.READ)
-#	var base_64_data = Marshalls.raw_to_base64(file.get_buffer(file.get_len()))
-#	var url = "data:image/jpg;base64,"+base_64_data
-#	var comand = "var a = document.createElement('a'); a.href = '" + url + "'; a.setAttribute( 'download' , 'filename.jpg' ); 	a.click();"
+	print("I've disabled the buttons")
+	print("That means the screenshot SHOULD be button free")
 
-#	JavaScript.eval(comand, true)
-
-	# WIP: Non-Web Version
-	var image = get_viewport().get_texture().get_data()
-	
+	image = get_viewport().get_texture().get_data()
 	image.flip_y()
-	image.save_png("user://results.png")
+
+	if OS.get_name() == "HTML5" or OS.has_feature('JavaScript'):
+		# We're on the web
+		print("We're on the web")
 	
+		image.clear_mipmaps()
+		var buffer = image.save_png_to_buffer()
+		JavaScript.download_buffer(buffer, fileName)
+
+	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+		# We're not on the web
+		print("We're not on the web")
+		
+
+		var _error2 = image.save_png("user://results.png")
+		
+		var _error = OS.shell_open(OS.get_user_data_dir())
+		
+	$"%SaveReport".visible = true
+	$"%BackMainMenu".visible = true
 
 func _on_BackMainMenu_pressed():
 	global_ints.reset_all_vars()

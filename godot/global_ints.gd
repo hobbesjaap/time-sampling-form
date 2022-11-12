@@ -8,9 +8,9 @@ var release_version = 0.10
 
 var total_observed_time : int
 
-var timer_duration : int = 6
+var timer_duration : int = 20
 
-var observation_minutes : int = 1
+var observation_minutes : int = 10
 
 var observation_start_time : String
 var observation_end_time : String
