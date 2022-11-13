@@ -55,11 +55,11 @@ var four_behaviour_score : int
 var five_behaviour_score : int
 var six_behaviour_score : int
 
-var one_behaviour_percent : int
-var two_behaviour_percent : int
-var three_behaviour_percent : int
-var four_behaviour_percent : int
-var five_behaviour_percent : int
+var one_behaviour_percent : float
+var two_behaviour_percent : float
+var three_behaviour_percent : float
+var four_behaviour_percent : float
+var five_behaviour_percent : float
 
 func reset_all_vars():
 	observation_minutes = 15
@@ -104,11 +104,11 @@ func reset_all_vars():
 	five_behaviour_score = 0
 	six_behaviour_score = 0
 
-	one_behaviour_percent = 0
-	two_behaviour_percent = 0
-	three_behaviour_percent = 0
-	four_behaviour_percent = 0
-	five_behaviour_percent = 0
+	one_behaviour_percent = 0.0
+	two_behaviour_percent = 0.0
+	three_behaviour_percent = 0.0
+	four_behaviour_percent = 0.0
+	five_behaviour_percent = 0.0
 	
 	observation_start_time = ""
 	observation_end_time = ""

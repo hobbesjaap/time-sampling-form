@@ -23,6 +23,19 @@ func _process(_delta):
 		$"Panel/BehaviourButtons".visible = true
 
 
+func calculate_percentages():
+		global_ints.total_observed_time = global_ints.total_behaviours / 3
+
+		global_ints.one_behaviour_percent = int((float(global_ints.one_behaviour_score) / global_ints.total_behaviours) * 100)
+
+		global_ints.two_behaviour_percent = int((float(global_ints.two_behaviour_score) / global_ints.total_behaviours) * 100)
+
+		global_ints.three_behaviour_percent = int((float(global_ints.three_behaviour_score) / global_ints.total_behaviours) * 100)
+
+		global_ints.four_behaviour_percent = int((float(global_ints.four_behaviour_score) / global_ints.total_behaviours) * 100)
+
+		global_ints.five_behaviour_percent = int((float(global_ints.five_behaviour_score) / global_ints.total_behaviours) * 100)
+
 func on_interval_moment():
 	print("Timer reaches 0 - Let's check if buttons have been pressed and count something")
 	toggle_observation = false
@@ -57,6 +70,7 @@ func _on_TwentySecondTimer_timeout():
 		
 		$"TwentySecondTimer".stop()
 		global_ints.generate_results = true
+		calculate_percentages()
 		$"../Results".visible = true
 	
 	if global_ints.locked_observations_intervals_remaining > 1:
@@ -115,4 +129,5 @@ func _on_Button_pressed():
 		
 	$"TwentySecondTimer".stop()
 	global_ints.generate_results = true
+	calculate_percentages()
 	$"../Results".visible = true
