@@ -70,10 +70,15 @@ func _on_SaveReport_pressed():
 		# We're not on the web
 		print("We're not on the web")
 		
-
-		var _error2 = image.save_png("user://results.png")
+		var title = str("user://results",global_ints.observed_person_name, global_ints.observation_minutes,".png")
 		
-		var _error = OS.shell_open(OS.get_user_data_dir())
+		print(title)
+		
+		var _saveimage = image.save_png(title)
+		
+		var folder = OS.get_user_data_dir()
+		
+		var _openfolder = OS.shell_open(folder)
 		
 	$"%SaveReport".visible = true
 	$"%BackMainMenu".visible = true

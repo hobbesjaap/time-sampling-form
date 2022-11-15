@@ -80,6 +80,7 @@ __meta__ = {
 }
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
