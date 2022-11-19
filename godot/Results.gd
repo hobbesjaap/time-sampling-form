@@ -85,9 +85,7 @@ func _on_SaveReport_pressed():
 		if OS.get_name() == "OSX":
 			print("We're on MacOS")
 			
-			var folder2 = "../../" + folder
-			
-			var _openfolder = OS.shell_open(folder2)
+			var _openfolder = OS.shell_open("file://" + folder)
 		
 	$"%SaveReport".visible = true
 	$"%BackMainMenu".visible = true
