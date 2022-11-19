@@ -78,7 +78,16 @@ func _on_SaveReport_pressed():
 		
 		var folder = OS.get_user_data_dir()
 		
-		var _openfolder = OS.shell_open(folder)
+		if OS.get_name() != "OSX":
+			print("We're not on MacOS")
+			var _openfolder = OS.shell_open(folder)
+		
+		if OS.get_name() == "OSX":
+			print("We're on MacOS")
+			
+			var folder2 = "../../" + folder
+			
+			var _openfolder = OS.shell_open(folder2)
 		
 	$"%SaveReport".visible = true
 	$"%BackMainMenu".visible = true
