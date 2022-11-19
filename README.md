@@ -4,11 +4,11 @@
 
 # Time Sampling Form
 
-A freeware and open source SEN-related observation tool.
+A freeware and open source SEN-related observation tool. The <a href="https://www.internationalsengroup.org/tsf_web/" target="_blank">web version is available here</a> (now works on iPads too).
 
-## To be written up...
+## Manual
 
-The rest of this Readme will be written.
+For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://www.internationalsengroup.org/resources/time-sampling-form/" target="_blank">this page on the ISENG website</a>.
 
 ## License & Attributions
 
