@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://wb_theme.tres" type="Theme" id=1]
 [ext_resource path="res://main_screen.gd" type="Script" id=2]
@@ -11,14 +11,13 @@
 [ext_resource path="res://Results.gd" type="Script" id=9]
 [ext_resource path="res://TimerBar.gd" type="Script" id=10]
 [ext_resource path="res://ProgressBar.gd" type="Script" id=11]
+[ext_resource path="res://Assets/icons/main_icon.png" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.952941, 0.933333, 0.847059, 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 50
-corner_radius_top_right = 50
 shadow_offset = Vector2( 0, 4 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -72,6 +71,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="ClassroomPhoto" type="Sprite" parent="."]
+visible = false
 position = Vector2( 639.9, 201.694 )
 scale = Vector2( 0.665729, 0.665729 )
 texture = ExtResource( 3 )
@@ -80,10 +80,10 @@ __meta__ = {
 }
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -534,7 +534,6 @@ text = "OK"
 
 [node name="InstructionScreen" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -551,33 +550,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -385.0
-margin_top = -258.0
-margin_right = 385.0
-margin_bottom = 258.0
+margin_left = -384.0
+margin_top = -124.5
+margin_right = 386.0
+margin_bottom = 290.5
+
+[node name="MainIcon" type="Sprite" parent="StartScreen/InstructionScreen/InstructionContainer"]
+position = Vector2( 384, -160 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 12 )
 
 [node name="Instructions" type="Label" parent="StartScreen/InstructionScreen/InstructionContainer"]
 margin_right = 770.0
-margin_bottom = 478.0
+margin_bottom = 367.0
 theme = ExtResource( 1 )
 text = "The Time Sampling Form is a guided observation tool. You set the length of your observation in minutes.
 
 Every 20 seconds you will click the button that corresponds with the behaviour you see at that time. The buttons to select the observed behaviour will be visible in the final 5 seconds of each 20 second interval.
 
-Use the \"Manual\" button on the main screen to read more about this tool and possible use cases.
-
 For first time users: It is recommended to do a one minute trial to gain an understanding of the system. I hope you find this tool useful!"
 autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="InsOkButton" type="Button" parent="StartScreen/InstructionScreen/InstructionContainer"]
-margin_top = 482.0
+margin_top = 371.0
 margin_right = 770.0
-margin_bottom = 516.0
+margin_bottom = 405.0
 theme = ExtResource( 1 )
 text = "OK"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="UpdatePanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1130,6 +1139,7 @@ unique_name_in_owner = true
 wait_time = 20.0
 
 [node name="Results" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 9 )
 
 [node name="Panel" type="Panel" parent="Results"]
@@ -1144,18 +1154,18 @@ __meta__ = {
 
 [node name="SaveReport" type="Button" parent="Results/Panel"]
 unique_name_in_owner = true
-margin_left = 1011.0
-margin_top = 675.0
-margin_right = 1270.0
-margin_bottom = 715.0
+margin_left = 992.0
+margin_top = 643.0
+margin_right = 1251.0
+margin_bottom = 683.0
 text = "Save Report as PNG"
 
 [node name="BackMainMenu" type="Button" parent="Results/Panel"]
 unique_name_in_owner = true
-margin_left = 11.0
-margin_top = 675.0
-margin_right = 155.0
-margin_bottom = 715.0
+margin_left = 32.0
+margin_top = 643.0
+margin_right = 176.0
+margin_bottom = 683.0
 text = "Restart"
 
 [node name="FullResult" type="Label" parent="Results/Panel"]

@@ -3,8 +3,8 @@ extends Node
 var date
 var ddmmyyyy
 
-var web_release_version = 0.10
-var release_version = 0.10
+var web_release_version : float
+var release_version = 0.15
 
 var total_observed_time : int
 

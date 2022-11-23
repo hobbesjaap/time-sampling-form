@@ -13,8 +13,11 @@ config_version=4
 config/name="Time Sampling Form"
 run/main_scene="res://main_screen.tscn"
 run/low_processor_mode=true
+boot_splash/image="res://Assets/icons/main_icon.png"
+boot_splash/bg_color=Color( 0.952941, 0.933333, 0.847059, 1 )
 config/icon="res://Assets/icons/main_icon.png"
 config/macos_native_icon="res://Assets/icons/main_icon.icns"
+config/windows_native_icon="res://Assets/icons/icon.ico"
 
 [autoload]
 

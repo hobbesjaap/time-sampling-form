@@ -70,22 +70,22 @@ func _on_SaveReport_pressed():
 		# We're not on the web
 		print("We're not on the web")
 		
-		var title = str("user://results",global_ints.observed_person_name, global_ints.observation_minutes,".png")
+		var docs = OS.get_environment("HOME") + "/Documents"
+		
+		var title = str(docs + "/results",global_ints.observed_person_name, global_ints.observation_minutes,".png")
 		
 		print(title)
 		
 		var _saveimage = image.save_png(title)
 		
-		var folder = OS.get_user_data_dir()
-		
 		if OS.get_name() != "OSX":
 			print("We're not on MacOS")
-			var _openfolder = OS.shell_open(folder)
+			var _openfolder = OS.shell_open(docs)
 		
 		if OS.get_name() == "OSX":
 			print("We're on MacOS")
 			
-			var _openfolder = OS.shell_open("file://" + folder)
+			var _openfolder = OS.shell_open("file://" + docs)
 		
 	$"%SaveReport".visible = true
 	$"%BackMainMenu".visible = true
