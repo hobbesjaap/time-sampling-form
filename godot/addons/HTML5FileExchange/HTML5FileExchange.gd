@@ -48,7 +48,7 @@ func load_image():
 
 	js_interface.upload(js_callback);
 
-	yield(self, "read_completed")
+	await self.read_completed
 	
 	var imageType = js_interface.fileType;
 	var imageData = JavaScript.eval("_HTML5FileExchange.result", true) # interface doesn't work as expected for some reason
