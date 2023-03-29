@@ -1,7 +1,7 @@
 extends ProgressBar
 
 
-@onready var global_ints = $"/root/GlobalInts"
+onready var global_ints = $"/root/GlobalInts"
 
 
 func _ready():

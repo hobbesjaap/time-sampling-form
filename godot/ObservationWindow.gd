@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-@onready var global_ints = $"/root/GlobalInts"
+onready var global_ints = $"/root/GlobalInts"
 
 
 var time_lefts : int

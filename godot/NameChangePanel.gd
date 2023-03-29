@@ -1,7 +1,7 @@
 extends Panel
 
 
-@onready var global_ints = $"/root/GlobalInts"
+onready var global_ints = $"/root/GlobalInts"
 
 
 func _on_OkButton_pressed():

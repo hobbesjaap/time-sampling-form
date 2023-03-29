@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var gi = $"/root/GlobalInts"
-@onready var global_ints = gi
-@onready var main_window = $"../../AppWindow"
+onready var gi = $"/root/GlobalInts"
+onready var global_ints = gi
+onready var main_window = $"../../AppWindow"
 
 func _ready():
 	pass # Replace with function body.
