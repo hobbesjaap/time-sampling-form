@@ -10,9 +10,9 @@ var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-samplin
 var update_text : String
 
 
-onready var date_time_display = $"%CurrentTime"
-onready var global_ints = $"/root/GlobalInts"
-onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
+@onready var date_time_display = $"%CurrentTime"
+@onready var global_ints = $"/root/GlobalInts"
+@onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 
 
 func check_for_updates():
@@ -26,7 +26,9 @@ func check_for_updates():
 
 
 func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
-	var json = JSON.parse(body.get_string_from_utf8())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(body.get_string_from_utf8())
+	var json = test_json_conv.get_data()
 	global_ints.web_release_version = json.result
 	if global_ints.web_release_version > global_ints.release_version:
 			print("There's an update!")

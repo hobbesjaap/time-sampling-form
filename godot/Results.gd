@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-onready var global_ints = $"/root/GlobalInts"
+@onready var global_ints = $"/root/GlobalInts"
 
 var js_callback = JavaScript.create_callback(self, "load_handler");
 var js_interface;
