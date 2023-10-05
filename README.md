@@ -8,7 +8,7 @@ A freeware and open source SEN-related observation tool. The <a href="https://ww
 
 ## Manual
 
-For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://www.internationalsengroup.org/resources/time-sampling-form/" target="_blank">this page on the ISENG website</a>.
+For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://docs.internationalsengroup.org/tsf.html" target="_blank">this page on the ISENG website</a>.
 
 ## License & Attributions
 
