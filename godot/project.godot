@@ -1,0 +1,59 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Time Sampling Form"
+config/name_localized={
+"nl": "Tijdsteekproef Formulier"
+}
+run/main_scene="res://main_screen.tscn"
+config/features=PackedStringArray("4.1")
+run/low_processor_mode=true
+boot_splash/bg_color=Color(0.952941, 0.933333, 0.847059, 1)
+boot_splash/image="res://Assets/icons/main_icon.png"
+config/icon="res://Assets/icons/main_icon.png"
+config/macos_native_icon="res://Assets/icons/main_icon.icns"
+config/windows_native_icon="res://Assets/icons/icon.ico"
+
+[autoload]
+
+GlobalInts="*res://global_ints.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translation.en.translation", "res://translation.nl.translation")
+locale/test="en_GB"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+2d/snapping/use_gpu_pixel_snap=true
