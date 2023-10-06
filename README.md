@@ -21,6 +21,6 @@ For a detailed manual on how to use the Time Sampling Form, please go to <a href
 
 Licensed under the [AGPL-3.0](LICENSE.md)
 
-Copyright (c) 2021-present, [Jaap Marsman](https://www.jaapmarsman.com/)
+Copyright (c) 2022-present, [Jaap Marsman](https://www.jaapmarsman.com/)
 
-For an overview of all underlying attributions, please see the [Attributions document](ATTRIBUTIONS.md).
+For an overview of all underlying attributions, please see the [Copyright document](COPYRIGHT.md).
