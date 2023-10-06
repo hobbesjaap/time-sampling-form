@@ -5,7 +5,7 @@
 <h1 align="center">Time Sampling Form</h1>
 <p align="center"><strong>Built with Godot 4.1</strong></p>
 
-<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/:hobbesjaap/:time-sampling-form/total">
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/hobbesjaap/time-sampling-form/total">
 
 A freeware and open source SEN-related observation tool. The <a href="https://www.internationalsengroup.org/tsf_web/" target="_blank">web version is available here</a> (now works on iPads too).
 
