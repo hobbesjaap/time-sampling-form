@@ -3,10 +3,7 @@
 </p>
 
 # Time Sampling Form
-
-*Built with Godot 4.1*
-
----
+**Built with Godot 4.1**
 
 A freeware and open source SEN-related observation tool. The <a href="https://www.internationalsengroup.org/tsf_web/" target="_blank">web version is available here</a> (now works on iPads too).
 
