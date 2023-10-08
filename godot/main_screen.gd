@@ -6,8 +6,8 @@ var date_time
 var check_time_var : int
 var ddmmyyyy : String
 var date
-var csv_url = "https://gitea.defiantjc.synology.me/jaap/time-sampling-form/raw/branch/main/version_info.csv"
-var update_text_url = "https://gitea.defiantjc.synology.me/jaap/time-sampling-form/raw/branch/main/updater/update_text.md"
+var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/version_info.csv"
+var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
 var update_text : String
 
 
