@@ -11,11 +11,11 @@
 <img alt="GitHub" src="https://img.shields.io/github/license/hobbesjaap/time-sampling-form">
 </p>
 
-A freeware and open source SEN-related observation tool. The <a href="https://www.internationalsengroup.org/tsf_web/" target="_blank">web version is available here</a> (now works on iPads too).
+A freeware and open source SEN-related observation tool. The <a href="https://www.jaapmarsman.com/tsf_web/" target="_blank">web version is available here</a> (now works on iPads too).
 
 ## Manual
 
-For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://docs.internationalsengroup.org/tsf.html" target="_blank">this page on the ISENG website</a>.
+For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://docs.jaapmarsman.com/tsf.html" target="_blank">this page on the ISENG website</a>.
 
 ## License & Attributions
 
