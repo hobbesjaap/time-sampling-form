@@ -3,15 +3,15 @@
 [ext_resource type="Theme" uid="uid://bki1nuccpiu3o" path="res://wb_theme.tres" id="1"]
 [ext_resource type="Script" path="res://main_screen.gd" id="2"]
 [ext_resource type="Script" path="res://NameChangePanel.gd" id="4"]
-[ext_resource type="FontFile" uid="uid://cobdyrkqgfatx" path="res://Assets/fonts/noto_sans_display.ttf" id="5"]
-[ext_resource type="FontFile" uid="uid://ci3lm5b3fy5lc" path="res://Assets/fonts/noto_sans_display_bold.ttf" id="6"]
+[ext_resource type="FontFile" uid="uid://df4eo3bryf8la" path="res://Assets/fonts/noto_sans_display.ttf" id="5"]
+[ext_resource type="FontFile" uid="uid://darkh8o8rieli" path="res://Assets/fonts/noto_sans_display_bold.ttf" id="6"]
 [ext_resource type="Script" path="res://ObservationWindow.gd" id="7"]
 [ext_resource type="Script" path="res://EditScreen.gd" id="8"]
 [ext_resource type="Script" path="res://Results.gd" id="9"]
 [ext_resource type="Script" path="res://TimerBar.gd" id="10"]
 [ext_resource type="Script" path="res://ProgressBar.gd" id="11"]
-[ext_resource type="Texture2D" uid="uid://bts8xofrhqapd" path="res://Assets/icons/main_icon.png" id="12"]
-[ext_resource type="Texture2D" uid="uid://brqi6n13886da" path="res://Assets/icons/noun-input-field-104354.svg" id="12_vtqql"]
+[ext_resource type="Texture2D" uid="uid://yf4ormoh8hes" path="res://Assets/icons/main_icon.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://lafpc8rl5lg0" path="res://Assets/icons/noun-input-field-104354.svg" id="12_vtqql"]
 
 [sub_resource type="StyleBoxFlat" id="2"]
 bg_color = Color(1, 1, 1, 1)
@@ -1566,11 +1566,11 @@ texture = ExtResource("12")
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1")
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
-theme_override_font_sizes/italics_font_size = 20
-theme_override_font_sizes/bold_italics_font_size = 20
-theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
 text = "INSTRUC"
 scroll_active = false
