@@ -3,6 +3,8 @@ extends Node
 var date
 var ddmmyyyy
 
+var update_text : String
+
 var web_release_version : float
 var release_version = 0.15
 

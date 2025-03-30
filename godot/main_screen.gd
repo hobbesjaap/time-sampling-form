@@ -9,7 +9,7 @@ var date
 var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/version_info.csv"
 var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
 var update_text : String
-
+var text_buffer : String
 
 @onready var date_time_display = $"%CurrentTime"
 @onready var global_ints = $"/root/GlobalInts"
@@ -24,11 +24,13 @@ var update_text : String
 #	window.position = Vector2i(-8, 0)
 #	window.size = Vector2i(screen_size.x - 66, screen_size.y - 1)
 
+
 func check_for_updates():
+	var os_list : Array = ["Linux", "Windows", "macOS", "OSX"]
 	var os_check : String
 	os_check = OS.get_name()
 	print(os_check)
-	if os_check == "Linux" and "Windows" and "OSX":
+	if os_list.has(os_check):
 		print("We're on desktop. So let's check for updates!")
 		$"%HTTPRequest".request(csv_url)
 		$"%HTTPRequest2".request(update_text_url)
@@ -44,13 +46,15 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 			$"%UpdatePanel".visible = true
 			$"%UpdateText".text = str(update_text)
 			$"%UpdateIntro".text = str("You are currently using version ",global_ints.release_version,". The latest version available is ",global_ints.web_release_version,".")
+	if global_ints.web_release_version <= global_ints.release_version:
+		print("No update available!")
 
 
-func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, _body):
-#	Need to find a way to load .txt file contents from a URL into a label. This to show what the update changes are.
-#	var json = JSON.parse(body.get_string_from_utf8())
-#	update_text = str(json.result)
-	pass
+func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body):
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(body.get_string_from_utf8())
+	var json = test_json_conv.get_data()
+	global_ints.update_text = json
 
 
 func refresh_descriptors():
@@ -85,6 +89,7 @@ func refresh_descriptors():
 	$"%5Explanation".text = global_ints.five_explanation
 	$"%5ExplanationE".text = $"%5Explanation".text
 
+
 func set_manual_url():
 	if TranslationServer.get_locale() != "nl":
 		print("We're not Dutch")
@@ -92,6 +97,7 @@ func set_manual_url():
 	if TranslationServer.get_locale() == "nl":
 		print("We're Dutch")
 		global_ints.manual_url = "https://www.lerenleukermaken.nl/"
+
 
 func _ready():
 	DisplayServer.window_set_min_size(Vector2i(1280, 720))
@@ -113,6 +119,7 @@ func _ready():
 	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
 	
 	check_for_updates()
+
 
 func _process(_delta):
 	check_time_var += 1
