@@ -1,3 +1,0 @@
-I'm testing my GitHub credentials now track properly. It's still not working...
-
-So I forgot to set my new email address. Testing again.
