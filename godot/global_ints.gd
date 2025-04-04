@@ -1,7 +1,7 @@
 extends Node
 
-var date
-var ddmmyyyy
+var date = {}
+var ddmmyyyy : String
 
 var update_text : String
 
@@ -30,26 +30,26 @@ var locked_observation_intervals : int
 var locked_observations_intervals_remaining : int
 var locked_observations_completed : int
 
-var one_acronym = "OnT"
-var two_acronym = "Loo"
-var three_acronym = "Dis"
-var four_acronym = "Wal"
-var five_acronym = "Oth"
-var six_acronym = "Emp"
+var one_acronym : String = "OnT"
+var two_acronym : String = "Loo"
+var three_acronym : String = "Dis"
+var four_acronym : String = "Wal"
+var five_acronym : String = "Oth"
+var six_acronym : String = "Emp"
 
-var one_behaviour = "On Task"
-var two_behaviour = "Looking"
-var three_behaviour = "Distracting"
-var four_behaviour = "Walking"
-var five_behaviour = "Other"
-var six_behaviour = "Empty"
+var one_behaviour : String = "On Task"
+var two_behaviour : String = "Looking"
+var three_behaviour : String = "Distracting"
+var four_behaviour : String = "Walking"
+var five_behaviour : String = "Other"
+var six_behaviour : String = "Empty"
 
-var one_explanation = "The pupil is on task"
-var two_explanation = "The pupil is looking around in a distracted manner or is staring into the distance"
-var three_explanation = "The pupil is distracting other pupils or talking to them"
-var four_explanation = "The pupil is walking through the class"
-var five_explanation = "The pupil is otherwise distracted and not on task"
-var six_explanation = "No answer was selected for this round"
+var one_explanation : String = "The pupil is on task"
+var two_explanation : String = "The pupil is looking around in a distracted manner or is staring into the distance"
+var three_explanation : String = "The pupil is distracting other pupils or talking to them"
+var four_explanation : String = "The pupil is walking through the class"
+var five_explanation : String = "The pupil is otherwise distracted and not on task"
+var six_explanation : String = "No answer was selected for this round"
 
 var total_behaviours : int
 var one_behaviour_score : int

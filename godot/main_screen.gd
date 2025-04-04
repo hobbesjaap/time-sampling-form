@@ -2,11 +2,8 @@ extends CanvasLayer
 
 const RATIO = 720.0 / 1280.0
 
-var date_time
 var check_time_var : int
-var ddmmyyyy : String
-var date
-var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/version_info.csv"
+var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/version_info.csv"
 var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
 var update_text : String
 var text_buffer : String
@@ -126,11 +123,10 @@ func _process(_delta):
 	
 	if check_time_var == 10:
 		check_time_var = 0
-		date_time = Time.get_datetime_dict_from_system()
-		if date_time.minute < 10:
-			date_time_display.text = str(date_time.hour, ":0", date_time.minute)
-		if date_time.minute >= 10:
-			date_time_display.text = str(date_time.hour, ":", date_time.minute)
+		if global_ints.date.minute < 10:
+			date_time_display.text = str(global_ints.date.hour, ":0", global_ints.date.minute)
+		if global_ints.date.minute >= 10:
+			date_time_display.text = str(global_ints.date.hour, ":", global_ints.date.minute)
 
 
 func _on_MinuteMinus_pressed():
