@@ -65,7 +65,7 @@ var three_behaviour_percent : float
 var four_behaviour_percent : float
 var five_behaviour_percent : float
 
-func reset_all_vars():
+func reset_all_vars() -> void:
 	observation_minutes = 15
 
 	generate_results = false

@@ -1,16 +1,15 @@
 extends CanvasLayer
 
 
-@onready var global_ints = $"/root/GlobalInts"
-
 var js_interface;
 var image : Image
 var fileName : String = "results.png"
 
-func _ready():
+func _ready() -> void:
 	if OS.get_name() == "Web":
 		_define_js()
 		js_interface = JavaScriptBridge.get_interface("_HTML5FileExchange");
+
 
 func _define_js()->void:
 #Define JS script
@@ -40,18 +39,16 @@ func _define_js()->void:
 	}
 	""", true)
 
-func _process(_delta):
-	pass
 
-func take_screenshot():
+func take_screenshot() -> void:
 	image = get_viewport().get_texture().get_image()
 
 	if OS.get_name() == "Web" or OS.has_feature('JavaScript'):
 		print("We're on the web")
-		# We're on the web		
-	
+		# We're on the web
+		
 		image.clear_mipmaps()
-
+		
 		var buffer = image.save_png_to_buffer()
 		JavaScriptBridge.download_buffer(buffer, fileName)
 
@@ -77,28 +74,29 @@ func take_screenshot():
 			var _openfolder = OS.shell_open("file://" + docs)
 
 
-func _on_SaveReport_pressed():
+func _on_SaveReport_pressed() -> void:
 	await get_tree().process_frame
-	$"%SaveReport".visible = false
-	$"%BackMainMenu".visible = false
+	$"%SaveReport".hide()
+	$"%BackMainMenu".hide()
 	await get_tree().process_frame
 	
 	take_screenshot()
+	
+	$"%SaveReport".show()
+	$"%BackMainMenu".show()
 
-	$"%SaveReport".visible = true
-	$"%BackMainMenu".visible = true
 
-func _on_BackMainMenu_pressed():
+func _on_BackMainMenu_pressed() -> void:
 	global_ints.reset_all_vars()
 	var _ignore = get_tree().reload_current_scene()
 
 
-func _on_Results_visibility_changed():
+func _on_Results_visibility_changed() -> void:
 	if global_ints.generate_results == true:
 		global_ints.generate_results = false
-
+		
 		var result_text : String
-
+		
 		result_text = str("Date: " , global_ints.ddmmyyyy , "\nTime: ", global_ints.observation_start_time , " to " , global_ints.observation_end_time , "\n \nThis Time Sampling Form (TSF) observation was completed by " , global_ints.observer_person_name , ". " , global_ints.observed_person_name , " was observed for " ,  global_ints.total_observed_time , " minute(s) during " , global_ints.observed_activity , ". \n \nDuring the observation, The ", global_ints.one_behaviour," behaviour was observed ", global_ints.one_behaviour_score, " out of ",global_ints.total_behaviours," times, resulting in ",global_ints.one_behaviour_percent,"%. The ",global_ints.two_behaviour," behaviour was observed ",global_ints.two_behaviour_score," out of ",global_ints.total_behaviours," times, resulting in ",global_ints.two_behaviour_percent,"%. The ",global_ints.three_behaviour," behaviour was observed ",global_ints.three_behaviour_score," out of ",global_ints.total_behaviours," times, resulting in ",global_ints.three_behaviour_percent,"%. The ", global_ints.four_behaviour," behaviour was observed ",global_ints.four_behaviour_score," out of ",global_ints.total_behaviours," times, resulting in ",global_ints.four_behaviour_percent,"%. The  ",global_ints.five_behaviour," behaviour was observed ",global_ints.five_behaviour_score," out of ",global_ints.total_behaviours," times, resulting in ",global_ints.five_behaviour_percent,"%. ",global_ints.six_behaviour_score," intervals were not scored.")
 		$"%FullResult".text = result_text
 		

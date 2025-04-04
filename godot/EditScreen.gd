@@ -1,20 +1,14 @@
 extends CanvasLayer
 
-@onready var gi = $"/root/GlobalInts"
-@onready var global_ints = gi
 @onready var main_window = $"../../AppWindow"
 
-func _ready():
-	pass # Replace with function body.
 
-
-func _on_CancelButton_pressed():
+func _on_CancelButton_pressed() -> void:
 	main_window.refresh_descriptors()
 	$"%EditScreen".visible = false
 
 
-func _on_OKButton_pressed():
-	
+func _on_OKButton_pressed() -> void:
 	global_ints.one_acronym = $"%1AcronymE".text
 	global_ints.two_acronym = $"%2AcronymE".text
 	global_ints.three_acronym = $"%3AcronymE".text
@@ -33,12 +27,12 @@ func _on_OKButton_pressed():
 	global_ints.four_explanation = $"%4ExplanationE".text
 	global_ints.five_explanation = $"%5ExplanationE".text
 		
-	$"%EditScreen".visible = false
+	$"%EditScreen".hide()
 	
 	main_window.refresh_descriptors()
 
 
-func _on_ClearAll_pressed():
+func _on_ClearAll_pressed() -> void:
 	$"%1AcronymE".text = ""
 	$"%1ItemE".text = ""
 	$"%1ExplanationE".text = ""

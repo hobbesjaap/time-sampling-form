@@ -8,7 +8,6 @@ var update_text : String
 var text_buffer : String
 
 @onready var date_time_display = $"%CurrentTime"
-@onready var global_ints = $"/root/GlobalInts"
 @onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 
 
@@ -78,7 +77,7 @@ func set_language() -> void:
 	print(TranslationServer.get_locale())
 	if TranslationServer.get_locale() != "nl":
 		print("We're not Dutch")
-		global_ints.manual_url = "https://docs.internationalsengroup.org/tsf.html"
+		global_ints.manual_url = "https://docs.jaapmarsman.com/tsf.html"
 	if TranslationServer.get_locale() == "nl":
 		print("We're Dutch")
 		global_ints.manual_url = "https://www.lerenleukermaken.nl/"
@@ -93,14 +92,14 @@ func _ready() -> void:
 	minute_label.text = str(global_ints.observation_minutes)
 	global_ints.observed_person_name = ""
 	refresh_descriptors()
-	$"StartScreen".visible = true
-	$"%NameChangePanel".visible = true
-	$"%InstructionScreen".visible = true
-	$"%WarningLabel".visible = false
-	$"ObservationWindow".visible = false
-	$"Results".visible = false
-	$"EditScreen".visible = false
-	$"%UpdatePanel".visible = false
+	$"StartScreen".show()
+	$"%NameChangePanel".show()
+	$"%InstructionScreen".show()
+	$"%WarningLabel".hide()
+	$"ObservationWindow".hide()
+	$"Results".hide()
+	$"EditScreen".hide()
+	$"%UpdatePanel".hide()
 	update_date()
 	set_language()
 	check_for_updates()
@@ -176,14 +175,15 @@ func _on_Start_pressed() -> void:
 
 
 func _on_ChangeItems_pressed() -> void:
-	$"EditScreen".visible = true
+	$"EditScreen".show()
 
 
 func _on_InsOkButton_pressed() -> void:
-	$"%InstructionScreen".visible = false
+	$"%InstructionScreen".hide()
 
 
 func _on_MinuteMinus_button_down() -> void:
+# Holding it down makes it work too - not yet
 #	if global_ints.observation_minutes >= 2:
 #		global_ints.observation_minutes -= 1
 #		minute_label.text = str(global_ints.observation_minutes)
@@ -195,4 +195,4 @@ func _on_GoToUpdate_pressed() -> void:
 
 
 func _on_IgnoreUpdate_pressed() -> void:
-	$"%UpdatePanel".visible = false
+	$"%UpdatePanel".hide()

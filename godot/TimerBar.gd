@@ -1,14 +1,9 @@
 extends ProgressBar
 
 
-@onready var global_ints = $"/root/GlobalInts"
-
 var time_lefts : int
 
-func _ready():
-	pass
 
-
-func _process(_delta):
+func _process(_delta) -> void:
 	time_lefts = $"%TwentySecondTimer".time_left
 	value = time_lefts

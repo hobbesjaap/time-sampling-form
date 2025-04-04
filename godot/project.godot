@@ -25,7 +25,7 @@ config/windows_native_icon="res://Assets/icons/icon.ico"
 
 [autoload]
 
-GlobalInts="*res://global_ints.gd"
+global_ints="*res://global_ints.gd"
 
 [display]
 
