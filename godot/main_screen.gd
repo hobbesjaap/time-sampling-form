@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-const RATIO = 720.0 / 1280.0
 
 var check_time_var : int
 var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/version_info.csv"
@@ -13,27 +12,15 @@ var text_buffer : String
 @onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 
 
-#func set_window_aspect_ratio():
-#	OS.window_size = Vector2(OS.window_size.x, OS.window_size.x * RATIO)
-#	var screen_size = DisplayServer.screen_get_size()
-#	var window = get_editor_interface().get_window()
-#	window.mode = Window.MODE_WINDOWED
-#	window.position = Vector2i(-8, 0)
-#	window.size = Vector2i(screen_size.x - 66, screen_size.y - 1)
-
-
-func check_for_updates():
+func check_for_updates() -> void:
 	var os_list : Array = ["Linux", "Windows", "macOS", "OSX"]
-	var os_check : String
-	os_check = OS.get_name()
-	print(os_check)
-	if os_list.has(os_check):
+	if os_list.has(OS.get_name()):
 		print("We're on desktop. So let's check for updates!")
 		$"%HTTPRequest".request(csv_url)
 		$"%HTTPRequest2".request(update_text_url)
 
 
-func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
+func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body) -> void:
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(body.get_string_from_utf8())
 	var json = test_json_conv.get_data()
@@ -47,14 +34,14 @@ func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 		print("No update available!")
 
 
-func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body):
+func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body) -> void:
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(body.get_string_from_utf8())
 	var json = test_json_conv.get_data()
 	global_ints.update_text = json
 
 
-func refresh_descriptors():
+func refresh_descriptors() -> void:
 	$"%1Acronym".text = global_ints.one_acronym
 	$"%1AcronymE".text = $"%1Acronym".text
 	$"%2Acronym".text = global_ints.two_acronym
@@ -87,7 +74,8 @@ func refresh_descriptors():
 	$"%5ExplanationE".text = $"%5Explanation".text
 
 
-func set_manual_url():
+func set_language() -> void:
+	print(TranslationServer.get_locale())
 	if TranslationServer.get_locale() != "nl":
 		print("We're not Dutch")
 		global_ints.manual_url = "https://docs.internationalsengroup.org/tsf.html"
@@ -96,7 +84,11 @@ func set_manual_url():
 		global_ints.manual_url = "https://www.lerenleukermaken.nl/"
 
 
-func _ready():
+func update_date() -> void:
+	global_ints.date = Time.get_datetime_dict_from_system()
+	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
+
+func _ready() -> void:
 	DisplayServer.window_set_min_size(Vector2i(1280, 720))
 	minute_label.text = str(global_ints.observation_minutes)
 	global_ints.observed_person_name = ""
@@ -109,16 +101,12 @@ func _ready():
 	$"Results".visible = false
 	$"EditScreen".visible = false
 	$"%UpdatePanel".visible = false
-	set_manual_url()
-	print(TranslationServer.get_locale())
-	
-	global_ints.date = Time.get_datetime_dict_from_system()
-	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
-	
+	update_date()
+	set_language()
 	check_for_updates()
 
 
-func _process(_delta):
+func _process(_delta) -> void:
 	check_time_var += 1
 	
 	if check_time_var == 10:
@@ -129,29 +117,29 @@ func _process(_delta):
 			date_time_display.text = str(global_ints.date.hour, ":", global_ints.date.minute)
 
 
-func _on_MinuteMinus_pressed():
+func _on_MinuteMinus_pressed() -> void:
 	if global_ints.observation_minutes >= 2:
 		global_ints.observation_minutes -= 1
 		minute_label.text = str(global_ints.observation_minutes)
 
 
-func _on_MinutePlus_pressed():
+func _on_MinutePlus_pressed() -> void:
 	if global_ints.observation_minutes < 60:
 		global_ints.observation_minutes += 1
 		minute_label.text = str(global_ints.observation_minutes)
 
 
-func _on_Manual_pressed():
+func _on_Manual_pressed() -> void:
 	var _error = OS.shell_open(global_ints.manual_url)
 
 
-func _on_PupilName_pressed():
+func _on_PupilName_pressed() -> void:
 	$"%NameLine".text = global_ints.observed_person_name
 	$"%InstructionPanel".visible = false
 	$"%NameChangePanel".visible = true
 
 
-func _on_Start_pressed():
+func _on_Start_pressed() -> void:
 	$"StartScreen".visible = false
 	refresh_descriptors()
 	$"ObservationWindow".visible = true
@@ -187,24 +175,24 @@ func _on_Start_pressed():
 	$"%TwentySecondTimer".start(global_ints.timer_duration)
 
 
-func _on_ChangeItems_pressed():
+func _on_ChangeItems_pressed() -> void:
 	$"EditScreen".visible = true
 
 
-func _on_InsOkButton_pressed():
+func _on_InsOkButton_pressed() -> void:
 	$"%InstructionScreen".visible = false
 
 
-func _on_MinuteMinus_button_down():
+func _on_MinuteMinus_button_down() -> void:
 #	if global_ints.observation_minutes >= 2:
 #		global_ints.observation_minutes -= 1
 #		minute_label.text = str(global_ints.observation_minutes)
 	pass
 
 
-func _on_GoToUpdate_pressed():
+func _on_GoToUpdate_pressed() -> void:
 	var _error = OS.shell_open("https://github.com/hobbesjaap/time-sampling-form/releases")
 
 
-func _on_IgnoreUpdate_pressed():
+func _on_IgnoreUpdate_pressed() -> void:
 	$"%UpdatePanel".visible = false
