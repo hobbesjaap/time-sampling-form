@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1pk005at7x26"]
+[gd_scene load_steps=29 format=3 uid="uid://b1pk005at7x26"]
 
 [ext_resource type="Theme" uid="uid://bki1nuccpiu3o" path="res://wb_theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://rbmcgn3hetrs" path="res://main_screen.gd" id="2"]
@@ -11,7 +11,11 @@
 [ext_resource type="Script" uid="uid://dflvmgvxwqrrf" path="res://TimerBar.gd" id="10"]
 [ext_resource type="Script" uid="uid://t1pvqg6e78j" path="res://ProgressBar.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://yf4ormoh8hes" path="res://Assets/icons/main_icon.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bq56uvokwfppt" path="res://Assets/icons/noun-manual-241665.svg" id="12_p3r6q"]
 [ext_resource type="Texture2D" uid="uid://lafpc8rl5lg0" path="res://Assets/icons/noun-input-field-104354.svg" id="12_vtqql"]
+[ext_resource type="Texture2D" uid="uid://ddvmq6m5ux17h" path="res://Assets/icons/noun-settings-56313.svg" id="14_3qsiq"]
+[ext_resource type="Texture2D" uid="uid://xjf2x5br6qq2" path="res://Assets/icons/noun-glasses-56317.svg" id="15_7087c"]
+[ext_resource type="Texture2D" uid="uid://bvpi0st2kfg0" path="res://Assets/icons/noun-file-59659.svg" id="16_do8p6"]
 
 [sub_resource type="StyleBoxFlat" id="2"]
 bg_color = Color(1, 1, 1, 1)
@@ -1206,7 +1210,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
@@ -1216,10 +1219,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -640.0
+offset_left = -511.0
 offset_top = -289.0
-offset_right = 640.0
-offset_bottom = 359.0
+offset_right = 630.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("1")
 
 [node name="MinuteBox" type="HBoxContainer" parent="StartScreen/InstructionPanel"]
@@ -1253,26 +1258,31 @@ text = "+"
 [node name="CurrentTime" type="Label" parent="StartScreen/InstructionPanel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1196.0
-offset_top = 506.0
-offset_right = 1275.0
-offset_bottom = 529.0
+offset_left = 1067.0
+offset_top = 620.0
+offset_right = 1146.0
+offset_bottom = 643.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "99:99"
+horizontal_alignment = 2
 
 [node name="MinuteExplanation" type="Label" parent="StartScreen/InstructionPanel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -322.5
-offset_top = -197.0
+offset_top = -203.0
 offset_right = 322.5
-offset_bottom = -163.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1")
 text = "INSTR_OBS"
+horizontal_alignment = 1
 
 [node name="ObservationItemsTitle" type="Label" parent="StartScreen/InstructionPanel"]
 layout_mode = 0
@@ -1289,18 +1299,22 @@ theme_override_fonts/font = SubResource("5")
 text = "OBS_ITEMS"
 
 [node name="Title" type="Label" parent="StartScreen/InstructionPanel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.5
-offset_top = -250.0
-offset_right = 172.5
-offset_bottom = -200.0
+offset_left = -174.5
+offset_top = -248.5
+offset_right = 170.5
+offset_bottom = -216.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("6")
 text = "TITLE"
+horizontal_alignment = 1
 
 [node name="BottomButtons" type="HBoxContainer" parent="StartScreen/InstructionPanel"]
 layout_mode = 0
@@ -1338,15 +1352,18 @@ theme = ExtResource("1")
 text = "BUT_STRT"
 
 [node name="GridObservations" type="GridContainer" parent="StartScreen/InstructionPanel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -589.0
-offset_top = -57.0
-offset_right = 603.0
-offset_bottom = 167.0
+offset_left = -499.5
+offset_top = -56.5
+offset_right = 499.5
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="AcronymLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
@@ -1820,6 +1837,7 @@ offset_bottom = 649.0
 text = "BUT_CLEAR"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 script = ExtResource("7")
 
@@ -2000,6 +2018,7 @@ unique_name_in_owner = true
 wait_time = 20.0
 
 [node name="Results" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 script = ExtResource("9")
 
@@ -2165,13 +2184,19 @@ offset_right = 120.0
 offset_bottom = 660.0
 theme_override_constants/separation = 0
 
-[node name="Panel" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+[node name="OneInstrPanel" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_musqq")
 
-[node name="Instructions" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/Panel"]
+[node name="Noun-manual-241665" type="Sprite2D" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/OneInstrPanel"]
+position = Vector2(59, 58)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("12_p3r6q")
+
+[node name="Instructions" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/OneInstrPanel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2190,18 +2215,19 @@ theme_override_font_sizes/font_size = 14
 text = "LAB_INSTR"
 horizontal_alignment = 1
 
-[node name="Panel2" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+[node name="TwoNamesPanel" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_musqq")
 
-[node name="Noun-input-field-104354" type="Sprite2D" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/Panel2"]
-position = Vector2(60, 64)
+[node name="Noun-input-field-104354" type="Sprite2D" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/TwoNamesPanel"]
+position = Vector2(60, 59)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("12_vtqql")
 
-[node name="Names" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/Panel2"]
+[node name="Names" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/TwoNamesPanel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2220,13 +2246,19 @@ theme_override_font_sizes/font_size = 14
 text = "LAB_NAMES"
 horizontal_alignment = 1
 
-[node name="Panel3" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+[node name="ThreeConfigPanel" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_musqq")
 
-[node name="Configure" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/Panel3"]
+[node name="Noun-settings-56313" type="Sprite2D" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/ThreeConfigPanel"]
+position = Vector2(59, 60)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("14_3qsiq")
+
+[node name="Configure" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/ThreeConfigPanel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2245,13 +2277,19 @@ theme_override_font_sizes/font_size = 14
 text = "LAB_CONFIG"
 horizontal_alignment = 1
 
-[node name="Panel4" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+[node name="FourObservePanel" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_musqq")
 
-[node name="Observe" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/Panel4"]
+[node name="Noun-glasses-56317" type="Sprite2D" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/FourObservePanel"]
+position = Vector2(59, 56)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("15_7087c")
+
+[node name="Observe" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/FourObservePanel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2270,13 +2308,19 @@ theme_override_font_sizes/font_size = 14
 text = "LAB_OBS"
 horizontal_alignment = 1
 
-[node name="Panel5" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+[node name="FiveResultsPanel" type="Panel" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_musqq")
 
-[node name="Results" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/Panel5"]
+[node name="Noun-file-59659" type="Sprite2D" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/FiveResultsPanel"]
+position = Vector2(60, 56)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("16_do8p6")
+
+[node name="Results" type="Label" parent="TopMenuBar/HBoxContainer/Panel/VBoxContainer/FiveResultsPanel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

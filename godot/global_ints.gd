@@ -3,6 +3,9 @@ extends Node
 var date = {}
 var ddmmyyyy : String
 
+# 1 = Instruction, 2 = Names, 3 = Config, 4 = Observe, 5 = Results
+var app_state : int
+
 var update_text : String
 
 var web_release_version : float

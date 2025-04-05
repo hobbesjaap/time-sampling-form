@@ -20,6 +20,7 @@ func _process(_delta) -> void:
 
 
 func calculate_percentages() -> void:
+		@warning_ignore("integer_division")
 		global_ints.total_observed_time = global_ints.total_behaviours / 3
 
 		global_ints.one_behaviour_percent = int((float(global_ints.one_behaviour_score) / global_ints.total_behaviours) * 100)

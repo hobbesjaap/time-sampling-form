@@ -6,13 +6,15 @@ var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/m
 var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
 var update_text : String
 var text_buffer : String
+var os_list : Array = ["Linux", "Windows", "macOS", "OSX"]
 
 @onready var date_time_display = $"%CurrentTime"
 @onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
+@onready var styleBox_highlight : StyleBoxFlat = $"%OneInstrPanel".get_theme_stylebox("panel").duplicate()
+@onready var styleBox_orig : StyleBoxFlat = $"%TwoNamesPanel".get_theme_stylebox("panel").duplicate()
 
 
 func check_for_updates() -> void:
-	var os_list : Array = ["Linux", "Windows", "macOS", "OSX"]
 	if os_list.has(OS.get_name()):
 		print("We're on desktop. So let's check for updates!")
 		$"%HTTPRequest".request(csv_url)
@@ -87,13 +89,30 @@ func update_date() -> void:
 	global_ints.date = Time.get_datetime_dict_from_system()
 	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
 
+func set_app_window_size() -> void:
+	var desktop_x : int = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).x
+	var desktop_y : int = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).y
+	
+	@warning_ignore("narrowing_conversion")
+	var app_window_x : int = desktop_x * 0.7
+	@warning_ignore("narrowing_conversion")
+	var app_window_y : int = desktop_y * 0.7
+	var app_window_size = Vector2i(app_window_x, app_window_y)
+	
+	DisplayServer.window_set_min_size(Vector2i(app_window_x, app_window_y))
+	get_window().size = app_window_size
+	@warning_ignore("integer_division")
+	DisplayServer.window_set_position(Vector2i(int(desktop_x/6), int(desktop_y/6)))
+
 func _ready() -> void:
-	DisplayServer.window_set_min_size(Vector2i(1280, 720))
+	#DisplayServer.window_set_min_size(Vector2i(1280, 720))
+	if os_list.has(OS.get_name()):
+		set_app_window_size()
 	minute_label.text = str(global_ints.observation_minutes)
 	global_ints.observed_person_name = ""
 	refresh_descriptors()
 	$"StartScreen".show()
-	$"%NameChangePanel".show()
+	$"%NameChangePanel".hide()
 	$"%InstructionScreen".show()
 	$"%WarningLabel".hide()
 	$"ObservationWindow".hide()
@@ -105,7 +124,45 @@ func _ready() -> void:
 	check_for_updates()
 
 
+func set_all_boxes_to_normal() -> void:
+	$"%OneInstrPanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%TwoNamesPanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%ThreeConfigPanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%FourObservePanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%FiveResultsPanel".add_theme_stylebox_override("panel", styleBox_orig)
+
+
+func state_changed_check() -> void:
+	styleBox_highlight.set("bg_color", Color.html("#F2CC8F"))
+
+	if $"%InstructionScreen".visible == true:
+		global_ints.app_state = 1
+		set_all_boxes_to_normal()
+		$"%OneInstrPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+	if $"%NameChangePanel".visible == true:
+		global_ints.app_state = 2
+		set_all_boxes_to_normal()
+		$"%TwoNamesPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+		
+	if $"%InstructionPanel".visible == true:
+		global_ints.app_state = 3
+		set_all_boxes_to_normal()
+		$"%ThreeConfigPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+	if $"%ObservationWindow".visible == true:
+		global_ints.app_state = 4
+		set_all_boxes_to_normal()
+		$"%FourObservePanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+	if $"%Results".visible == true:
+		global_ints.app_state = 5
+		set_all_boxes_to_normal()
+		$"%FiveResultsPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+
 func _process(_delta) -> void:
+	state_changed_check()
 	check_time_var += 1
 	
 	if check_time_var == 10:
@@ -180,6 +237,7 @@ func _on_ChangeItems_pressed() -> void:
 
 func _on_InsOkButton_pressed() -> void:
 	$"%InstructionScreen".hide()
+	$"%NameChangePanel".show()
 
 
 func _on_MinuteMinus_button_down() -> void:
