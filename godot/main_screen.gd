@@ -6,9 +6,8 @@ var csv_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/m
 var update_text_url = "https://raw.githubusercontent.com/hobbesjaap/time-sampling-form/main/updater/update_text.md"
 var update_text : String
 var text_buffer : String
-var os_list : Array = ["Linux", "Windows", "macOS", "OSX"]
+var os_list : Array = ["Linux", "Windows", "macOS", "OSX", "UWP", "X11", "FreeBSD", "NetBSD", "OpenBSD", "BSD"]
 
-@onready var date_time_display = $"%CurrentTime"
 @onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 @onready var styleBox_highlight : StyleBoxFlat = $"%OneInstrPanel".get_theme_stylebox("panel").duplicate()
 @onready var styleBox_orig : StyleBoxFlat = $"%TwoNamesPanel".get_theme_stylebox("panel").duplicate()
@@ -89,6 +88,7 @@ func update_date() -> void:
 	global_ints.date = Time.get_datetime_dict_from_system()
 	global_ints.ddmmyyyy = str(global_ints.date.day, "-", global_ints.date.month, "-", global_ints.date.year)
 
+
 func set_app_window_size() -> void:
 	var desktop_x : int = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).x
 	var desktop_y : int = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).y
@@ -103,6 +103,7 @@ func set_app_window_size() -> void:
 	get_window().size = app_window_size
 	@warning_ignore("integer_division")
 	DisplayServer.window_set_position(Vector2i(int(desktop_x/6), int(desktop_y/6)))
+
 
 func _ready() -> void:
 	#DisplayServer.window_set_min_size(Vector2i(1280, 720))
@@ -119,6 +120,7 @@ func _ready() -> void:
 	$"Results".hide()
 	$"EditScreen".hide()
 	$"%UpdatePanel".hide()
+	state_changed_check()
 	update_date()
 	set_language()
 	check_for_updates()
@@ -162,15 +164,9 @@ func state_changed_check() -> void:
 
 
 func _process(_delta) -> void:
-	state_changed_check()
-	check_time_var += 1
-	
-	if check_time_var == 10:
-		check_time_var = 0
-		if global_ints.date.minute < 10:
-			date_time_display.text = str(global_ints.date.hour, ":0", global_ints.date.minute)
-		if global_ints.date.minute >= 10:
-			date_time_display.text = str(global_ints.date.hour, ":", global_ints.date.minute)
+	# When I refactor, this should move OUT of the process-delta bit
+	# state_changed_check()
+	pass
 
 
 func _on_MinuteMinus_pressed() -> void:
@@ -191,14 +187,16 @@ func _on_Manual_pressed() -> void:
 
 func _on_PupilName_pressed() -> void:
 	$"%NameLine".text = global_ints.observed_person_name
-	$"%InstructionPanel".visible = false
-	$"%NameChangePanel".visible = true
+	$"%InstructionPanel".hide()
+	$"%NameChangePanel".show()
+	state_changed_check()
 
 
 func _on_Start_pressed() -> void:
 	$"StartScreen".visible = false
 	refresh_descriptors()
-	$"ObservationWindow".visible = true
+	$"ObservationWindow".show()
+	state_changed_check()
 	$"%BehaviourOne".text = global_ints.one_acronym
 	$"%BehaviourTwo".text = global_ints.two_acronym
 	$"%BehaviourThree".text = global_ints.three_acronym
@@ -233,11 +231,12 @@ func _on_Start_pressed() -> void:
 
 func _on_ChangeItems_pressed() -> void:
 	$"EditScreen".show()
-
+	state_changed_check()
 
 func _on_InsOkButton_pressed() -> void:
 	$"%InstructionScreen".hide()
 	$"%NameChangePanel".show()
+	state_changed_check()
 
 
 func _on_MinuteMinus_button_down() -> void:
@@ -254,3 +253,16 @@ func _on_GoToUpdate_pressed() -> void:
 
 func _on_IgnoreUpdate_pressed() -> void:
 	$"%UpdatePanel".hide()
+
+
+func _on_ok_button_pressed() -> void:
+	if $"%NameLine".text and $"%ObserverLine".text and $"%ObservedActivity".text != "":
+		$"%InstructionPanel".show()
+		$"%NameChangePanel".hide()
+		state_changed_check()
+		global_ints.observed_person_name = $"%NameLine".text
+		global_ints.observer_person_name = $"%ObserverLine".text
+		global_ints.observed_activity = $"%ObservedActivity".text
+	else:
+		$"%ObservedNameLabel".hide()
+		$"%WarningLabel".show()

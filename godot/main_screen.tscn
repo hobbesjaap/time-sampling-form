@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://b1pk005at7x26"]
+[gd_scene load_steps=27 format=3 uid="uid://b1pk005at7x26"]
 
 [ext_resource type="Theme" uid="uid://bki1nuccpiu3o" path="res://wb_theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://rbmcgn3hetrs" path="res://main_screen.gd" id="2"]
-[ext_resource type="Script" uid="uid://b4r3eb67qd13n" path="res://NameChangePanel.gd" id="4"]
 [ext_resource type="FontFile" uid="uid://df4eo3bryf8la" path="res://Assets/fonts/noto_sans_display.ttf" id="5"]
 [ext_resource type="FontFile" uid="uid://darkh8o8rieli" path="res://Assets/fonts/noto_sans_display_bold.ttf" id="6"]
 [ext_resource type="Script" uid="uid://hff4wu52flpd" path="res://ObservationWindow.gd" id="7"]
@@ -23,15 +22,6 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(1, 1, 1, 1)
 shadow_offset = Vector2(0, 4)
-
-[sub_resource type="FontFile" id="4"]
-fallbacks = Array[Font]([ExtResource("5")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="5"]
 fallbacks = Array[Font]([ExtResource("6")])
@@ -1255,18 +1245,6 @@ size_flags_horizontal = 3
 theme = ExtResource("1")
 text = "+"
 
-[node name="CurrentTime" type="Label" parent="StartScreen/InstructionPanel"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 1067.0
-offset_top = 620.0
-offset_right = 1146.0
-offset_bottom = 643.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("4")
-text = "99:99"
-horizontal_alignment = 2
-
 [node name="MinuteExplanation" type="Label" parent="StartScreen/InstructionPanel"]
 layout_mode = 1
 anchors_preset = 8
@@ -1487,7 +1465,6 @@ offset_top = -289.0
 offset_right = 640.0
 offset_bottom = 359.0
 theme_override_styles/panel = SubResource("1")
-script = ExtResource("4")
 
 [node name="NameContainer" type="VBoxContainer" parent="StartScreen/NameChangePanel"]
 layout_mode = 0
@@ -1546,6 +1523,7 @@ text = "OK"
 
 [node name="InstructionScreen" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1558,7 +1536,6 @@ offset_bottom = 359.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("1")
-script = ExtResource("4")
 
 [node name="InstructionContainer" type="VBoxContainer" parent="StartScreen/InstructionScreen"]
 layout_mode = 1
@@ -1672,7 +1649,6 @@ text = "UPD_TEXT2"
 
 [node name="EditScreen" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("8")
 
 [node name="Panel" type="Panel" parent="EditScreen"]
@@ -1682,15 +1658,18 @@ anchor_bottom = 1.0
 theme = ExtResource("1")
 
 [node name="GridObservations" type="GridContainer" parent="EditScreen/Panel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -518.5
+offset_left = -445.0
 offset_top = -57.0
-offset_right = 518.5
-offset_bottom = 129.0
+offset_right = 560.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="AcronymLabel" type="Label" parent="EditScreen/Panel/GridObservations"]
@@ -1812,28 +1791,27 @@ size_flags_horizontal = 3
 theme = ExtResource("1")
 text = "The pupil is otherwise distracted and not on task"
 
-[node name="CancelButton" type="Button" parent="EditScreen/Panel"]
-layout_mode = 0
-offset_left = 520.0
-offset_top = 645.0
-offset_right = 597.0
-offset_bottom = 679.0
+[node name="HBoxContainer" type="HBoxContainer" parent="EditScreen/Panel"]
+layout_mode = 1
+offset_left = 474.0
+offset_top = 516.0
+offset_right = 882.0
+offset_bottom = 560.0
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="EditScreen/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "BUT_CANCEL"
 
-[node name="OKButton" type="Button" parent="EditScreen/Panel"]
-layout_mode = 0
-offset_left = 616.0
-offset_top = 645.0
-offset_right = 656.0
-offset_bottom = 679.0
+[node name="OKButton" type="Button" parent="EditScreen/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "OK"
 
-[node name="ClearAll" type="Button" parent="EditScreen/Panel"]
-layout_mode = 0
-offset_left = 952.0
-offset_top = 615.0
-offset_right = 1051.0
-offset_bottom = 649.0
+[node name="ClearAll" type="Button" parent="EditScreen/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "BUT_CLEAR"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
@@ -2348,13 +2326,13 @@ horizontal_alignment = 1
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/ChangeItems" to="." method="_on_ChangeItems_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="StartScreen/NameChangePanel" method="_on_OkButton_pressed"]
+[connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="." method="_on_ok_button_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionScreen/InstructionContainer/InsOkButton" to="." method="_on_InsOkButton_pressed"]
 [connection signal="pressed" from="StartScreen/UpdatePanel/BottomButtons/GoToUpdate" to="." method="_on_GoToUpdate_pressed"]
 [connection signal="pressed" from="StartScreen/UpdatePanel/BottomButtons/IgnoreUpdate" to="." method="_on_IgnoreUpdate_pressed"]
-[connection signal="pressed" from="EditScreen/Panel/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
-[connection signal="pressed" from="EditScreen/Panel/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
-[connection signal="pressed" from="EditScreen/Panel/ClearAll" to="EditScreen" method="_on_ClearAll_pressed"]
+[connection signal="pressed" from="EditScreen/Panel/HBoxContainer/CancelButton" to="EditScreen" method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="EditScreen/Panel/HBoxContainer/OKButton" to="EditScreen" method="_on_OKButton_pressed"]
+[connection signal="pressed" from="EditScreen/Panel/HBoxContainer/ClearAll" to="EditScreen" method="_on_ClearAll_pressed"]
 [connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourOne" to="ObservationWindow" method="_on_BehaviourOne_pressed"]
 [connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourTwo" to="ObservationWindow" method="_on_BehaviourTwo_pressed"]
 [connection signal="pressed" from="ObservationWindow/Panel/BehaviourButtons/BehaviourThree" to="ObservationWindow" method="_on_BehaviourThree_pressed"]
