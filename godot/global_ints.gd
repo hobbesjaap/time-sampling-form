@@ -9,7 +9,7 @@ var app_state : int
 var update_text : String
 
 var web_release_version : float
-var release_version = 0.15
+var release_version = 0.2
 
 var total_observed_time : int
 

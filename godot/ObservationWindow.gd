@@ -5,6 +5,46 @@ var time_lefts : int
 var toggle_observation : bool = false
 var observation_button_pressed : bool = false
 
+@onready var styleBox_highlight : StyleBoxFlat = $"%OneInstrPanel".get_theme_stylebox("panel").duplicate()
+@onready var styleBox_orig : StyleBoxFlat = $"%TwoNamesPanel".get_theme_stylebox("panel").duplicate()
+
+
+func set_all_boxes_to_normal() -> void:
+	$"%OneInstrPanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%TwoNamesPanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%ThreeConfigPanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%FourObservePanel".add_theme_stylebox_override("panel", styleBox_orig)
+	$"%FiveResultsPanel".add_theme_stylebox_override("panel", styleBox_orig)
+
+
+func state_changed_check() -> void:
+	styleBox_highlight.set("bg_color", Color.html("#F2CC8F"))
+
+	if $"%InstructionScreen".visible == true:
+		global_ints.app_state = 1
+		set_all_boxes_to_normal()
+		$"%OneInstrPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+	if $"%NameChangePanel".visible == true:
+		global_ints.app_state = 2
+		set_all_boxes_to_normal()
+		$"%TwoNamesPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+		
+	if $"%InstructionPanel".visible == true:
+		global_ints.app_state = 3
+		set_all_boxes_to_normal()
+		$"%ThreeConfigPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+	if $"%ObservationWindow".visible == true:
+		global_ints.app_state = 4
+		set_all_boxes_to_normal()
+		$"%FourObservePanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
+	if $"%Results".visible == true:
+		global_ints.app_state = 5
+		set_all_boxes_to_normal()
+		$"%FiveResultsPanel".add_theme_stylebox_override("panel", styleBox_highlight)
+
 
 func _ready() -> void:
 	$"Panel/BehaviourButtons".hide()
@@ -127,4 +167,6 @@ func _on_Button_pressed() -> void:
 	$"TwentySecondTimer".stop()
 	global_ints.generate_results = true
 	calculate_percentages()
+	$"%ObservationWindow".hide()
 	$"../Results".show()
+	state_changed_check()

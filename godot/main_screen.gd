@@ -15,7 +15,7 @@ var os_list : Array = ["Linux", "Windows", "macOS", "OSX", "UWP", "X11", "FreeBS
 
 func check_for_updates() -> void:
 	if os_list.has(OS.get_name()):
-		print("We're on desktop. So let's check for updates!")
+#		print("We're on desktop. So let's check for updates!")
 		$"%HTTPRequest".request(csv_url)
 		$"%HTTPRequest2".request(update_text_url)
 
@@ -122,7 +122,7 @@ func _ready() -> void:
 	$"%UpdatePanel".hide()
 	state_changed_check()
 	update_date()
-	set_language()
+#	set_language()
 	check_for_updates()
 
 
@@ -247,6 +247,10 @@ func _on_MinuteMinus_button_down() -> void:
 	pass
 
 
+func _on_minute_plus_button_down() -> void:
+	pass # Replace with function body.
+
+
 func _on_GoToUpdate_pressed() -> void:
 	var _error = OS.shell_open("https://github.com/hobbesjaap/time-sampling-form/releases")
 
@@ -263,6 +267,32 @@ func _on_ok_button_pressed() -> void:
 		global_ints.observed_person_name = $"%NameLine".text
 		global_ints.observer_person_name = $"%ObserverLine".text
 		global_ints.observed_activity = $"%ObservedActivity".text
+		
+		$"%TopOverview".text = str("Time Sampling Observation of " , global_ints.observed_person_name, ", observed by ", global_ints.observer_person_name , ", during " , global_ints.observed_activity , ".")
+		$"%TopOverview".show()
 	else:
 		$"%ObservedNameLabel".hide()
 		$"%WarningLabel".show()
+
+
+func _on_edit_report_pressed() -> void:
+	$"%EditResult".text = $"%FullResult".text
+	$"%ResultMenu".hide()
+	$"%EditPanel".show()
+	$"%EditResult".show()
+	$"%EditMenu".show()
+
+
+func _on_cancel_edit_pressed() -> void:
+	$"%ResultMenu".show()
+	$"%EditPanel".hide()
+	$"%EditResult".hide()
+	$"%EditMenu".hide()
+
+
+func _on_save_edit_pressed() -> void:
+	$"%FullResult".text = $"%EditResult".text
+	$"%ResultMenu".show()
+	$"%EditPanel".hide()
+	$"%EditResult".hide()
+	$"%EditMenu".hide()

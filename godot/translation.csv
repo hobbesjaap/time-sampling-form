@@ -1,6 +1,6 @@
 keys,en,nl
-INSTRUC,"The [b]Time Sampling Form[/b] is a guided observation tool. You set the length of your observation in minutes. Every 20 seconds, you click the button that corresponds with the behaviour you observe at that time. \n\nThe buttons to select the observed behaviour will be visible in the final 5 seconds of each 20 second interval. \n\nFor first time users: It is recommended to do a one-minute trial to gain familiarity with the system. I hope you find this tool useful!","Het [b]Tijdsteekproef Formulier[/b]."
-TITLE,"Time Sampling Form","Tijdsteekproef Formulier"
+INSTRUC,"The [b]Time Sampling Form[/b] is a guided observation tool. You set the length of your observation in minutes. Every 20 seconds, you click the button that corresponds with the behaviour you observe at that time. \n\nThe buttons to select the observed behaviour will be visible in the final 5 seconds of each 20 second interval. \n\nFor first time users: It is recommended to do a one-minute trial to gain familiarity with the system. I hope you find this tool useful!",Het [b]Tijdsteekproef Formulier[/b].
+TITLE,Time Sampling Form,Tijdsteekproef Formulier
 WHO,Who are you observing? (First name),Wie
 COMPLETE,You must complete all fields below!,Compleet
 YOU,What is your name?,Jij bent
@@ -13,7 +13,10 @@ EXP,Explanation,x
 BUT_MAN,Manual,x
 BUT_EDIT_ITM,Edit Items,x
 BUT_EDIT_NM,Edit Names,x
+BUT_EDIT_RESULT,Edit Report,x
 BUT_STRT,Start,x
+BUT_CANCEL_EDIT,Cancel,x
+BUT_SAVE_EDIT,Save,x
 UPD_TITLE,An Update is available!,x
 UPD_TEXT,You are currently using version XX. The latest version available is XX. Version changes are:,x
 UPD_TEXT2,text,x
