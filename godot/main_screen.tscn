@@ -2158,6 +2158,7 @@ step = 1.0
 [node name="EditPanel" type="Panel" parent="Results/Panel"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 126.0
 offset_top = 68.0
 offset_right = 1260.0
@@ -2166,6 +2167,7 @@ offset_bottom = 620.0
 [node name="EditResult" type="TextEdit" parent="Results/Panel"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 136.0
 offset_top = 81.0
 offset_right = 1248.0

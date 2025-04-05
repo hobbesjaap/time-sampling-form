@@ -38,7 +38,7 @@ func _on_HTTPRequest2_request_completed(_result, _response_code, _headers, body)
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(body.get_string_from_utf8())
 	var json = test_json_conv.get_data()
-	global_ints.update_text = json
+	global_ints.update_text = str(json)
 
 
 func refresh_descriptors() -> void:
