@@ -1,6 +1,6 @@
 # Copyrights
 
-This document attributes the different components used to build the Time Sampling Form application (c) 2022 Jaap Marsman.
+This document attributes the different components used to build the Time Sampling Form application (c) 2022-Present Jaap Marsman.
 
 ## The engine: Godot
 
