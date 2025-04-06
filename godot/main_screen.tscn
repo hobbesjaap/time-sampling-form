@@ -1845,7 +1845,6 @@ text = "BUT_CLEAR"
 
 [node name="ObservationWindow" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("7")
 
 [node name="Panel" type="Panel" parent="ObservationWindow"]
@@ -1863,9 +1862,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -453.0
+offset_left = -400.0
 offset_top = 51.0
-offset_right = 453.0
+offset_right = 506.0
 offset_bottom = 91.0
 
 [node name="BehaviourOne" type="Button" parent="ObservationWindow/Panel/BehaviourButtons"]
@@ -1900,9 +1899,9 @@ text = "Acronym1"
 
 [node name="BehaviourTitles" type="HBoxContainer" parent="ObservationWindow/Panel"]
 layout_mode = 0
-offset_left = 189.0
+offset_left = 240.0
 offset_top = 330.0
-offset_right = 1095.0
+offset_right = 1146.0
 offset_bottom = 370.0
 
 [node name="BTitle1" type="Label" parent="ObservationWindow/Panel/BehaviourTitles"]
@@ -1937,19 +1936,19 @@ text = "Title5"
 
 [node name="TimeRemaining" type="Label" parent="ObservationWindow/Panel"]
 layout_mode = 0
-offset_left = 532.0
-offset_top = 98.0
-offset_right = 572.0
-offset_bottom = 132.0
+offset_left = 656.0
+offset_top = 100.0
+offset_right = 696.0
+offset_bottom = 134.0
 theme = ExtResource("1")
 text = "20"
 
 [node name="DescriptorTime" type="Label" parent="ObservationWindow/Panel"]
 layout_mode = 0
-offset_left = 581.0
-offset_top = 98.0
-offset_right = 784.0
-offset_bottom = 132.0
+offset_left = 712.0
+offset_top = 100.0
+offset_right = 915.0
+offset_bottom = 134.0
 theme = ExtResource("1")
 text = "SEC_REM"
 
@@ -1960,20 +1959,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -74.5
-offset_top = -274.5
-offset_right = 74.5
-offset_bottom = -234.5
+offset_left = -11.0
+offset_top = -275.0
+offset_right = 138.0
+offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BUT_STOPEAR"
 
 [node name="TimerBar" type="ProgressBar" parent="ObservationWindow/Panel"]
 layout_mode = 0
-offset_left = 406.0
-offset_top = 145.0
-offset_right = 891.0
-offset_bottom = 206.0
+offset_left = 462.0
+offset_top = 144.0
+offset_right = 947.0
+offset_bottom = 205.0
 theme = ExtResource("1")
 max_value = 20.0
 step = 1.0
@@ -1983,9 +1982,9 @@ script = ExtResource("10")
 
 [node name="DescriptorBox" type="HBoxContainer" parent="ObservationWindow/Panel"]
 layout_mode = 0
-offset_left = 361.0
+offset_left = 390.0
 offset_top = 441.0
-offset_right = 966.0
+offset_right = 995.0
 offset_bottom = 481.0
 alignment = 1
 
