@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./design_files/main_icon_small.png" width="200" height="200">
+<img src="./design_files/app_screenshot.png">
 </p>
 
 <h1 align="center">Time Sampling Form</h1>
@@ -14,6 +14,10 @@
 A freeware and open source education-related observation tool. The <a href="https://www.jaapmarsman.com/tsf_web/" target="_blank">web version is available here</a> (now works on iPads too).
 
 ## Manual
+
+<p align="center">
+<img src="./design_files/main_icon_small.png" width="200" height="200">
+</p>
 
 For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://docs.jaapmarsman.com/time-sampling-form.html" target="_blank">this page</a>.
 
