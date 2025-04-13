@@ -15,10 +15,6 @@ A freeware and open source education-related observation tool. The <a href="http
 
 ## Manual
 
-<p align="center">
-<img src="./design_files/main_icon_small.png" width="200" height="200">
-</p>
-
 For a detailed manual on how to use the Time Sampling Form, please go to <a href="https://docs.jaapmarsman.com/time-sampling-form.html" target="_blank">this page</a>.
 
 ## License & Attributions
