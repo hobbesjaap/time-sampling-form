@@ -186,3 +186,26 @@ func _on_Button_pressed() -> void:
 	$"%ObservationWindow".hide()
 	$"../Results".show()
 	state_changed_check()
+
+
+func _input(event) -> void:
+	if event.is_action_pressed("BehaviourOne"):
+		print("One")
+		if toggle_observation == true:
+			_on_BehaviourOne_pressed()
+	if event.is_action_pressed("BehaviourTwo"):
+		print("Two")
+		if toggle_observation == true:
+			_on_BehaviourTwo_pressed()
+	if event.is_action_pressed("BehaviourThree"):
+		print("Three")
+		if toggle_observation == true:
+			_on_BehaviourThree_pressed()
+	if event.is_action_pressed("BehaviourFour"):
+		print("Four")
+		if toggle_observation == true:
+			_on_BehaviourFour_pressed()
+	if event.is_action_pressed("BehaviourFive"):
+		print("Five")
+		if toggle_observation == true:
+			_on_BehaviourFive_pressed()
