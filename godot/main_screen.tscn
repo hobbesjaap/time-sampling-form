@@ -5,15 +5,15 @@
 [ext_resource type="FontFile" uid="uid://df4eo3bryf8la" path="res://Assets/fonts/noto_sans_display.ttf" id="5"]
 [ext_resource type="FontFile" uid="uid://darkh8o8rieli" path="res://Assets/fonts/noto_sans_display_bold.ttf" id="6"]
 [ext_resource type="Script" uid="uid://hff4wu52flpd" path="res://ObservationWindow.gd" id="7"]
-[ext_resource type="Texture2D" uid="uid://bodi3735281l4" path="res://Assets/kenney_icons/tile_0051.png" id="7_sqqhh"]
+[ext_resource type="Texture2D" uid="uid://csf64uqvpo3o6" path="res://Assets/keyboard_keys/nr01.png" id="7_sqqhh"]
 [ext_resource type="Script" uid="uid://psov4nxn77wr" path="res://EditScreen.gd" id="8"]
-[ext_resource type="Texture2D" uid="uid://doxpjidlik2uj" path="res://Assets/kenney_icons/tile_0052.png" id="8_qx06n"]
+[ext_resource type="Texture2D" uid="uid://c8xwudik011kb" path="res://Assets/keyboard_keys/nr02.png" id="8_sqqhh"]
 [ext_resource type="Script" uid="uid://dhhlom5skgqeq" path="res://Results.gd" id="9"]
-[ext_resource type="Texture2D" uid="uid://ci8gphiokiks" path="res://Assets/kenney_icons/tile_0053.png" id="9_q556m"]
+[ext_resource type="Texture2D" uid="uid://cw8y11lg4pywx" path="res://Assets/keyboard_keys/nr03.png" id="9_qx06n"]
 [ext_resource type="Script" uid="uid://dflvmgvxwqrrf" path="res://TimerBar.gd" id="10"]
-[ext_resource type="Texture2D" uid="uid://bdyc4eqj77uk6" path="res://Assets/kenney_icons/tile_0054.png" id="10_0dp34"]
+[ext_resource type="Texture2D" uid="uid://cjf0as3et3boi" path="res://Assets/keyboard_keys/nr04.png" id="10_q556m"]
 [ext_resource type="Script" uid="uid://t1pvqg6e78j" path="res://ProgressBar.gd" id="11"]
-[ext_resource type="Texture2D" uid="uid://hef804u8xrs" path="res://Assets/kenney_icons/tile_0055.png" id="11_kypv5"]
+[ext_resource type="Texture2D" uid="uid://d4fp6iw80nujc" path="res://Assets/keyboard_keys/nr05.png" id="11_0dp34"]
 [ext_resource type="Texture2D" uid="uid://yf4ormoh8hes" path="res://Assets/icons/main_icon.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://bq56uvokwfppt" path="res://Assets/icons/noun-manual-241665.svg" id="12_p3r6q"]
 [ext_resource type="Texture2D" uid="uid://lafpc8rl5lg0" path="res://Assets/icons/noun-input-field-104354.svg" id="12_vtqql"]
@@ -1922,36 +1922,46 @@ offset_left = 240.0
 offset_top = 295.0
 offset_right = 1146.0
 offset_bottom = 335.0
-theme_override_constants/separation = 165
+theme_override_constants/separation = 145
 
 [node name="KeyOne" type="TextureButton" parent="ObservationWindow/Panel/BehaviourShortcuts"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("7_sqqhh")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="KeyTwo" type="TextureButton" parent="ObservationWindow/Panel/BehaviourShortcuts"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("8_qx06n")
+texture_normal = ExtResource("8_sqqhh")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="KeyThree" type="TextureButton" parent="ObservationWindow/Panel/BehaviourShortcuts"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("9_q556m")
+texture_normal = ExtResource("9_qx06n")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="KeyFour" type="TextureButton" parent="ObservationWindow/Panel/BehaviourShortcuts"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("10_0dp34")
+texture_normal = ExtResource("10_q556m")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="KeyFive" type="TextureButton" parent="ObservationWindow/Panel/BehaviourShortcuts"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("11_kypv5")
+texture_normal = ExtResource("11_0dp34")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="BehaviourTitles" type="HBoxContainer" parent="ObservationWindow/Panel"]
