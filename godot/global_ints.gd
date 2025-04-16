@@ -13,7 +13,7 @@ var release_version = 0.2
 
 var total_observed_time : int
 
-var timer_duration : int = 20
+var timer_duration : float = 20.0
 
 var observation_minutes : int = 10
 
@@ -125,3 +125,5 @@ func reset_all_vars() -> void:
 	ddmmyyyy = ""
 
 	total_observed_time = 0
+	
+	timer_duration = 20.0

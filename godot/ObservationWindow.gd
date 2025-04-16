@@ -64,6 +64,7 @@ func state_changed_check() -> void:
 
 func _ready() -> void:
 	$"Panel/BehaviourButtons".hide()
+	$TwentySecondTimer.set_wait_time(global_ints.timer_duration)
 
 
 func _process(_delta) -> void:
