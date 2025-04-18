@@ -24,6 +24,8 @@ var update_text : String
 var text_buffer : String
 var os_list : Array = ["Linux", "Windows", "macOS", "OSX", "UWP", "X11", "FreeBSD", "NetBSD", "OpenBSD", "BSD"]
 
+var test_sound = preload("res://Assets/audio/time_to_score.ogg")
+
 @onready var minute_label = $"StartScreen/InstructionPanel/MinuteBox/MinuteLabel"
 @onready var styleBox_highlight : StyleBoxFlat = $"%OneInstrPanel".get_theme_stylebox("panel").duplicate()
 @onready var styleBox_orig : StyleBoxFlat = $"%TwoNamesPanel".get_theme_stylebox("panel").duplicate()
@@ -312,3 +314,18 @@ func _on_save_edit_pressed() -> void:
 	$"%EditPanel".hide()
 	$"%EditResult".hide()
 	$"%EditMenu".hide()
+
+
+func _on_test_menu_id_pressed(id: int) -> void:
+	# At some point, I'd like to add shortcuts such as Command-R or Command-Q
+	# https://github.com/godotengine/godot/issues/82854
+	if id == 0:
+		global_ints.reset_all_vars()
+		var _ignore = get_tree().reload_current_scene()
+	if id == 1:
+		get_tree().quit()
+
+
+func _on_test_sound_pressed() -> void:
+	$StartScreen/AudioPlay.stream = test_sound
+	$StartScreen/AudioPlay.play()

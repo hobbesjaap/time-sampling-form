@@ -21,6 +21,10 @@ var time_lefts : int
 var toggle_observation : bool = false
 var observation_button_pressed : bool = false
 
+var sound_scored = preload("res://Assets/audio/scored.ogg")
+var sound_time_to_score = preload("res://Assets/audio/time_to_score.ogg")
+var sound_no_score = preload("res://Assets/audio/no_score.ogg")
+
 @onready var styleBox_highlight : StyleBoxFlat = $"%OneInstrPanel".get_theme_stylebox("panel").duplicate()
 @onready var styleBox_orig : StyleBoxFlat = $"%TwoNamesPanel".get_theme_stylebox("panel").duplicate()
 
@@ -74,6 +78,8 @@ func _process(_delta) -> void:
 		print("We're at the five second mark!")
 		toggle_observation = true
 		$"Panel/BehaviourButtons".show()
+		$AudioPlayer.stream = sound_time_to_score
+		$AudioPlayer.play()
 
 
 func calculate_percentages() -> void:
@@ -102,6 +108,8 @@ func on_interval_moment() -> void:
 	if observation_button_pressed == false:
 		global_ints.six_behaviour_score += 1
 		global_ints.total_behaviours += 1
+		$AudioPlayer.stream = sound_no_score
+		$AudioPlayer.play()
 	
 	observation_button_pressed = false
 	
@@ -135,6 +143,8 @@ func _on_BehaviourOne_pressed() -> void:
 	global_ints.one_behaviour_score += 1
 	global_ints.total_behaviours += 1
 	observation_button_pressed = true
+	$AudioPlayer.stream = sound_scored
+	$AudioPlayer.play()
 	$"Panel/BehaviourButtons".hide()
 	print(str(global_ints.one_behaviour_score))
 
@@ -143,6 +153,8 @@ func _on_BehaviourTwo_pressed() -> void:
 	global_ints.two_behaviour_score += 1
 	global_ints.total_behaviours += 1
 	observation_button_pressed = true
+	$AudioPlayer.stream = sound_scored
+	$AudioPlayer.play()
 	$"Panel/BehaviourButtons".hide()
 
 
@@ -150,6 +162,8 @@ func _on_BehaviourThree_pressed() -> void:
 	global_ints.three_behaviour_score += 1
 	global_ints.total_behaviours += 1
 	observation_button_pressed = true
+	$AudioPlayer.stream = sound_scored
+	$AudioPlayer.play()
 	$"Panel/BehaviourButtons".hide()
 
 
@@ -157,6 +171,8 @@ func _on_BehaviourFour_pressed() -> void:
 	global_ints.four_behaviour_score += 1
 	global_ints.total_behaviours += 1
 	observation_button_pressed = true
+	$AudioPlayer.stream = sound_scored
+	$AudioPlayer.play()
 	$"Panel/BehaviourButtons".hide()
 
 
@@ -164,6 +180,8 @@ func _on_BehaviourFive_pressed() -> void:
 	global_ints.five_behaviour_score += 1
 	global_ints.total_behaviours += 1
 	observation_button_pressed = true
+	$AudioPlayer.stream = sound_scored
+	$AudioPlayer.play()
 	$"Panel/BehaviourButtons".hide()
 
 

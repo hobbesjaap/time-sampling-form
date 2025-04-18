@@ -24,6 +24,10 @@ Portions of this software are copyright © 2022 The FreeType Project (www.freety
 
 The app uses the Noto Sans font family, for which <a href="https://github.com/notofonts/noto-fonts/blob/main/LICENSE" target="_blank">the full Open Font License is available here</a>.
 
+## Audio
+
+The app uses <a href="https://kenney.nl/assets/digital-audio">Kenney's Digital Audio Pack</a>. Whilst distributed under CC0 and attribution is not required, I felt it only fair to mention it here.
+
 ## Internet module Mbed TLS (as part of Godot)
 
 Copyright The Mbed TLS Contributors
