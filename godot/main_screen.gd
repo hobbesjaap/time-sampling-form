@@ -138,6 +138,8 @@ func _ready() -> void:
 	$"Results".hide()
 	$"EditScreen".hide()
 	$"%UpdatePanel".hide()
+	$"SettingsMenu".hide()
+	$"AboutMenu".hide()
 	state_changed_check()
 	update_date()
 #	set_language()
@@ -324,8 +326,27 @@ func _on_test_menu_id_pressed(id: int) -> void:
 		var _ignore = get_tree().reload_current_scene()
 	if id == 1:
 		get_tree().quit()
+	if id == 2:
+		$AboutMenu.show()
+	if id == 3:
+		$SettingsMenu.show()
 
 
 func _on_test_sound_pressed() -> void:
 	$StartScreen/AudioPlay.stream = test_sound
 	$StartScreen/AudioPlay.play()
+
+
+func _input(event) -> void:
+	if event.is_action_pressed("Settings"):
+		$SettingsMenu.show()
+	if event.is_action_pressed("About"):
+		$AboutMenu.show()
+
+
+func _on_close_about_menu_pressed() -> void:
+	$AboutMenu.hide()
+
+
+func _on_close_settings_menu_pressed() -> void:
+	$SettingsMenu.hide()

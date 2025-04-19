@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b1pk005at7x26"]
+[gd_scene load_steps=33 format=3 uid="uid://b1pk005at7x26"]
 
 [ext_resource type="Theme" uid="uid://bki1nuccpiu3o" path="res://wb_theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://rbmcgn3hetrs" path="res://main_screen.gd" id="2"]
@@ -1186,6 +1186,13 @@ bg_color = Color(0.164706, 0.164706, 0.164706, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_musqq"]
 bg_color = Color(0.862745, 0.435294, 0.329412, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqqhh"]
+bg_color = Color(0.94902, 0.94902, 0.937255, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="AppWindow" type="CanvasLayer"]
 script = ExtResource("2")
 
@@ -1208,6 +1215,7 @@ unique_name_in_owner = true
 
 [node name="InstructionPanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2481,11 +2489,75 @@ offset_bottom = 109.0
 
 [node name="FileMenu" type="PopupMenu" parent="AppMenuBar"]
 title = "File"
-item_count = 2
+item_count = 4
 item_0/text = "Reset"
 item_0/id = 0
 item_1/text = "Quit"
 item_1/id = 1
+item_2/text = "Info"
+item_2/id = 2
+item_3/text = "Settings"
+item_3/id = 3
+
+[node name="SettingsMenu" type="CanvasLayer" parent="."]
+
+[node name="FadeOut" type="Panel" parent="SettingsMenu"]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="SettingsPanel" type="Panel" parent="SettingsMenu"]
+offset_left = 63.0
+offset_top = 81.0
+offset_right = 1218.0
+offset_bottom = 679.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqqhh")
+
+[node name="CloseSettingsMenu" type="Button" parent="SettingsMenu"]
+offset_left = 1190.0
+offset_top = 92.0
+offset_right = 1208.0
+offset_bottom = 123.0
+text = "X"
+
+[node name="AboutMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="FadeOut" type="Panel" parent="AboutMenu"]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="AboutPanel" type="Panel" parent="AboutMenu"]
+offset_left = 63.0
+offset_top = 81.0
+offset_right = 1218.0
+offset_bottom = 679.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqqhh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AboutMenu"]
+offset_left = 446.0
+offset_top = 303.0
+offset_right = 833.0
+offset_bottom = 357.0
+theme = ExtResource("1")
+theme_override_font_sizes/normal_font_size = 24
+text = "Time Sampling Form"
+horizontal_alignment = 1
+
+[node name="MainIcon" type="Sprite2D" parent="AboutMenu"]
+position = Vector2(640, 203)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12")
+
+[node name="CloseAboutMenu" type="Button" parent="AboutMenu"]
+offset_left = 1174.0
+offset_top = 89.0
+offset_right = 1205.0
+offset_bottom = 126.0
+text = "X"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="HTTPRequest2" to="." method="_on_HTTPRequest2_request_completed"]
@@ -2519,3 +2591,5 @@ item_1/id = 1
 [connection signal="pressed" from="Results/Panel/EditMenu/CancelEdit" to="." method="_on_cancel_edit_pressed"]
 [connection signal="pressed" from="Results/Panel/EditMenu/SaveEdit" to="." method="_on_save_edit_pressed"]
 [connection signal="id_pressed" from="AppMenuBar/FileMenu" to="." method="_on_test_menu_id_pressed"]
+[connection signal="pressed" from="SettingsMenu/CloseSettingsMenu" to="." method="_on_close_settings_menu_pressed"]
+[connection signal="pressed" from="AboutMenu/CloseAboutMenu" to="." method="_on_close_about_menu_pressed"]
