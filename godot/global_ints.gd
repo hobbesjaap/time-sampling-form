@@ -1,5 +1,13 @@
 extends Node
 
+# For the config file
+
+var is_there_a_panel_visible : bool = false
+
+var config = ConfigFile.new()
+var err = config.load("user://user.ini")
+var first_time_starting : bool = true
+
 var date = {}
 var ddmmyyyy : String
 
@@ -9,7 +17,7 @@ var app_state : int
 var update_text : String
 
 var web_release_version : float
-var release_version = 0.25
+var release_version : float = 0.25
 var release_version_print : String = "0.2.5"
 
 var total_observed_time : int

@@ -123,6 +123,25 @@ func set_app_window_size() -> void:
 	DisplayServer.window_set_position(Vector2i(int(desktop_x/6), int(desktop_y/6)))
 
 
+func load_config_file() -> void:
+	# Read config file if it exists
+	# define variables from ini file
+	if global_ints.err == OK:
+		global_ints.first_time_starting = global_ints.config.get_value("User", "user_first_time")
+	# define variables from ini file
+	#	node_variables.user_name.text = user_values.user_first_name
+	else:
+		pass
+
+
+func save_config_file() -> void:
+	# All things to keep in the INI all in one place
+	global_ints.config.set_value("User", "user_first_time", global_ints.first_time_starting)
+	
+	# Saving the actual ini
+	global_ints.config.save("user://user.ini")
+
+
 func _ready() -> void:
 	#DisplayServer.window_set_min_size(Vector2i(1280, 720))
 	if os_list.has(OS.get_name()):
@@ -131,9 +150,9 @@ func _ready() -> void:
 	global_ints.observed_person_name = ""
 	refresh_descriptors()
 	$"StartScreen".show()
+	$"%InstructionScreen".hide()
 	$"%InstructionPanel".hide()
 	$"%NameChangePanel".hide()
-	$"%InstructionScreen".show()
 	$"%WarningLabel".hide()
 	$"ObservationWindow".hide()
 	$"Results".hide()
@@ -145,6 +164,16 @@ func _ready() -> void:
 	update_date()
 #	set_language()
 	check_for_updates()
+	load_config_file()
+	if global_ints.first_time_starting == true:
+		$"%InstructionScreen".show()
+	else:
+		$"%NameChangePanel".show()
+
+	$AboutMenu/VersionLabel.text = "Version " + str(global_ints.release_version_print)
+
+	if global_ints.first_time_starting == true:
+		$%ShowNextTimeButton.button_pressed = true
 
 
 func set_all_boxes_to_normal() -> void:
@@ -255,8 +284,9 @@ func _on_ChangeItems_pressed() -> void:
 	state_changed_check()
 
 func _on_InsOkButton_pressed() -> void:
+	save_config_file()
+	global_ints.is_there_a_panel_visible = false
 	$"%InstructionScreen".hide()
-	$"%NameChangePanel".show()
 	state_changed_check()
 
 
@@ -340,18 +370,37 @@ func _on_test_sound_pressed() -> void:
 
 func _input(event) -> void:
 	if global_ints.app_state != 4:
-		if event.is_action_pressed("Settings"):
-			$SettingsMenu.show()
-		if event.is_action_pressed("About"):
-			$AboutMenu.show()
+		if global_ints.is_there_a_panel_visible == false:
+			if event.is_action_pressed("Settings"):
+				global_ints.is_there_a_panel_visible = true
+				$SettingsMenu.show()
+			if event.is_action_pressed("About"):
+				global_ints.is_there_a_panel_visible = true
+				$AboutMenu.show()
+			if event.is_action_pressed("Info"):
+				global_ints.is_there_a_panel_visible = true
+				$%InstructionScreen.show()
 		if event.is_action_pressed("ExitMenu"):
+			global_ints.is_there_a_panel_visible = false
 			$SettingsMenu.hide()
 			$AboutMenu.hide()
-
+			$%InstructionScreen.hide()
 
 func _on_close_about_menu_pressed() -> void:
+	global_ints.is_there_a_panel_visible = false
 	$AboutMenu.hide()
 
 
 func _on_close_settings_menu_pressed() -> void:
+	global_ints.is_there_a_panel_visible = false
 	$SettingsMenu.hide()
+
+
+func _on_show_next_time_button_toggled(toggled_on: bool) -> void:
+	
+	if $%ShowNextTimeButton.pressed:
+		global_ints.first_time_starting = true
+		save_config_file()
+	if toggled_on == false:
+		global_ints.first_time_starting = false
+		save_config_file()
