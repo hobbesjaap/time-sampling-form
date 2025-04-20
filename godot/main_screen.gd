@@ -96,10 +96,10 @@ func set_language() -> void:
 	print(TranslationServer.get_locale())
 	if TranslationServer.get_locale() != "nl":
 		print("We're not Dutch")
-		global_ints.manual_url = "https://docs.jaapmarsman.com/tsf.html"
+		#global_ints.manual_url = "https://docs.jaapmarsman.com/tsf.html"
 	if TranslationServer.get_locale() == "nl":
 		print("We're Dutch")
-		global_ints.manual_url = "https://www.lerenleukermaken.nl/"
+		#global_ints.manual_url = "https://www.lerenleukermaken.nl/"
 
 
 func update_date() -> void:
@@ -131,6 +131,7 @@ func _ready() -> void:
 	global_ints.observed_person_name = ""
 	refresh_descriptors()
 	$"StartScreen".show()
+	$"%InstructionPanel".hide()
 	$"%NameChangePanel".hide()
 	$"%InstructionScreen".show()
 	$"%WarningLabel".hide()
@@ -338,10 +339,14 @@ func _on_test_sound_pressed() -> void:
 
 
 func _input(event) -> void:
-	if event.is_action_pressed("Settings"):
-		$SettingsMenu.show()
-	if event.is_action_pressed("About"):
-		$AboutMenu.show()
+	if global_ints.app_state != 4:
+		if event.is_action_pressed("Settings"):
+			$SettingsMenu.show()
+		if event.is_action_pressed("About"):
+			$AboutMenu.show()
+		if event.is_action_pressed("ExitMenu"):
+			$SettingsMenu.hide()
+			$AboutMenu.hide()
 
 
 func _on_close_about_menu_pressed() -> void:

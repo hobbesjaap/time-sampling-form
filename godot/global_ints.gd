@@ -9,7 +9,8 @@ var app_state : int
 var update_text : String
 
 var web_release_version : float
-var release_version = 0.2
+var release_version = 0.25
+var release_version_print : String = "0.2.5"
 
 var total_observed_time : int
 
@@ -22,7 +23,7 @@ var observation_end_time : String
 
 var generate_results : bool = false
 
-var manual_url : String
+var manual_url : String = "https://docs.jaapmarsman.com/time-sampling-form.html"
 
 var observed_person_name : String
 var observer_person_name : String

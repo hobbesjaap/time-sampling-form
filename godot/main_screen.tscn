@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b1pk005at7x26"]
+[gd_scene load_steps=34 format=3 uid="uid://b1pk005at7x26"]
 
 [ext_resource type="Theme" uid="uid://bki1nuccpiu3o" path="res://wb_theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://rbmcgn3hetrs" path="res://main_screen.gd" id="2"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ddvmq6m5ux17h" path="res://Assets/icons/noun-settings-56313.svg" id="14_3qsiq"]
 [ext_resource type="Texture2D" uid="uid://xjf2x5br6qq2" path="res://Assets/icons/noun-glasses-56317.svg" id="15_7087c"]
 [ext_resource type="Texture2D" uid="uid://bvpi0st2kfg0" path="res://Assets/icons/noun-file-59659.svg" id="16_do8p6"]
+[ext_resource type="Texture2D" uid="uid://3peoi0uplt8c" path="res://Assets/icons/manual-black.svg" id="21_qx06n"]
 
 [sub_resource type="StyleBoxFlat" id="2"]
 bg_color = Color(1, 1, 1, 1)
@@ -1324,12 +1325,6 @@ offset_top = 180.0
 offset_right = 500.0
 offset_bottom = 240.0
 
-[node name="Manual" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1")
-text = "BUT_MAN"
-
 [node name="ChangeItems" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -2500,6 +2495,7 @@ item_3/text = "Settings"
 item_3/id = 3
 
 [node name="SettingsMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="FadeOut" type="Panel" parent="SettingsMenu"]
 offset_left = -1.0
@@ -2515,10 +2511,11 @@ offset_bottom = 679.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sqqhh")
 
 [node name="CloseSettingsMenu" type="Button" parent="SettingsMenu"]
-offset_left = 1190.0
-offset_top = 92.0
-offset_right = 1208.0
-offset_bottom = 123.0
+offset_left = 1168.0
+offset_top = 96.0
+offset_right = 1199.0
+offset_bottom = 127.0
+theme = ExtResource("1")
 text = "X"
 
 [node name="AboutMenu" type="CanvasLayer" parent="."]
@@ -2531,9 +2528,9 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="AboutPanel" type="Panel" parent="AboutMenu"]
-offset_left = 63.0
+offset_left = 256.0
 offset_top = 81.0
-offset_right = 1218.0
+offset_right = 1024.0
 offset_bottom = 679.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sqqhh")
 
@@ -2544,7 +2541,17 @@ offset_right = 833.0
 offset_bottom = 357.0
 theme = ExtResource("1")
 theme_override_font_sizes/normal_font_size = 24
-text = "Time Sampling Form"
+text = "TITLE"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="VersionLabel" type="Label" parent="AboutMenu"]
+offset_left = 512.0
+offset_top = 342.0
+offset_right = 768.0
+offset_bottom = 365.0
+theme = ExtResource("1")
+text = "Version 0.2"
 horizontal_alignment = 1
 
 [node name="MainIcon" type="Sprite2D" parent="AboutMenu"]
@@ -2553,11 +2560,48 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("12")
 
 [node name="CloseAboutMenu" type="Button" parent="AboutMenu"]
-offset_left = 1174.0
-offset_top = 89.0
-offset_right = 1205.0
-offset_bottom = 126.0
+offset_left = 976.0
+offset_top = 96.0
+offset_right = 1007.0
+offset_bottom = 127.0
+theme = ExtResource("1")
 text = "X"
+
+[node name="ManualSection" type="Control" parent="AboutMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Manual" type="Button" parent="AboutMenu/ManualSection"]
+offset_left = 776.0
+offset_top = 463.0
+offset_right = 952.0
+offset_bottom = 495.0
+size_flags_horizontal = 3
+theme = ExtResource("1")
+text = "BUT_MAN"
+
+[node name="Manual-black" type="Sprite2D" parent="AboutMenu/ManualSection"]
+position = Vector2(352, 474)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("21_qx06n")
+
+[node name="ManualLabel" type="Label" parent="AboutMenu/ManualSection"]
+offset_left = 392.0
+offset_top = 447.0
+offset_right = 760.0
+offset_bottom = 511.0
+theme = ExtResource("1")
+text = "Read the manual - Go online to read the detailed user manual on how to utilise the TSF."
+autowrap_mode = 3
+
+[node name="Line2D" type="Line2D" parent="AboutMenu/ManualSection"]
+position = Vector2(0, 40)
+points = PackedVector2Array(320, 480, 960, 480)
+closed = true
+width = 1.0
+default_color = Color(0, 0, 0, 1)
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="HTTPRequest2" to="." method="_on_HTTPRequest2_request_completed"]
@@ -2565,7 +2609,6 @@ text = "X"
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinuteMinus" to="." method="_on_MinuteMinus_pressed"]
 [connection signal="button_down" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_minute_plus_button_down"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
-[connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Manual" to="." method="_on_Manual_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/ChangeItems" to="." method="_on_ChangeItems_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/TestSound" to="." method="_on_test_sound_pressed"]
@@ -2593,3 +2636,4 @@ text = "X"
 [connection signal="id_pressed" from="AppMenuBar/FileMenu" to="." method="_on_test_menu_id_pressed"]
 [connection signal="pressed" from="SettingsMenu/CloseSettingsMenu" to="." method="_on_close_settings_menu_pressed"]
 [connection signal="pressed" from="AboutMenu/CloseAboutMenu" to="." method="_on_close_about_menu_pressed"]
+[connection signal="pressed" from="AboutMenu/ManualSection/Manual" to="." method="_on_Manual_pressed"]
