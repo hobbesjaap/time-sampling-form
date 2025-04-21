@@ -167,8 +167,11 @@ func _ready() -> void:
 	load_config_file()
 	if global_ints.first_time_starting == true:
 		$"%InstructionScreen".show()
+		global_ints.app_state = 1
 	else:
 		$"%NameChangePanel".show()
+		global_ints.app_state = 2
+	state_changed_check()
 
 	$AboutMenu/VersionLabel.text = "Version " + str(global_ints.release_version_print)
 
@@ -364,8 +367,8 @@ func _on_test_menu_id_pressed(id: int) -> void:
 
 
 func _on_test_sound_pressed() -> void:
-	$StartScreen/AudioPlay.stream = test_sound
-	$StartScreen/AudioPlay.play()
+	$SettingsMenu/AudioPlay.stream = test_sound
+	$SettingsMenu/AudioPlay.play()
 
 
 func _input(event) -> void:

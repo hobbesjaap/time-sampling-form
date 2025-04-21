@@ -405,6 +405,16 @@ cache/0/17/0/kerning_overrides/13/0 = Vector2(0, 0)
 cache/0/17/0/kerning_overrides/14/0 = Vector2(0, 0)
 cache/0/17/0/kerning_overrides/15/0 = Vector2(0, 0)
 cache/0/17/0/kerning_overrides/17/0 = Vector2(0, 0)
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
 
 [sub_resource type="FontFile" id="6"]
 fallbacks = Array[Font]([ExtResource("6")])
@@ -1238,9 +1248,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -51.5
-offset_top = -159.0
+offset_top = -164.0
 offset_right = 55.5
-offset_bottom = -119.0
+offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1269,9 +1279,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -578.5
-offset_top = -202.5
+offset_top = -210.5
 offset_right = 579.5
-offset_bottom = -168.5
+offset_bottom = -176.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
@@ -1286,44 +1296,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -578.5
-offset_top = -96.5
+offset_top = -104.5
 offset_right = 579.5
-offset_bottom = -62.5
+offset_bottom = -70.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 theme_override_fonts/font = SubResource("5")
+theme_override_font_sizes/font_size = 20
 text = "OBS_ITEMS"
 horizontal_alignment = 1
 
-[node name="Title" type="Label" parent="StartScreen/InstructionPanel"]
+[node name="BottomButtons" type="HBoxContainer" parent="StartScreen/InstructionPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -578.5
-offset_top = -248.5
-offset_right = 579.5
-offset_bottom = -216.5
+offset_left = -500.0
+offset_top = 201.0
+offset_right = 500.0
+offset_bottom = 261.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("6")
-text = "TITLE"
-horizontal_alignment = 1
-
-[node name="BottomButtons" type="HBoxContainer" parent="StartScreen/InstructionPanel"]
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = 180.0
-offset_right = 500.0
-offset_bottom = 240.0
 
 [node name="ChangeItems" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
 layout_mode = 2
@@ -1336,12 +1332,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1")
 text = "BUT_EDIT_NM"
-
-[node name="TestSound" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1")
-text = "BUT_TEST_SND"
 
 [node name="Start" type="Button" parent="StartScreen/InstructionPanel/BottomButtons"]
 layout_mode = 2
@@ -1362,24 +1352,32 @@ offset_right = 499.5
 offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
-columns = 3
+columns = 4
+
+[node name="Nothing" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+layout_mode = 2
+theme = ExtResource("1")
+text = " "
 
 [node name="AcronymLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1")
+theme_override_fonts/font = ExtResource("6")
 text = "ACR"
 
 [node name="DescriptorLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1")
+theme_override_fonts/font = ExtResource("6")
 text = "DESC"
 
 [node name="ExplanationLabel" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1")
+theme_override_fonts/font = ExtResource("6")
 text = "EXP"
 
 [node name="Empty" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
@@ -1400,6 +1398,20 @@ layout_mode = 2
 theme = ExtResource("1")
 text = "  "
 
+[node name="Empty4" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1")
+text = "  "
+
+[node name="KeyOne" type="TextureButton" parent="StartScreen/InstructionPanel/GridObservations"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("7_sqqhh")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="1Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -1417,6 +1429,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1")
 text = "The pupil is on task"
+
+[node name="KeyTwo" type="TextureButton" parent="StartScreen/InstructionPanel/GridObservations"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("8_sqqhh")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="2Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
@@ -1436,6 +1456,14 @@ layout_mode = 2
 theme = ExtResource("1")
 text = " The pupil is looking around in a distracted manner or is staring into the distance"
 
+[node name="KeyThree" type="TextureButton" parent="StartScreen/InstructionPanel/GridObservations"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("9_qx06n")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="3Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -1454,6 +1482,14 @@ layout_mode = 2
 theme = ExtResource("1")
 text = "The pupil is distracting other pupils or talking to them"
 
+[node name="KeyFour" type="TextureButton" parent="StartScreen/InstructionPanel/GridObservations"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("10_q556m")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="4Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -1471,6 +1507,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1")
 text = "The pupil is walking through the class"
+
+[node name="KeyFive" type="TextureButton" parent="StartScreen/InstructionPanel/GridObservations"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("11_0dp34")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="5Acronym" type="Label" parent="StartScreen/InstructionPanel/GridObservations"]
 unique_name_in_owner = true
@@ -1564,7 +1608,6 @@ text = "OK"
 
 [node name="UpdatePanel" type="Panel" parent="StartScreen"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1577,29 +1620,36 @@ offset_bottom = 359.0
 theme_override_styles/panel = SubResource("1")
 
 [node name="Update" type="Label" parent="StartScreen/UpdatePanel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.5
+offset_left = -520.0
 offset_top = -250.0
-offset_right = 172.5
+offset_right = 641.0
 offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("6")
 text = "UPD_TITLE"
+horizontal_alignment = 1
 
 [node name="BottomButtons" type="HBoxContainer" parent="StartScreen/UpdatePanel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -500.0
+offset_left = -440.0
 offset_top = 180.0
-offset_right = 500.0
+offset_right = 560.0
 offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GoToUpdate" type="Button" parent="StartScreen/UpdatePanel/BottomButtons"]
 layout_mode = 2
@@ -1633,8 +1683,6 @@ offset_right = 1249.0
 offset_bottom = 432.0
 theme = ExtResource("1")
 text = "UPD_TEXT2"
-
-[node name="AudioPlay" type="AudioStreamPlayer2D" parent="StartScreen"]
 
 [node name="EditScreen" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -2450,7 +2498,19 @@ offset_bottom = 127.0
 theme = ExtResource("1")
 text = "X"
 
+[node name="TestSound" type="Button" parent="SettingsMenu"]
+offset_left = 701.5
+offset_top = 591.5
+offset_right = 948.5
+offset_bottom = 651.5
+size_flags_horizontal = 3
+theme = ExtResource("1")
+text = "BUT_TEST_SND"
+
+[node name="AudioPlay" type="AudioStreamPlayer2D" parent="SettingsMenu"]
+
 [node name="AboutMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="FadeOut" type="Panel" parent="AboutMenu"]
 offset_left = -1.0
@@ -2617,7 +2677,6 @@ text = "Show this screen the next time TSF starts"
 [connection signal="pressed" from="StartScreen/InstructionPanel/MinuteBox/MinutePlus" to="." method="_on_MinutePlus_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/ChangeItems" to="." method="_on_ChangeItems_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/PupilName" to="." method="_on_PupilName_pressed"]
-[connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/TestSound" to="." method="_on_test_sound_pressed"]
 [connection signal="pressed" from="StartScreen/InstructionPanel/BottomButtons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="StartScreen/NameChangePanel/NameContainer/OkButton" to="." method="_on_ok_button_pressed"]
 [connection signal="pressed" from="StartScreen/UpdatePanel/BottomButtons/GoToUpdate" to="." method="_on_GoToUpdate_pressed"]
@@ -2640,6 +2699,7 @@ text = "Show this screen the next time TSF starts"
 [connection signal="pressed" from="Results/Panel/EditMenu/SaveEdit" to="." method="_on_save_edit_pressed"]
 [connection signal="id_pressed" from="AppMenuBar/FileMenu" to="." method="_on_test_menu_id_pressed"]
 [connection signal="pressed" from="SettingsMenu/CloseSettingsMenu" to="." method="_on_close_settings_menu_pressed"]
+[connection signal="pressed" from="SettingsMenu/TestSound" to="." method="_on_test_sound_pressed"]
 [connection signal="pressed" from="AboutMenu/CloseAboutMenu" to="." method="_on_close_about_menu_pressed"]
 [connection signal="pressed" from="AboutMenu/ManualSection/Manual" to="." method="_on_Manual_pressed"]
 [connection signal="pressed" from="InstructionScreen/InstructionPanel/InstructionContainer/InsOkButton" to="." method="_on_InsOkButton_pressed"]
