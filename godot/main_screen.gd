@@ -143,9 +143,9 @@ func save_config_file() -> void:
 
 
 func _ready() -> void:
-	#DisplayServer.window_set_min_size(Vector2i(1280, 720))
-	if os_list.has(OS.get_name()):
-		set_app_window_size()
+	#Disabling the below whilst developing on Linux for in-engine view
+	#if os_list.has(OS.get_name()):
+		#set_app_window_size()
 	minute_label.text = str(global_ints.observation_minutes)
 	global_ints.observed_person_name = ""
 	refresh_descriptors()
@@ -290,6 +290,7 @@ func _on_InsOkButton_pressed() -> void:
 	save_config_file()
 	global_ints.is_there_a_panel_visible = false
 	$"%InstructionScreen".hide()
+	$"%NameChangePanel".show()
 	state_changed_check()
 
 
