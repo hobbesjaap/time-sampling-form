@@ -15,7 +15,7 @@ config/name_localized={
 "nl": "Tijdsteekproef Formulier"
 }
 run/main_scene="res://main_screen.tscn"
-config/features=PackedStringArray("4.4")
+config/features=PackedStringArray("4.5")
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0.952941, 0.933333, 0.847059, 1)
 boot_splash/image="res://Assets/icons/main_icon.png"

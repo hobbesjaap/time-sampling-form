@@ -2,25 +2,25 @@
 
 [ext_resource type="Theme" uid="uid://bki1nuccpiu3o" path="res://wb_theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://rbmcgn3hetrs" path="res://main_screen.gd" id="2"]
-[ext_resource type="FontFile" uid="uid://urmh6rqkn23o" path="res://Assets/fonts/noto_sans_display.ttf" id="5"]
-[ext_resource type="FontFile" uid="uid://i1v223drvpkc" path="res://Assets/fonts/noto_sans_display_bold.ttf" id="6"]
+[ext_resource type="FontFile" uid="uid://df4eo3bryf8la" path="res://Assets/fonts/noto_sans_display.ttf" id="5"]
+[ext_resource type="FontFile" uid="uid://darkh8o8rieli" path="res://Assets/fonts/noto_sans_display_bold.ttf" id="6"]
 [ext_resource type="Script" uid="uid://hff4wu52flpd" path="res://ObservationWindow.gd" id="7"]
-[ext_resource type="Texture2D" uid="uid://dx244mp41u8uq" path="res://Assets/keyboard_keys/nr01.png" id="7_sqqhh"]
+[ext_resource type="Texture2D" uid="uid://csf64uqvpo3o6" path="res://Assets/keyboard_keys/nr01.png" id="7_sqqhh"]
 [ext_resource type="Script" uid="uid://psov4nxn77wr" path="res://EditScreen.gd" id="8"]
-[ext_resource type="Texture2D" uid="uid://kxlkhunx23st" path="res://Assets/keyboard_keys/nr02.png" id="8_sqqhh"]
+[ext_resource type="Texture2D" uid="uid://c8xwudik011kb" path="res://Assets/keyboard_keys/nr02.png" id="8_sqqhh"]
 [ext_resource type="Script" uid="uid://dhhlom5skgqeq" path="res://Results.gd" id="9"]
-[ext_resource type="Texture2D" uid="uid://d0tme1ikgwknb" path="res://Assets/keyboard_keys/nr03.png" id="9_qx06n"]
+[ext_resource type="Texture2D" uid="uid://cw8y11lg4pywx" path="res://Assets/keyboard_keys/nr03.png" id="9_qx06n"]
 [ext_resource type="Script" uid="uid://dflvmgvxwqrrf" path="res://TimerBar.gd" id="10"]
-[ext_resource type="Texture2D" uid="uid://c62bmiiefusg7" path="res://Assets/keyboard_keys/nr04.png" id="10_q556m"]
+[ext_resource type="Texture2D" uid="uid://cjf0as3et3boi" path="res://Assets/keyboard_keys/nr04.png" id="10_q556m"]
 [ext_resource type="Script" uid="uid://t1pvqg6e78j" path="res://ProgressBar.gd" id="11"]
-[ext_resource type="Texture2D" uid="uid://cygkquwt127pt" path="res://Assets/keyboard_keys/nr05.png" id="11_0dp34"]
-[ext_resource type="Texture2D" uid="uid://bob58iqp8am25" path="res://Assets/icons/main_icon.png" id="12"]
-[ext_resource type="Texture2D" uid="uid://yt6ac2x1a8na" path="res://Assets/icons/noun-manual-241665.svg" id="12_p3r6q"]
-[ext_resource type="Texture2D" uid="uid://lergq3jms8bc" path="res://Assets/icons/noun-input-field-104354.svg" id="12_vtqql"]
-[ext_resource type="Texture2D" uid="uid://dplugdrd346qf" path="res://Assets/icons/noun-settings-56313.svg" id="14_3qsiq"]
-[ext_resource type="Texture2D" uid="uid://cch14gmsxdaif" path="res://Assets/icons/noun-glasses-56317.svg" id="15_7087c"]
-[ext_resource type="Texture2D" uid="uid://vew6gn5mbm56" path="res://Assets/icons/noun-file-59659.svg" id="16_do8p6"]
-[ext_resource type="Texture2D" uid="uid://cjyfmyb4rs6y" path="res://Assets/icons/manual-black.svg" id="21_qx06n"]
+[ext_resource type="Texture2D" uid="uid://d4fp6iw80nujc" path="res://Assets/keyboard_keys/nr05.png" id="11_0dp34"]
+[ext_resource type="Texture2D" uid="uid://yf4ormoh8hes" path="res://Assets/icons/main_icon.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bq56uvokwfppt" path="res://Assets/icons/noun-manual-241665.svg" id="12_p3r6q"]
+[ext_resource type="Texture2D" uid="uid://lafpc8rl5lg0" path="res://Assets/icons/noun-input-field-104354.svg" id="12_vtqql"]
+[ext_resource type="Texture2D" uid="uid://ddvmq6m5ux17h" path="res://Assets/icons/noun-settings-56313.svg" id="14_3qsiq"]
+[ext_resource type="Texture2D" uid="uid://xjf2x5br6qq2" path="res://Assets/icons/noun-glasses-56317.svg" id="15_7087c"]
+[ext_resource type="Texture2D" uid="uid://bvpi0st2kfg0" path="res://Assets/icons/noun-file-59659.svg" id="16_do8p6"]
+[ext_resource type="Texture2D" uid="uid://3peoi0uplt8c" path="res://Assets/icons/manual-black.svg" id="21_qx06n"]
 
 [sub_resource type="StyleBoxFlat" id="2"]
 bg_color = Color(1, 1, 1, 1)
@@ -2271,7 +2271,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lu4qr")
 [node name="TopOverview" type="Label" parent="TopMenuBar/Topbar/Panel"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 120.0
 offset_top = 10.0
 offset_right = 1263.0
@@ -2638,11 +2638,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
-theme_override_font_sizes/normal_font_size = 20
-theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "INSTRUC"
 scroll_active = false
